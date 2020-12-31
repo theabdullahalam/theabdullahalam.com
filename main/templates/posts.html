@@ -1,0 +1,46 @@
+{% extends 'skeleton.html' %}
+{% load static %}
+{% block title %}Page Title{% endblock %}
+ 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+ 
+{% block body %}
+ 
+ 
+<div id="posts">
+
+    <h1>Posts</h1>
+
+    <!-- THE CONTENT -->
+    {% if posts %}
+        {% for post in posts %}
+            <div class="post">
+                <h2>{{ post.title }}</h2>
+                <p>
+                    {{ post.preview }}
+                </p>
+                <p>
+                    <a href="{% url 'post' post.slug %}">Read More</a>
+                </p>
+            </div>            
+        {% endfor %}
+    {% endif %}
+
+    <!-- PAGINATION -->
+    <div id="pagination">
+        {% if page_obj.has_previous %}
+            <div id="newer">
+                <a href="{% url 'posts' page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
+            </div>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <div id="older">
+                <a href="{% url 'posts' page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
+            </div>
+        {% endif %}
+    </div>
+</div>    
+ 
+{% endblock %}

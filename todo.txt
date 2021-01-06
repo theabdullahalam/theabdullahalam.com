@@ -1,0 +1,40 @@
+- HOME
+    - Bio
+    - Photography preview
+    - Blog preview
+    - Projects preview
+    - Contact CTA
+
+- PHOTOGRAPHY
+    - Photographs
+        - Picture
+        - Title (optional)
+        - Caption (optional)
+        - Date (optional)
+
+    - Categories (landscape, street, portraits, product)
+        - Same page, selected category, photographs
+
+- BLOG
+    - Topics
+    - Previewed list
+    - Archive
+
+- Blog Post
+    - Title
+    - Content
+    - Topic
+
+- PROJECTS
+    - Title
+    - Description
+    - Link
+    (No individual project page; just list)
+
+- CREATIVE WRITING
+    - Same template as blog, just no topic.
+
+- CONTACT
+    - Mostly static.
+    - Email
+    - Instagram

@@ -1,4 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&family=Signika:wght@300;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,13 +13,65 @@ body h1 {
   opacity: 80%;
   font-size: 4em;
 }
+body #navheader {
+  width: 100%;
+  background: #0f0f0f;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 15rem;
+  padding-right: 15rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+body #navheader #title {
+  font-family: "East Sea Dokdo", cursive;
+  font-size: 3.5rem;
+}
+body #navheader #menu {
+  margin-left: auto;
+  font-size: 1.1rem;
+}
+body #navheader #menu a {
+  font-family: "Signika", sans-serif;
+  font-weight: 700;
+  color: white;
+  margin-left: 1rem;
+}
+body #footer {
+  width: 100%;
+  background: #0f0f0f;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 15rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+body #footer #title {
+  font-family: "East Sea Dokdo", cursive;
+  font-size: 3.5rem;
+}
+body #footer #menu {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+body #footer #menu a {
+  font-family: "Signika", sans-serif;
+  font-weight: 700;
+  color: white;
+}
 
 a {
   text-decoration: none;
-  color: #3f92a7;
+  color: #CB3135;
 }
 a :visited {
-  color: #3f92a7;
+  color: #CB3135;
 }
 
 /*# sourceMappingURL=base.css.map */

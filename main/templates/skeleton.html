@@ -5,22 +5,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{% block title %}{% endblock %}</title>
-        <script
-            src="https://kit.fontawesome.com/d8749e6d0b.js"
-            crossorigin="anonymous"
-        ></script>
+        <script src="https://kit.fontawesome.com/d8749e6d0b.js" crossorigin="anonymous"></script>
 
-        <meta
-            name="description"
-            content="{% block metadescription %}{% endblock %}"
-        />
+        <meta name="description" content="{% block metadescription %}{% endblock %}"/>
 
         {% comment %} OPENGRAPH META TAGS {% endcomment %}
         <meta property="og:title" content="{% block ogtitle %}{% endblock %}" />
-        <meta
-            property="og:description"
-            content="{% block ogdescription %}{% endblock %}"
-        />
+        <meta property="og:description" content="{% block ogdescription %}{% endblock %}"/>
         <meta property="og:url" content="{% block ogurl %}{% endblock %}" />
         <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
         <meta property="og:type" content="{% block ogtype %}{% endblock %}" />
@@ -29,45 +20,51 @@
         <!-- TWITTER LARGE CARD META TAGS -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@_abdullahalam_" />
-        <meta
-            name="twitter:title"
-            content="{% block tctitle %}{% endblock %}"
-        />
-        <meta
-            name="twitter:description"
-            content="{% block tcdescription %}{% endblock %}"
-        />
-        <meta
-            name="twitter:image"
-            content="{% block tcimage %}{% endblock %}"
-        />
+        <meta name="twitter:title" content="{% block tctitle %}{% endblock %}"/>
+        <meta name="twitter:description" content="{% block tcdescription %}{% endblock %}"/>
+        <meta name="twitter:image" content="{% block tcimage %}{% endblock %}"/>
         {% endcomment %}
 
         <!-- TWITTER CARD META TAGS -->
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@_abdullahalam_" />
-        <meta
-            name="twitter:title"
-            content="{% block tctitle %}{% endblock %}"
-        />
-        <meta
-            name="twitter:description"
-            content="{% block tcdescription %}{% endblock %}"
-        />
-        <meta
-            name="twitter:image"
-            content="{% block tcimage %}{% endblock %}"
-        />
+        <meta name="twitter:title" content="{% block tctitle %}{% endblock %}"/>
+        <meta name="twitter:description" content="{% block tcdescription %}{% endblock %}"/>
+        <meta name="twitter:image" content="{% block tcimage %}{% endblock %}"/>
 
         <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
 
         {% block head %}{% endblock %}
     </head>
     <body>
-        <div id="wrapper">
-            <!-- STUFF ON ALL PAGES LIKE MENU/SIDEBAR/ETC -->
+        <!-- NAV HEADER -->
+        <header id="navheader">
+            <div id="title">
+                ABDULLAH ALAM
+            </div>
+            <div id="menu">
+                <a href="">BLOG</a>
+                <a href="">PHOTOGRAPHY</a>
+                <a href="">ABOUT</a>
+            </div>
+        </header>
 
+
+        <!-- THE MAIN CONTENT -->
+        <div id="thebody">
             {% block body %}{% endblock %}
         </div>
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div id="title">
+                ABDULLAH ALAM
+            </div>
+            <div id="menu">
+                <a href="">BLOG</a>
+                <a href="">PHOTOGRAPHY</a>
+                <a href="">ABOUT</a>
+            </div>
+        </footer>
     </body>
 </html>

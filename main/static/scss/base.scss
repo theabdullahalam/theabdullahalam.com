@@ -1,5 +1,24 @@
 @import 'colors';
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+// FONTS
+
+// Signika (for bold condensed headers)
+// Nunito for content
+// East Sea Dokdo for title
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&family=Signika:wght@300;500;700&display=swap');
+
+// PLACEHOLDER FOR TITLES FONT
+$titlesfont: 'Signika', sans-serif;
+
+// MARGINS AND STUFF
+$horizontal_padding_desktop: 15rem;
+$vertical_padding_desktop: 5rem;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 
 body{
     margin: 0;
@@ -10,6 +29,89 @@ body{
         opacity: 80%;
         font-size: 4em;
     }
+
+
+    #navheader{
+
+        width: 100%;
+        background: rgb(15, 15, 15);
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        box-sizing: border-box;
+        padding-left: $horizontal_padding_desktop;
+        padding-right: $horizontal_padding_desktop;
+
+        $vertical_padding_desktop: 1.5rem;
+        padding-top: $vertical_padding_desktop;
+        padding-bottom: $vertical_padding_desktop;
+
+        #title{
+            font-family: 'East Sea Dokdo', cursive;
+            font-size: 3.5rem;
+        }
+
+        #menu{
+            margin-left: auto;
+            font-size: 1.1rem;
+
+            a {
+                font-family: $titlesfont;
+                font-weight: 700;
+                color: white;
+                margin-left: 1rem;
+            }
+        }
+
+
+    }
+
+
+
+
+
+    #footer{
+
+        width: 100%;
+        background: rgb(15, 15, 15);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+
+        box-sizing: border-box;
+        padding-left: $horizontal_padding_desktop;
+
+        $vertical_padding_desktop: 3rem;
+        padding-top: $vertical_padding_desktop;
+        padding-bottom: $vertical_padding_desktop;
+
+        #title{
+            font-family: 'East Sea Dokdo', cursive;
+            font-size: 3.5rem;
+        }
+
+        #menu{
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+
+            a {
+                font-family: $titlesfont;
+                font-weight: 700;
+                color: white;
+                // margin-left: 1rem;
+            }
+        }
+
+
+    }
+    
+
+
+
 }
 
 a {

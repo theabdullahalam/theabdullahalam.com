@@ -1,11 +1,17 @@
 @import 'base';
 
-#content{
-    margin: 2em;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-@media screen and (min-width: 50em){
-    #content{
-        max-width: 45em;
-    }
+#content{
+    box-sizing: border-box;
+    padding-left: $horizontal_padding_desktop;
+    padding-right: $horizontal_padding_desktop;
+    padding-top: $vertical_padding_desktop;
+    padding-bottom: $vertical_padding_desktop;
+
+    font-size: 1.1rem;
+    min-height: 90vh;
 }

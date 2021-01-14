@@ -1,0 +1,17 @@
+@import 'base';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#content{
+    box-sizing: border-box;
+    padding-left: $horizontal_padding_desktop;
+    padding-right: $horizontal_padding_desktop;
+    padding-top: $vertical_padding_desktop;
+    padding-bottom: $vertical_padding_desktop;
+
+    font-size: 1.1rem;
+    min-height: 90vh;
+}

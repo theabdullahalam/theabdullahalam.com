@@ -12,6 +12,9 @@ from .models import Post, PostType
 
 def index(request):
     return render(request, 'index.html')
+
+def about(request):
+    return render(request, 'about.html')
  
 def post(request, slug):
     # FETCH OBJ

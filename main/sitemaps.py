@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from .models import Post, PostType
+from .models import Post, PostTopic
 
 class PostSiteMap(Sitemap):
     changefreq = "monthly"
@@ -13,10 +13,10 @@ class PostSiteMap(Sitemap):
         return obj.modified
 
 
-class PostTypeSiteMap(Sitemap):
+class PostTopicSiteMap(Sitemap):
     changefreq = "monthly"
     priority = 0.9
     protocol = 'https'
 
     def items(self):
-        return PostType.objects.all()
+        return PostTopic.objects.all()

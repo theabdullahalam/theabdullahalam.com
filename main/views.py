@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 from django.templatetags.static import static
 from django.urls import reverse
 
-from .models import Post, PostType
+from .models import Post, PostTopic
 
 
 def index(request):
@@ -32,10 +32,14 @@ def post(request, slug):
     # RETURN
     return render(request, 'post.html', context=context)
  
-def posts(request, pageno=1):
+def blog(request, pageno=1):
     # FETCH ALL POSTS
     # posts = Post.objects.filter(p_type__type_name = typename).exclude(slug='about').order_by('-created', 'title')
     posts = Post.objects.all().order_by('-created', 'title')
+    topics = PostTopic.objects.all().order_by('type_name')
+
+    # FIX TOPIC FOR NOW
+    topic="ALL"
  
     # PAGINATE
     paginator = Paginator(posts, 10)
@@ -53,6 +57,8 @@ def posts(request, pageno=1):
     # SET CONTEXT
     context = {
         'posts': posts,
+        'topic': topic,
+        'topics': topics,
         'pageinator': paginator,
         'page_obj': page_obj,
     }

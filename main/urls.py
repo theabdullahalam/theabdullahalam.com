@@ -1,12 +1,12 @@
 from django.urls import path
 from django.contrib.sitemaps.views import sitemap
 
-from .sitemaps import PostSiteMap, PostTypeSiteMap
+from .sitemaps import PostSiteMap, PostTopicSiteMap
 from . import views
 
 sitemaps = {
     'posts': PostSiteMap,
-    'types': PostTypeSiteMap
+    'types': PostTopicSiteMap
 }
 
 urlpatterns = [
@@ -16,9 +16,9 @@ urlpatterns = [
     path('about/', views.about, name='about'),
  
     path('post/<slug:slug>', views.post, name='post'),
-    path('posts', views.posts, name='posts'),
-    path('posts/', views.posts, name='posts'),
-    path('posts/page/<int:pageno>', views.posts, name='posts'),
+    path('blog', views.blog, name='blog'),
+    path('blog/', views.blog, name='blog'),
+    path('blog/page/<int:pageno>', views.blog, name='blog'),
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
  

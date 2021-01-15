@@ -4,19 +4,19 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
 from django.urls import reverse
  
-class PostType(models.Model):
+class PostTopic(models.Model):
     type_name = models.CharField(max_length=30)
  
     def __str__(self):
         return str(self.type_name)
  
 class Post(models.Model):
-    # image_file = models.ImageField(upload_to='photographs')
+    header_image = models.ImageField(upload_to='headers', null=True, blank=True)
     title = models.CharField(max_length=250)
-    p_type=models.ForeignKey(PostType, on_delete=models.CASCADE)
+    p_type=models.ForeignKey(PostTopic, on_delete=models.CASCADE)
     content = RichTextUploadingField(max_length=14000)
-    created = models.DateTimeField(editable=False)
-    modified = models.DateTimeField(editable=False)
+    created = models.DateTimeField(editable=True, blank=True)
+    modified = models.DateTimeField(editable=True, blank=True)
     slug = models.SlugField(unique=True, max_length=100, blank=True)
  
     def save(self, *args, **kwargs):

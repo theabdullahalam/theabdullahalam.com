@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Post, PostType
+from .models import Post, PostTopic
  
-@admin.register(PostType)
-class PostTypeAdmin(admin.ModelAdmin):
+@admin.register(PostTopic)
+class PostTopicAdmin(admin.ModelAdmin):
     list_display = ('type_name',)
     ordering = ('type_name',)
     search_fields = ('type_name',)

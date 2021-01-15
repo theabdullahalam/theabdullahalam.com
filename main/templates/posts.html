@@ -8,21 +8,17 @@
  
 {% block body %}
  
- 
 <div id="posts">
 
-    <h1>Posts</h1>
+    <h1>BLOG • {{ topic }}</h1>
 
     <!-- THE CONTENT -->
     {% if posts %}
         {% for post in posts %}
             <div class="post">
-                <h2>{{ post.title }}</h2>
-                <p>
-                    {{ post.preview }}
-                </p>
-                <p>
-                    <a href="{% url 'post' post.slug %}">Read More</a>
+                <h2><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h2>
+                <p class="subtitle">
+                    {{ post.hfr_date }} • {{ post.p_type.type_name }}
                 </p>
             </div>            
         {% endfor %}
@@ -32,15 +28,25 @@
     <div id="pagination">
         {% if page_obj.has_previous %}
             <div id="newer">
-                <a href="{% url 'posts' page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
+                <a href="{% url 'blog' page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
             </div>
         {% endif %}
         {% if page_obj.has_next %}
             <div id="older">
-                <a href="{% url 'posts' page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
+                <a href="{% url 'blog' page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
             </div>
         {% endif %}
     </div>
 </div>    
+
+
+<div id="topics">
+    <h1>TOPICS</h1>
+    <ul id="topiclist">
+        {% for topic in topics %}
+        <li><a href="">{{ topic.type_name.upper }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
  
 {% endblock %}

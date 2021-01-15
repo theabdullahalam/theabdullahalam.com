@@ -61,19 +61,6 @@ $transitiondin: 0.15s;
     min-height: 90vh;
 
 
-
-    h1{
-        font-family: $titlesfont;
-        color: $accent_color;
-        font-size: 3rem;
-        margin-top: 4rem;
-    }
-
-    h1:first-child {
-        margin-top: 0;
-    }
-
-
     #profile{
 
         display: grid;

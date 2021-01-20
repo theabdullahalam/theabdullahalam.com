@@ -12,11 +12,11 @@
 <div id="categorylist">
     <ul>
         <li>
-            <a href="{% url 'photography' %}">ALL</a>
+            <a href="{% url 'photography' %}" class="{% if category == 'all' %}current{% endif %}">ALL</a>
         </li>
         {% for c in categories %}
         <li>
-            <a href="{% url 'photography' c.slug %}">{{ c.categoryname.upper }}</a>
+            <a href="{% url 'photography' c.slug %}" class="{% if category == c.slug %}current{% endif %}">{{ c.categoryname.upper }}</a>
         </li>
         {% endfor %}
     </ul>

@@ -93,43 +93,33 @@ a :visited {
   padding-right: 15rem;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 3fr 1fr;
 }
-#content #posts .post {
-  margin-top: 2rem;
-}
-#content #posts .post h1 {
-  font-size: 2.5rem;
-  font-family: "Signika", sans-serif;
-}
-#content #posts .post h1 a {
-  color: black;
-  text-decoration: none;
-}
-#content #posts #pagination {
-  margin-top: 4rem;
-  font-family: "Signika", sans-serif;
-  font-weight: bold;
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: row;
-}
-#content #posts #pagination div:nth-child(2) {
-  margin-left: auto;
-}
-#content #topics #topiclist {
-  margin-top: 2rem;
+#content #categorylist ul {
   list-style: none;
 }
-#content #topics #topiclist li {
+#content #categorylist ul li {
+  display: inline-block;
   font-family: "Signika", sans-serif;
-  font-size: 1.5rem;
   font-weight: bold;
+  font-size: 2rem;
 }
-#content #topics #topiclist li a {
+#content #categorylist ul li a {
   color: black;
+}
+#content #categorylist ul li a.current {
+  color: #CB3135;
+}
+#content #photographs {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 2rem;
+}
+#content #photographs .column {
+  padding-right: 0.5rem;
+}
+#content #photographs .column img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=photography.css.map */

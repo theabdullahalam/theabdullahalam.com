@@ -3,50 +3,34 @@
 {% block title %}Page Title{% endblock %}
  
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/posts.css' %}">
+<link rel="stylesheet" href="{% static 'css/photography.css' %}">
 {% endblock %}
  
 {% block body %}
- 
-<div id="posts">
 
-    <h2>BLOG • {{ topic }}</h2>
-
-    <!-- THE CONTENT -->
-    {% if posts %}
-        {% for post in posts %}
-            <div class="post">
-                <h1><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h1>
-                <p class="subtitle">
-                    {{ post.hfr_date }} • {{ post.p_type.type_name }}
-                </p>
-            </div>            
-        {% endfor %}
-    {% endif %}
-
-    <!-- PAGINATION -->
-    <div id="pagination">
-        {% if page_obj.has_previous %}
-            <div id="newer">
-                <a href="{% url 'blog' page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
-            </div>
-        {% endif %}
-        {% if page_obj.has_next %}
-            <div id="older">
-                <a href="{% url 'blog' page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
-            </div>
-        {% endif %}
-    </div>
-</div>    
-
-
-<div id="topics">
-    <h2>TOPICS</h2>
-    <ul id="topiclist">
-        {% for topic in topics %}
-        <li><a href="">{{ topic.type_name.upper }}</a></li>
+<h2>PHOTOGRAPHY</h2>
+<div id="categorylist">
+    <ul>
+        <li>
+            <a href="{% url 'photography' %}">ALL</a>
+        </li>
+        {% for c in categories %}
+        <li>
+            <a href="{% url 'photography' c.slug %}">{{ c.categoryname.upper }}</a>
+        </li>
         {% endfor %}
     </ul>
+</div>
+<div id="photographs">
+    {% for col in columns %}
+        <div class="column">
+            {% for pic in col %}
+                <a href="#">
+                    <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                </a>
+            {% endfor %}
+        </div>
+    {% endfor %}
 </div>
  
 {% endblock %}

@@ -65,7 +65,31 @@ class PhotoCategory(models.Model):
 
 class Photograph(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
-    header_image = models.ImageField(upload_to='photography')
+    image = models.ImageField(upload_to='photography')
     title = models.CharField(max_length=250)
     p_category=models.ForeignKey(PhotoCategory, on_delete=models.CASCADE)
     content = RichTextUploadingField()
+    created = models.DateTimeField(editable=True, blank=True)
+    modified = models.DateTimeField(editable=True, blank=True)
+    slug = models.SlugField(unique=True, max_length=100, blank=True)
+
+    def save(self, *args, **kwargs):
+        # UPDATE TIMESTAMPS
+        if not self.id or not self.created:
+            self.created = timezone.now()
+        self.modified = timezone.now()
+ 
+        # GENERATE SLUG
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super(Photograph, self).save(*args, **kwargs)
+ 
+    def __str__(self):
+        return str(self.title)
+
+    # def get_absolute_url(self):
+    #     return reverse('photograph', args=[str(self.slug)])
+ 
+    class Meta:
+        verbose_name = 'Photograph'
+        verbose_name_plural = 'Photographs'

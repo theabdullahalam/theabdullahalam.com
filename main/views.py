@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 from django.templatetags.static import static
 from django.urls import reverse
 
-from .models import Post, PostTopic
+from .models import Post, PostTopic, Photograph, PhotoCategory
 
 
 def index(request):
@@ -69,9 +69,76 @@ def blog(request, pageno=1):
 
 
 
+# CHUNK MAKER FOR SPLITTING INTO COLUMNS
+def chunks(lst, n):
+    thechunks = []
+    length = len(lst)
+
+    # IF PERFECTLY DIVISBLE
+    if length % n == 0:
+        chunksize = int(length/n)
+
+        for i in range(0, length, chunksize):
+            chunk = lst[i:i+chunksize]
+            thechunks.append(chunk)
+
+    # IF NOT PERFECTLY DIVISIBLE
+    else:
+        chunksize = int(length/n)
+
+        # IF THERE ARE LESS ITEMS THAN THE NUMBER OF CHUNKS NEEDED
+        # THE RESULT OF ABOVE DIVISION COMES TO ZERO
+        if chunksize == 0:
+            for item in lst:
+                thechunks.append([item])
+
+
+        # IF THERE ARE MORE ITEMS THAN NUMBER OF CHUNKS,
+        # WE NEED TO DISTRIBUTE THE REMAINDER ACROSS THE CHUNKS
+        else:
+
+            # FIRST ADD ALL ITEMS 
+            # THIS WILL CREATE AN EXTRA CHUNK WITH REMAINDERS
+            for i in range(0, length, chunksize):
+                chunk = lst[i:i+chunksize]
+                thechunks.append(chunk)
+
+
+            # GET THE EXTRA CHUNK
+            extra = thechunks.pop(len(thechunks) - 1)
+            
+            # DISTRIBUTE IT ACROSS THE CHUNKS
+            for i in range(0, len(extra)):
+                thechunks[i].append(extra[i])
+
+
+    return thechunks
+
 
 def photography(request, category='all'):
-    # FETCH ALL POSTS
+    # FETCH ALL PHOTOGRAPHS
+
+    photographs = None
+
+    # FETCH ALL PHOTOGRAPHS
+    if category != 'all':
+        photographs = Photograph.objects.filter(p_category__slug = category).order_by('-modified', 'title')
+    else:
+        photographs = Photograph.objects.all().order_by('-modified', 'title')
+
+    # FETCH ALL CATEGORIES
+    categories = PhotoCategory.objects.all().order_by('categoryname')
+
+    # SPLIT PHOTOGRAPHS INTO THREE COLUMNS
+    parts = list(chunks(photographs, 3))
+
+    # SET CONTEXT
+    context = {
+        'columns': parts,
+        'categories': categories,
+        'category': category
+    }
+
     # posts = Post.objects.filter(p_type__type_name = typename).exclude(slug='about').order_by('-created', 'title')
     # posts = Post.objects.all().order_by('-created', 'title')
     # topics = PostTopic.objects.all().order_by('type_name')
@@ -102,4 +169,4 @@ def photography(request, category='all'):
     # }
  
     # RETURN
-    return render(request, 'photography.html')
+    return render(request, 'photography.html', context=context)

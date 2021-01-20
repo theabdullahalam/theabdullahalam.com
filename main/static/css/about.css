@@ -14,6 +14,7 @@ body h2 {
   color: #CB3135;
   font-size: 1.5rem;
   margin-top: 4rem;
+  font-weight: 500;
 }
 body h2:first-child {
   margin-top: 0;

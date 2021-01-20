@@ -12,6 +12,7 @@ sitemaps = {
 urlpatterns = [
  
     path('', views.index, name='index'),
+
     path('about', views.about, name='about'),
     path('about/', views.about, name='about'),
  
@@ -19,6 +20,11 @@ urlpatterns = [
     path('blog', views.blog, name='blog'),
     path('blog/', views.blog, name='blog'),
     path('blog/page/<int:pageno>', views.blog, name='blog'),
+
+    path('photography', views.photography, name='photography'),
+    path('photography/', views.photography, name='photography'),
+    path('photography/category/<slug:category>', views.photography, name='photography'),
+    path('photography/category/<slug:category>/', views.photography, name='photography'),
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
  

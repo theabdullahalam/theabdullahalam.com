@@ -65,3 +65,41 @@ def blog(request, pageno=1):
  
     # RETURN
     return render(request, 'posts.html', context=context)
+
+
+
+
+
+def photography(request, category='all'):
+    # FETCH ALL POSTS
+    # posts = Post.objects.filter(p_type__type_name = typename).exclude(slug='about').order_by('-created', 'title')
+    # posts = Post.objects.all().order_by('-created', 'title')
+    # topics = PostTopic.objects.all().order_by('type_name')
+
+    # # FIX TOPIC FOR NOW
+    # topic="ALL"
+ 
+    # # PAGINATE
+    # paginator = Paginator(posts, 10)
+    # page_num = int(pageno)
+    # page_obj = paginator.get_page(page_num)
+    # posts = page_obj.object_list
+ 
+    # # HUMAN FRIENDLY DATE
+    # for post in posts:
+    #     hfr_date = post.created.strftime('%e %b %Y')
+    #     post.hfr_date = hfr_date
+ 
+    #     post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
+ 
+    # # SET CONTEXT
+    # context = {
+    #     'posts': posts,
+    #     'topic': topic,
+    #     'topics': topics,
+    #     'pageinator': paginator,
+    #     'page_obj': page_obj,
+    # }
+ 
+    # RETURN
+    return render(request, 'photography.html')

@@ -3,14 +3,17 @@ from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
 from django.urls import reverse
+from django.contrib.sites.models import Site
  
 class PostTopic(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     type_name = models.CharField(max_length=30)
  
     def __str__(self):
         return str(self.type_name)
  
 class Post(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     header_image = models.ImageField(upload_to='headers', null=True, blank=True)
     title = models.CharField(max_length=250)
     p_type=models.ForeignKey(PostTopic, on_delete=models.CASCADE)
@@ -39,3 +42,30 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
+
+
+class PhotoCategory(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    categoryname = models.CharField(max_length=40)
+    slug = models.SlugField(unique=True, max_length=100, blank=True)
+
+    def save(self, *args, **kwargs): 
+        # GENERATE SLUG
+        if not self.slug:
+            self.slug = slugify(self.categoryname)
+        return super(PhotoCategory, self).save(*args, **kwargs)
+ 
+    def __str__(self):
+        return str(self.categoryname)
+
+    class Meta:
+        verbose_name = 'Photo Category'
+        verbose_name_plural = 'Photo Categories'
+
+
+class Photograph(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    header_image = models.ImageField(upload_to='photography')
+    title = models.CharField(max_length=250)
+    p_category=models.ForeignKey(PhotoCategory, on_delete=models.CASCADE)
+    content = RichTextUploadingField()

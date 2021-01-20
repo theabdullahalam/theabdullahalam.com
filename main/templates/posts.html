@@ -10,13 +10,13 @@
  
 <div id="posts">
 
-    <h1>BLOG • {{ topic }}</h1>
+    <h2>BLOG • {{ topic }}</h2>
 
     <!-- THE CONTENT -->
     {% if posts %}
         {% for post in posts %}
             <div class="post">
-                <h2><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h2>
+                <h1><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h1>
                 <p class="subtitle">
                     {{ post.hfr_date }} • {{ post.p_type.type_name }}
                 </p>
@@ -41,7 +41,7 @@
 
 
 <div id="topics">
-    <h1>TOPICS</h1>
+    <h2>TOPICS</h2>
     <ul id="topiclist">
         {% for topic in topics %}
         <li><a href="">{{ topic.type_name.upper }}</a></li>

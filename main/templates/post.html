@@ -7,8 +7,65 @@
 {% endblock %}
 
 {% block body %}
-<div id="content">
+
+<div id="post">
+    <h2>BLOG • TOPIC</h2>
     <h1>{{ post.title }}</h1>
-    {{ post.content | safe }}
+    <p class="subtitle">{{ post.hfr_date }}</p>
+    <div class="postcontent">
+        {{ post.content | safe }}
+    </div>    
 </div>
+
+<div id="sidebar">
+
+    <h2>TOPIC</h2>
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+    <h2>LATEST</h2>
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <p class="subtitle">
+        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+    </p>
+
+</div>
+
 {% endblock %}

@@ -1,11 +1,66 @@
 @import 'base';
 
-#content{
-    margin: 2em;
-}
+#content {
 
-@media screen and (min-width: 50em){
-    #content{
-        max-width: 45em;
+    padding-left: $horizontal_padding_desktop;
+    padding-right: $horizontal_padding_desktop;
+    padding-top: $vertical_padding_desktop;
+    padding-bottom: $vertical_padding_desktop;
+
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 3fr 1fr;
+
+
+    #post{
+
+        margin-right: 3rem;
+
+        h1{
+            font-weight: bold;
+            font-family: $titlesfont;
+            font-size: 3rem;
+            margin-top: 2rem;
+        }
+
+        .subtitle{
+            margin-bottom: 2rem;
+        }
+
+        .postcontent{
+            font-size: 1.1rem;
+
+            p {
+                margin-bottom: 2rem;
+                img{
+                    max-width: 100%;
+                }
+            }
+        }
+
     }
+
+
+    #sidebar {
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+
+        h3 {
+
+            font-weight: bold;
+            font-size: 1.8rem;
+            font-family: $titlesfont;
+
+            margin-top: 1rem;
+
+            a {
+                color: black;
+            }
+        }
+    }
+
+
 }

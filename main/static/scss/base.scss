@@ -48,8 +48,8 @@ body{
     #navheader{
 
         width: 100%;
-        background: rgb(15, 15, 15);
-        color: white;
+        // background: rgb(15, 15, 15);
+        color: rgba(0, 0, 0, 0.801);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -59,24 +59,31 @@ body{
         padding-left: $horizontal_padding_desktop;
         padding-right: $horizontal_padding_desktop;
 
-        $vertical_padding_desktop: 1.5rem;
+        $vertical_padding_desktop: 2rem;
         padding-top: $vertical_padding_desktop;
         padding-bottom: $vertical_padding_desktop;
 
+        border-bottom: 2px solid rgba(0, 0, 0, 0.158);
+
         #title{
             font-family: 'East Sea Dokdo', cursive;
-            font-size: 3.5rem;
+            font-size: 4rem;
+
+            a {
+                color: rgba(0, 0, 0, 0.801);
+            }
         }
 
         #menu{
-            margin-left: 2rem;
+            // margin-left: 4rem;
+            // margin-left: auto;
             font-size: 1.1rem;
 
             a {
                 font-family: $titlesfont;
-                font-weight: 700;
-                color: white;
-                margin-left: 1rem;
+                font-weight: 500;
+                color: rgba(0, 0, 0, 0.801);
+                margin-left: 4rem;
             }
         }
 

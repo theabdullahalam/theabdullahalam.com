@@ -26,30 +26,32 @@ body .subtitle {
 }
 body #navheader {
   width: 100%;
-  background: #0f0f0f;
-  color: white;
+  color: rgba(0, 0, 0, 0.801);
   display: flex;
   flex-direction: row;
   align-items: center;
   box-sizing: border-box;
   padding-left: 15rem;
   padding-right: 15rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.158);
 }
 body #navheader #title {
   font-family: "East Sea Dokdo", cursive;
-  font-size: 3.5rem;
+  font-size: 4rem;
+}
+body #navheader #title a {
+  color: rgba(0, 0, 0, 0.801);
 }
 body #navheader #menu {
-  margin-left: 2rem;
   font-size: 1.1rem;
 }
 body #navheader #menu a {
   font-family: "Signika", sans-serif;
-  font-weight: 700;
-  color: white;
-  margin-left: 1rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.801);
+  margin-left: 4rem;
 }
 body #content {
   min-height: 90vh;

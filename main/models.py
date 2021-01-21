@@ -8,6 +8,14 @@ from django.contrib.sites.models import Site
 class PostTopic(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     type_name = models.CharField(max_length=30)
+    slug = models.SlugField(unique=True, max_length=100, blank=True)
+
+    def save(self, *args, **kwargs):
+ 
+        # GENERATE SLUG
+        if not self.slug:
+            self.slug = slugify(self.type_name)
+        return super(PostTopic, self).save(*args, **kwargs)
  
     def __str__(self):
         return str(self.type_name)

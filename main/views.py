@@ -32,14 +32,26 @@ def post(request, slug):
     # RETURN
     return render(request, 'post.html', context=context)
  
-def blog(request, pageno=1):
-    # FETCH ALL POSTS
-    # posts = Post.objects.filter(p_type__type_name = typename).exclude(slug='about').order_by('-created', 'title')
-    posts = Post.objects.all().order_by('-created', 'title')
+def blog(request, topic='all', pageno=1):
+    
+    # FETCH THE POSTS
+    if topic == 'all':
+        posts = Post.objects.all().order_by('-created', 'title')
+    else:
+        posts = Post.objects.filter(p_type__slug = topic).order_by('-created', 'title')
+
+    # FETCH ALL TOPICS FOR SIDEBAR
     topics = PostTopic.objects.all().order_by('type_name')
 
-    # FIX TOPIC FOR NOW
-    topic="ALL"
+    # FETCH CURRENT TOPIC
+    topicobj = None
+
+    if topic != 'all':
+        topicobj = PostTopic.objects.get(slug = topic)
+    else:
+        topicobj = {
+            'type_name': 'all'
+        }
  
     # PAGINATE
     paginator = Paginator(posts, 10)
@@ -57,7 +69,7 @@ def blog(request, pageno=1):
     # SET CONTEXT
     context = {
         'posts': posts,
-        'topic': topic,
+        'topic': topicobj,
         'topics': topics,
         'pageinator': paginator,
         'page_obj': page_obj,
@@ -138,35 +150,46 @@ def photography(request, category='all'):
         'categories': categories,
         'category': category
     }
-
-    # posts = Post.objects.filter(p_type__type_name = typename).exclude(slug='about').order_by('-created', 'title')
-    # posts = Post.objects.all().order_by('-created', 'title')
-    # topics = PostTopic.objects.all().order_by('type_name')
-
-    # # FIX TOPIC FOR NOW
-    # topic="ALL"
- 
-    # # PAGINATE
-    # paginator = Paginator(posts, 10)
-    # page_num = int(pageno)
-    # page_obj = paginator.get_page(page_num)
-    # posts = page_obj.object_list
- 
-    # # HUMAN FRIENDLY DATE
-    # for post in posts:
-    #     hfr_date = post.created.strftime('%e %b %Y')
-    #     post.hfr_date = hfr_date
- 
-    #     post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
- 
-    # # SET CONTEXT
-    # context = {
-    #     'posts': posts,
-    #     'topic': topic,
-    #     'topics': topics,
-    #     'pageinator': paginator,
-    #     'page_obj': page_obj,
-    # }
  
     # RETURN
     return render(request, 'photography.html', context=context)
+
+
+def photo(request, slug):
+
+    # FETCH PHOTOGRAPH
+    photo = Photograph.objects.get(slug = str(slug))
+
+    # HFR DATE
+    photo.hfr_date = photo.created.strftime('%e %b %Y')
+
+    # CATEGORY
+    category = photo.p_category
+
+    # RELATED PHOTOGRAPHS
+    photographs = Photograph.objects.filter(p_category__slug = category.slug).order_by('-modified', 'title')
+    p_list = list(photographs)
+
+    # REMOVE OUR PHOTO FROM THE LIST
+    for i in range(0, len(p_list)):
+        if p_list[i].id == photo.id:
+            p_list.pop(i)
+            break
+
+    # INITIALISE parts FOR POSTERITY
+    parts = []
+
+    # SPLIT PHOTOGRAPHS INTO THREE COLUMNS
+    if len(p_list) > 0:
+        parts = list(chunks(p_list, 3))
+
+    # SET CONTEXT
+    context = {
+        'photo': photo,
+        'showrelated': len(p_list) > 0,
+        'columns': parts,
+        'category': category
+    }    
+ 
+    # RETURN
+    return render(request, 'photo.html', context=context)

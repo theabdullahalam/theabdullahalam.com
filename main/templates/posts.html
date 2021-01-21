@@ -10,7 +10,7 @@
  
 <div id="posts">
 
-    <h2>BLOG • {{ topic }}</h2>
+    <h2>BLOG • {{ topic.type_name.upper }}</h2>
 
     <!-- THE CONTENT -->
     {% if posts %}
@@ -28,12 +28,20 @@
     <div id="pagination">
         {% if page_obj.has_previous %}
             <div id="newer">
+                {% if topic.type_name == 'all' %}
                 <a href="{% url 'blog' page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
+                {% else %}
+                <a href="{% url 'blog' topic.slug page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
+                {% endif %}
             </div>
         {% endif %}
         {% if page_obj.has_next %}
             <div id="older">
+                {% if topic.type_name == 'all' %}
                 <a href="{% url 'blog' page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
+                {% else %}
+                <a href="{% url 'blog' topic.slug page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
+                {% endif %}
             </div>
         {% endif %}
     </div>
@@ -43,8 +51,9 @@
 <div id="topics">
     <h2>TOPICS</h2>
     <ul id="topiclist">
+        <li><a href="{% url 'blog' %}">ALL</a></li>
         {% for topic in topics %}
-        <li><a href="">{{ topic.type_name.upper }}</a></li>
+        <li><a href="{% url 'blog' topic.slug %}">{{ topic.type_name.upper }}</a></li>
         {% endfor %}
     </ul>
 </div>

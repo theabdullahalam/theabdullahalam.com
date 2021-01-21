@@ -1,6 +1,12 @@
 from django.contrib import admin
 from .models import Post, PostTopic, PhotoCategory, Photograph
  
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    ordering = ('modified',)
+    search_fields = ('title', 'content',)
+
 @admin.register(PostTopic)
 class PostTopicAdmin(admin.ModelAdmin):
     list_display = ('type_name',)

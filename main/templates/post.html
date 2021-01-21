@@ -10,6 +10,9 @@
 
 <div id="post">
     <h2>BLOG • TOPIC</h2>
+    {% if post.header_image %}
+    <img src="{{ post.header_image.url }}" alt="{{ post.title }}" id="headerimage">
+    {% endif %}
     <h1>{{ post.title }}</h1>
     <p class="subtitle">{{ post.hfr_date }}</p>
     <div class="postcontent">
@@ -19,52 +22,23 @@
 
 <div id="sidebar">
 
-    <h2>TOPIC</h2>
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    <h2 class="{% if not post.header_image %}extramargin{% endif %}">TOPIC</h2>
+    {% for p in related %}
+    <h3><a href="{% url 'post' p.slug %}">{{ p.title }}</a></h3>
     <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+        {{ p.hfr_date }} • {{ p.p_type.type_name }}
     </p>
-
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
-    <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
-    </p>
-
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
-    <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
-    </p>
-
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
-    <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
-    </p>
+    {% endfor %}
 
     <h2>LATEST</h2>
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
+    {% for p in latest %}
+    <h3><a href="{% url 'post' p.slug %}">{{ p.title }}</a></h3>
     <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
+        {{ p.hfr_date }} • {{ p.p_type.type_name }}
     </p>
+    {% endfor %}
 
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
-    <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
-    </p>
-
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
-    <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
-    </p>
-
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
-    <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
-    </p>
-
-    <h3><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h3>
-    <p class="subtitle">
-        {{ post.hfr_date }} • {{ post.p_type.type_name }}
-    </p>
+    
 
 </div>
 

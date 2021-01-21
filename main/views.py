@@ -23,10 +23,33 @@ def post(request, slug):
     # HUMAN FRIENDLY DATE
     hfr_date = post_obj.created.strftime('%e %b %Y')
     post_obj.hfr_date = hfr_date
+
+
+
+
+    # SIDEBAR STUFF
+
+    # RELATED POSTS (SAME TOPIC)
+    relatedposts = Post.objects.filter(p_type__slug = post_obj.p_type.slug).exclude(id = post_obj.id).order_by('-created', 'title')[:5]
+    for post in relatedposts:
+        hfr_date = post.created.strftime('%e %b %Y')
+        post.hfr_date = hfr_date
+ 
+        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
+
+    # LATEST POSTS
+    latestposts = Post.objects.all().exclude(id = post_obj.id).order_by('-created', 'title')[:5]
+    for post in latestposts:
+        hfr_date = post.created.strftime('%e %b %Y')
+        post.hfr_date = hfr_date
+ 
+        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
  
     # CREATE CONTEXT
     context = {
         'post': post_obj,
+        'related': relatedposts,
+        'latest': latestposts
     }
  
     # RETURN

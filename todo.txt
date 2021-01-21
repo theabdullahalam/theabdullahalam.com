@@ -1,6 +1,5 @@
 Blog Post
     Header Image
-    Related and latest
 
 Index
     ReDesign

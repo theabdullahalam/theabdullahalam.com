@@ -10,6 +10,9 @@ Sitemaps
     Blog
     Photographs
 
+Dark Mode
+    Ctrl + F5 messes up dark mode wtf
+
 Favicon
     Color (Red?)
     Padding
@@ -17,6 +20,8 @@ Favicon
 Commento
 
 Fathom Analytics
+
+Deploy
 
 Photography
     Curate Photographs

@@ -12,6 +12,7 @@ Sitemaps
 
 Dark Mode
     Ctrl + F5 messes up dark mode wtf
+        FIREFOX BUG
 
 Favicon
     Color (Red?)

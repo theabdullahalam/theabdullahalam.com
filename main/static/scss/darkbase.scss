@@ -1,0 +1,83 @@
+@import 'base';
+
+.button {
+    color: rgba(255, 255, 255, 0.9);
+    border: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+body {
+
+    background: rgb(20, 20, 20);
+    color: rgb(240, 240, 240);
+
+    #darkmodetoggle {
+        color: white;
+    }
+
+    #navheader {
+
+        color: rgba(255, 255, 255, 0.801);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.158);
+
+        #title {
+            a{
+                color: rgba(255, 255, 255, 0.801);
+            }
+        }
+
+        #menu {
+            a {
+                color: rgba(255, 255, 255, 0.801);
+            }
+        }
+    }
+
+    .subtitle{
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.411);
+    }
+
+    #content {
+        #sidebar {
+            h3 {
+                a {
+                    color: rgba(255, 255, 255, 0.9);
+                }
+            }
+        }
+
+        #categorylist {
+            ul {
+                li{
+                    a {
+                        color: rgba(255, 255, 255, 0.9);
+                    }
+                }
+            }
+        }
+
+
+        #posts {
+            .post{
+                h1{
+                    a{
+                        color: rgba(255, 255, 255, 0.9);
+                    }
+                }
+            }
+        }
+
+
+        #topics {
+            #topiclist{    
+                li {
+                    a {
+                        color: rgba(255, 255, 255, 0.9);
+                    }
+                }
+            }    
+        }
+    }
+
+}

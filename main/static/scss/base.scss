@@ -63,9 +63,27 @@ $transitiondin: 0.15s;
 
 
 body{
+
     margin: 0;
     padding: 0;
     font-family: 'Nunito', sans-serif;
+
+    #darkmodetoggle {
+
+        position: fixed;
+        bottom: 4rem;
+        right: 4rem;
+
+        $size: 2rem;
+
+        width: $size;
+        height: $size;
+
+    }
+
+    #darkmodetoggle:hover {
+        cursor: pointer;
+    }
 
     h2{
         font-family: $titlesfont;
@@ -139,6 +157,48 @@ body{
 
     #content {
         min-height: 90vh;
+
+
+        #sidebar {
+            h3 {
+                a {
+                    color: black;
+                }
+            }
+        }
+
+        #categorylist {
+            ul {
+                li{
+                    a {
+                        color: black;
+                    }
+                }
+            }
+        }
+
+
+        #posts {
+            .post{
+                h1{
+                    a{
+                        color: black;
+                    }
+                }
+            }
+        }
+
+
+        #topics {
+            #topiclist{    
+                li {
+                    a {
+                        color: black;
+                    }
+                }
+            }    
+        }
+
     }
 
 

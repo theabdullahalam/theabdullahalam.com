@@ -32,6 +32,16 @@ body {
   padding: 0;
   font-family: "Nunito", sans-serif;
 }
+body #darkmodetoggle {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  width: 2rem;
+  height: 2rem;
+}
+body #darkmodetoggle:hover {
+  cursor: pointer;
+}
 body h2 {
   font-family: "Signika", sans-serif;
   color: #CB3135;
@@ -78,6 +88,18 @@ body #navheader #menu a {
 }
 body #content {
   min-height: 90vh;
+}
+body #content #sidebar h3 a {
+  color: black;
+}
+body #content #categorylist ul li a {
+  color: black;
+}
+body #content #posts .post h1 a {
+  color: black;
+}
+body #content #topics #topiclist li a {
+  color: black;
 }
 body #footer {
   width: 100%;
@@ -170,9 +192,6 @@ a :visited {
   font-size: 1.8rem;
   font-family: "Signika", sans-serif;
   margin-top: 1rem;
-}
-#content #section1 #sidebar h3 a {
-  color: black;
 }
 #content #section1 #sidebar img.dp {
   border-radius: 50%;

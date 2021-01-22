@@ -135,61 +135,44 @@ a :visited {
   color: #CB3135;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+.button {
+  color: rgba(255, 255, 255, 0.9);
+  border: 3px solid rgba(255, 255, 255, 0.9);
 }
 
-.button:nth-child(even) {
-  margin-right: 0;
+body {
+  background: #141414;
+  color: #f0f0f0;
+}
+body #darkmodetoggle {
+  color: white;
+}
+body #navheader {
+  color: rgba(255, 255, 255, 0.801);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.158);
+}
+body #navheader #title a {
+  color: rgba(255, 255, 255, 0.801);
+}
+body #navheader #menu a {
+  color: rgba(255, 255, 255, 0.801);
+}
+body .subtitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.411);
+}
+body #content #sidebar h3 a {
+  color: rgba(255, 255, 255, 0.9);
+}
+body #content #categorylist ul li a {
+  color: rgba(255, 255, 255, 0.9);
+}
+body #content #posts .post h1 a {
+  color: rgba(255, 255, 255, 0.9);
+}
+body #content #topics #topiclist li a {
+  color: rgba(255, 255, 255, 0.9);
 }
 
-#content {
-  box-sizing: border-box;
-  padding-left: 15rem;
-  padding-right: 15rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  font-size: 1.1rem;
-  min-height: 90vh;
-}
-#content #profile {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr 2fr 1fr;
-}
-#content #profile img {
-  border-radius: 50%;
-  width: 15rem;
-  height: 15rem;
-  place-self: center start;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  -webkit-box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.47);
-  -moz-box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.47);
-  box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.47);
-}
-#content #profile #text {
-  place-self: center start;
-}
-#content #profile #text p {
-  margin-bottom: 1rem;
-}
-#content #profile #text p:last-child {
-  margin-bottom: 0;
-}
-#content #contact {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  width: 75%;
-}
-#content #morelinks {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  width: 75%;
-  margin-top: 2rem;
-}
-
-/*# sourceMappingURL=about.css.map */
+/*# sourceMappingURL=darkbase.css.map */

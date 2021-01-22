@@ -47,13 +47,14 @@
 
             padding-right: 0.8rem;
 
-            $shadowanimation: 0.2s;
+            $shadowanimation: 0.15s;
 
             img {
                 
                 width: 100%;
                 margin-bottom: 0.5rem;
                 box-sizing: border-box;
+                z-index: 1;
 
                 transition: 
                     box-shadow $shadowanimation, 
@@ -64,11 +65,12 @@
 
             img:hover{
 
-                -webkit-box-shadow: 10px 10px 36px 0px rgba(0,0,0,0.6);
-                -moz-box-shadow: 10px 10px 36px 0px rgba(0,0,0,0.6);
-                box-shadow: 10px 10px 36px 0px rgba(0,0,0,0.6);
+                -webkit-box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
+                -moz-box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
+                box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
+                z-index: 4;
 
-                border: 4px solid white;
+                // border: 4px solid white;
 
                 transition: 
                     box-shadow $shadowanimation, 

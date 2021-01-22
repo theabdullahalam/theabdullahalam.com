@@ -1,9 +1,11 @@
-Blog Post
-    Header Image
+Index Page
 
-Index
-    ReDesign
+JS Dark Mode
+    Move all color styles to base
+    Create darkbase.scss
+        Imports base and overrides colors
+    Create JS floating switch button
+    Toggle css on button click
 
 Newsletter subscription
 Creative writing, perhaps?
-JS Dark Mode

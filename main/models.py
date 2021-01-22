@@ -107,7 +107,8 @@ class DynamicStuff(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     title = models.CharField(max_length=250)
     key = models.CharField(max_length=250)
-    value = RichTextUploadingField()
+    value = RichTextUploadingField(null=True, blank=True)
+    image = models.ImageField(upload_to='dynamics', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Dynamic Thing'

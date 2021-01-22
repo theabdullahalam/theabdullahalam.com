@@ -5,6 +5,16 @@
 {% block ogtitle %}Abdullah Alam - Photgrapher, Writer, Traveller{% endblock %}
 {% block tctitle %}Abdullah Alam - Photgrapher, Writer, Traveller{% endblock %}
 
+{% block metadescription %}{{ description | safe }}{% endblock %}
+{% block ogdescription %}{{ description | safe }}{% endblock %}
+{% block tcdescription %}{{ description | safe }}{% endblock %}
+
+{% block ogimage %}{{ fullimage }}{% endblock %}
+{% block tcimage %}{{ fullimage }}{% endblock %}
+
+{% block ogurl %}{{ fullurl }}{% endblock %}
+{% block ogtype %}website{% endblock %}
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
@@ -30,7 +40,7 @@
 
 
         <h2>ABOUT</h2>
-        <img class="dp" src="{% static 'img/dp.jpg' %}" alt="Abdullah Alam">
+        <img class="dp" src="{{dp.image.url}}" alt="Abdullah Alam">
         <div id="bio">
             {{ bio.value | safe }}
         </div>

@@ -5,15 +5,15 @@
 {% block ogtitle %}About Abdullah{% endblock %}
 {% block tctitle %}About Abdullah{% endblock %}
 
-{% block metadescription %}About Abdullah{% endblock %}
-{% block ogdescription %}About Abdullah{% endblock %}
-{% block tcdescription %}About Abdullah{% endblock %}
+{% block metadescription %}{{ description | safe }}{% endblock %}
+{% block ogdescription %}{{ description | safe }}{% endblock %}
+{% block tcdescription %}{{ description | safe }}{% endblock %}
 
-{% block ogimage %}About Abdullah{% endblock %}
-{% block tcimage %}About Abdullah{% endblock %}
+{% block ogimage %}{{ fullimage }}{% endblock %}
+{% block tcimage %}{{ fullimage }}{% endblock %}
 
-{% block ogurl %}About Abdullah{% endblock %}
-{% block ogtype %}About Abdullah{% endblock %}
+{% block ogurl %}{{ fullurl }}{% endblock %}
+{% block ogtype %}profile{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}">
@@ -23,7 +23,7 @@
 
 <h2>ABOUT</h2>
 <div id="profile">
-    <img src="{% static 'img/dp.jpg' %}" alt="Abdullah Alam">
+    <img src="{{dp.image.url}}" alt="Abdullah Alam">
     <div id="text">
         {{ bio.value | safe }}
     </div>

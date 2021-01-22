@@ -6,138 +6,26 @@ from django.http import Http404
 from django.shortcuts import redirect, render
 from django.templatetags.static import static
 from django.urls import reverse
+from django.utils.html import strip_tags
 
 from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff
 
 
-def index(request):
 
-    # GET BIO
-    bio = DynamicStuff.objects.get(key='index-page-bio')
+# --------------------- HELPERS -------------------------
 
-    # GET LATEST 6 POSTS
-    latestposts = Post.objects.all().order_by('-created', 'title')[:6]
-    for post in latestposts:
-        hfr_date = post.created.strftime('%e %b %Y')
-        post.hfr_date = hfr_date
- 
-        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
-
-    # MAIN POST AND SIDEBAR POSTS
-    post = latestposts[0]
-    sidebarposts = latestposts[1:]
-
-    # GET LATEST NINE PHOTOGRAPHS
-    photographs = Photograph.objects.all().order_by('-created', 'title')[:9]
-    parts = list(chunks(photographs, 3))
-
-    # SET CONTEXT
-    context = {
-        'post': post,
-        'sidebarposts': sidebarposts,
-        'columns': parts,
-        'bio': bio
-    }
-
-    return render(request, 'index.html', context=context)
-
-def about(request):
-    
-    # GET BIO
-    bio = DynamicStuff.objects.get(key='about-page-bio')
-
-    context = {
-        'bio': bio
-    }
-
-    return render(request, 'about.html', context=context)
- 
-def post(request, slug):
-    # FETCH OBJ
-    post_obj=Post.objects.get(slug = str(slug))
- 
-    # HUMAN FRIENDLY DATE
-    hfr_date = post_obj.created.strftime('%e %b %Y')
-    post_obj.hfr_date = hfr_date
+def get_sane_description(thestring):
+    return str(strip_tags(thestring)).replace('&#39;', '\'').replace('&rsquo;', '\'').replace('\n', ' ')
 
 
-
-
-    # SIDEBAR STUFF
-
-    # RELATED POSTS (SAME TOPIC)
-    relatedposts = Post.objects.filter(p_type__slug = post_obj.p_type.slug).exclude(id = post_obj.id).order_by('-created', 'title')[:5]
-    for post in relatedposts:
-        hfr_date = post.created.strftime('%e %b %Y')
-        post.hfr_date = hfr_date
- 
-        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
-
-    # LATEST POSTS
-    latestposts = Post.objects.all().exclude(id = post_obj.id).order_by('-created', 'title')[:5]
-    for post in latestposts:
-        hfr_date = post.created.strftime('%e %b %Y')
-        post.hfr_date = hfr_date
- 
-        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
- 
-    # CREATE CONTEXT
-    context = {
-        'post': post_obj,
-        'related': relatedposts,
-        'latest': latestposts
-    }
- 
-    # RETURN
-    return render(request, 'post.html', context=context)
- 
-def blog(request, topic='all', pageno=1):
-    
-    # FETCH THE POSTS
-    if topic == 'all':
-        posts = Post.objects.all().order_by('-created', 'title')
+def get_protocol():
+    if os.environ.get('DEBUG').lower() == 'true':
+        return 'http'
     else:
-        posts = Post.objects.filter(p_type__slug = topic).order_by('-created', 'title')
+        return 'https'
 
-    # FETCH ALL TOPICS FOR SIDEBAR
-    topics = PostTopic.objects.all().order_by('type_name')
-
-    # FETCH CURRENT TOPIC
-    topicobj = None
-
-    if topic != 'all':
-        topicobj = PostTopic.objects.get(slug = topic)
-    else:
-        topicobj = {
-            'type_name': 'all'
-        }
- 
-    # PAGINATE
-    paginator = Paginator(posts, 10)
-    page_num = int(pageno)
-    page_obj = paginator.get_page(page_num)
-    posts = page_obj.object_list
- 
-    # HUMAN FRIENDLY DATE
-    for post in posts:
-        hfr_date = post.created.strftime('%e %b %Y')
-        post.hfr_date = hfr_date
- 
-        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
- 
-    # SET CONTEXT
-    context = {
-        'posts': posts,
-        'topic': topicobj,
-        'topics': topics,
-        'pageinator': paginator,
-        'page_obj': page_obj,
-    }
- 
-    # RETURN
-    return render(request, 'posts.html', context=context)
-
-
+def get_full_url(ending):
+    return '%s://%s%s' % (get_protocol(), Site.objects.get_current().domain, ending)
 
 
 # CHUNK MAKER FOR SPLITTING INTO COLUMNS
@@ -185,10 +73,200 @@ def chunks(lst, n):
 
     return thechunks
 
+def get_paragraph_preview(content):
+    preview = ''
+
+    try:
+        first_para = str(content).split('</p>')[0].split('<p>')[1]
+        first_twenty = first_para.split(' ')[:35]
+        # remove comma from last
+        if first_twenty[-1][-1] == ',':
+            first_twenty[-1] = first_twenty[-1][:-1]
+
+        preview = '{}...'.format(' '.join(first_twenty), '...')
+    except IndexError as ie:
+        print(str(ie))
+        preview = content
+
+    return preview
+
+
+
+
+# --------------------- VIEWS -------------------------
+
+
+
+
+def index(request):
+
+    # GET BIO
+    bio = DynamicStuff.objects.get(key='index-page-bio')
+
+    # GET DP
+    dp = DynamicStuff.objects.get(key='dp')
+
+    # GET LATEST 6 POSTS
+    latestposts = Post.objects.all().order_by('-created', 'title')[:6]
+    for post in latestposts:
+        hfr_date = post.created.strftime('%e %b %Y')
+        post.hfr_date = hfr_date
+ 
+        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
+
+    # MAIN POST AND SIDEBAR POSTS
+    post = latestposts[0]
+    sidebarposts = latestposts[1:]
+
+    # GET LATEST NINE PHOTOGRAPHS
+    photographs = Photograph.objects.all().order_by('-created', 'title')[:9]
+    parts = list(chunks(photographs, 3))
+
+    # SET CONTEXT
+    context = {
+        'post': post,
+        'sidebarposts': sidebarposts,
+        'columns': parts,
+        'bio': bio,
+        'description' : get_sane_description(str(bio.value)),
+        'fullurl': get_full_url(reverse('index')),
+        'fullimage': get_full_url(dp.image.url),
+        'dp': dp
+    }
+
+    return render(request, 'index.html', context=context)
+
+def about(request):
+    
+    # GET BIO
+    bio = DynamicStuff.objects.get(key='about-page-bio')
+
+    # GET DP
+    dp = DynamicStuff.objects.get(key='dp')
+
+    context = {
+        'bio': bio,
+        'description': get_sane_description(str(bio.value)),
+        'fullurl': get_full_url(reverse('about')),
+        'fullimage': get_full_url(dp.image.url),
+        'dp': dp
+    }
+
+    return render(request, 'about.html', context=context)
+ 
+def post(request, slug):
+    # FETCH OBJ
+    post_obj=Post.objects.get(slug = str(slug))
+ 
+    # HUMAN FRIENDLY DATE
+    hfr_date = post_obj.created.strftime('%e %b %Y')
+    post_obj.hfr_date = hfr_date
+
+
+
+
+    # SIDEBAR STUFF
+
+    # RELATED POSTS (SAME TOPIC)
+    relatedposts = Post.objects.filter(p_type__slug = post_obj.p_type.slug).exclude(id = post_obj.id).order_by('-created', 'title')[:5]
+    for post in relatedposts:
+        hfr_date = post.created.strftime('%e %b %Y')
+        post.hfr_date = hfr_date
+ 
+        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
+
+    # LATEST POSTS
+    latestposts = Post.objects.all().exclude(id = post_obj.id).order_by('-created', 'title')[:5]
+    for post in latestposts:
+        hfr_date = post.created.strftime('%e %b %Y')
+        post.hfr_date = hfr_date
+ 
+        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
+
+
+    # FULL IMAGE URL
+    fullimage = ''
+    if post_obj.header_image != '':
+        fullimage = get_full_url(post_obj.header_image.url)
+ 
+    # CREATE CONTEXT
+    context = {
+        'post': post_obj,
+        'related': relatedposts,
+        'latest': latestposts,
+        'description': get_paragraph_preview(post_obj.content),
+        'fullimage': fullimage,
+        'fullurl': get_full_url(reverse('post', args=[slug]))
+    }
+ 
+    # RETURN
+    return render(request, 'post.html', context=context)
+ 
+def blog(request, topic='all', pageno=1):
+    
+    # FETCH THE POSTS
+    if topic == 'all':
+        posts = Post.objects.all().order_by('-created', 'title')
+    else:
+        posts = Post.objects.filter(p_type__slug = topic).order_by('-created', 'title')
+
+    # FETCH ALL TOPICS FOR SIDEBAR
+    topics = PostTopic.objects.all().order_by('type_name')
+
+    # FETCH CURRENT TOPIC
+    topicobj = None
+
+    if topic != 'all':
+        topicobj = PostTopic.objects.get(slug = topic)
+    else:
+        topicobj = {
+            'type_name': 'all'
+        }
+ 
+    # PAGINATE
+    paginator = Paginator(posts, 10)
+    page_num = int(pageno)
+    page_obj = paginator.get_page(page_num)
+    posts = page_obj.object_list
+ 
+    # HUMAN FRIENDLY DATE
+    for post in posts:
+        hfr_date = post.created.strftime('%e %b %Y')
+        post.hfr_date = hfr_date
+ 
+        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
+
+
+    # FIGURE OUT URL
+    fullurl = ''
+
+    if topic == 'all':
+        if pageno == 1:
+            fullurl = get_full_url(reverse('blog'))
+        else:
+            fullurl = get_full_url(reverse('blog', args=[pageno]))
+    else:
+        if pageno == 1:
+            fullurl = get_full_url(reverse('blog', args=[topic]))
+        else:
+            fullurl = get_full_url(reverse('blog', args=[topic, pageno]))
+ 
+    # SET CONTEXT
+    context = {
+        'posts': posts,
+        'topic': topicobj,
+        'topics': topics,
+        'pageinator': paginator,
+        'page_obj': page_obj,
+        'description': get_sane_description(str(DynamicStuff.objects.get(key='blog-description').value)),
+        'fullurl': fullurl
+    }
+ 
+    # RETURN
+    return render(request, 'posts.html', context=context)
 
 def photography(request, category='all'):
-    # FETCH ALL PHOTOGRAPHS
-
+    
     photographs = None
 
     # FETCH ALL PHOTOGRAPHS
@@ -203,16 +281,28 @@ def photography(request, category='all'):
     # SPLIT PHOTOGRAPHS INTO THREE COLUMNS
     parts = list(chunks(photographs, 3))
 
+    # GET BIO
+    description = get_sane_description(str(DynamicStuff.objects.get(key = 'photography-description').value))
+
+    # SET URL DEPENDING ON CATEGORY
+    fullurl = ''
+    if category == 'all':
+        fullurl = get_full_url(reverse('photography'))
+    else:
+        fullurl = get_full_url(reverse('photography', args=[category]))
+
     # SET CONTEXT
     context = {
         'columns': parts,
         'categories': categories,
-        'category': category
+        'category': category,
+        'description': description,
+        'fullimage': get_full_url(photographs[0].image.url),
+        'fullurl': fullurl
     }
  
     # RETURN
     return render(request, 'photography.html', context=context)
-
 
 def photo(request, slug):
 
@@ -247,7 +337,10 @@ def photo(request, slug):
         'photo': photo,
         'showrelated': len(p_list) > 0,
         'columns': parts,
-        'category': category
+        'category': category,
+        'description': get_sane_description(str(photo.content)),
+        'fullurl': get_full_url(reverse('photo', args=[slug])),
+        'fullimage': get_full_url(photo.image.url)
     }    
  
     # RETURN

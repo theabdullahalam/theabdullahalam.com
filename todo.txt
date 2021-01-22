@@ -1,5 +1,3 @@
-Twitter Card and OpenGraph Tags
-
 Responsive
     Skeleton
     Index

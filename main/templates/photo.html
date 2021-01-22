@@ -4,6 +4,16 @@
 {% block title %}Photograph - {{ photo.title }}{% endblock %}
 {% block ogtitle %}Photograph - {{ photo.title }}{% endblock %}
 {% block tctitle %}Photograph - {{ photo.title }}{% endblock %}
+
+{% block metadescription %}{{ description | safe }}{% endblock %}
+{% block ogdescription %}{{ description | safe }}{% endblock %}
+{% block tcdescription %}{{ description | safe }}{% endblock %}
+
+{% block ogimage %}{{ fullimage }}{% endblock %}
+{% block tcimage %}{{ fullimage }}{% endblock %}
+
+{% block ogurl %}{{ fullurl }}{% endblock %}
+{% block ogtype %}website{% endblock %}
  
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/photo.css' %}">

@@ -5,6 +5,16 @@
 {% block ogtitle %}{{ post.title }} - Blog - Abdullah Alam{% endblock %}
 {% block tctitle %}{{ post.title }} - Blog - Abdullah Alam{% endblock %}
 
+{% block metadescription %}{{ description | safe }}{% endblock %}
+{% block ogdescription %}{{ description | safe }}{% endblock %}
+{% block tcdescription %}{{ description | safe }}{% endblock %}
+
+{% block ogimage %}{{ fullimage }}{% endblock %}
+{% block tcimage %}{{ fullimage }}{% endblock %}
+
+{% block ogurl %}{{ fullurl }}{% endblock %}
+{% block ogtype %}blog{% endblock %}
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/post.css' %}">
 {% endblock %}
@@ -12,7 +22,7 @@
 {% block body %}
 
 <div id="post">
-    <h2>BLOG • TOPIC</h2>
+    <h2>BLOG • {{ post.p_type.type_name.upper }}</h2>
     {% if post.header_image %}
     <img src="{{ post.header_image.url }}" alt="{{ post.title }}" id="headerimage">
     {% endif %}
@@ -25,7 +35,7 @@
 
 <div id="sidebar">
 
-    <h2 class="{% if not post.header_image %}extramargin{% endif %}">TOPIC</h2>
+    <h2 class="{% if not post.header_image %}extramargin{% endif %}"><a href="{% url 'blog' post.p_type.slug %}">{{ post.p_type.type_name.upper }}</a></h2>
     {% for p in related %}
     <h3><a href="{% url 'post' p.slug %}">{{ p.title }}</a></h3>
     <p class="subtitle">

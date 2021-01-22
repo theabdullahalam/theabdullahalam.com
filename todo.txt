@@ -1,5 +1,3 @@
-Page Titles
-
 Dynamic info
     About home
     About page bio
@@ -17,6 +15,10 @@ Responsive
 Sitemaps
     Blog
     Photographs
+
+Favicon
+    Color (Red?)
+    Padding
 
 Commento
 

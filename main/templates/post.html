@@ -1,6 +1,9 @@
 {% extends 'skeleton.html' %}
 {% load static %}
-{% block title %}{{ post.title }}{% endblock %}
+
+{% block title %}{{ post.title }} - Blog - Abdullah Alam{% endblock %}
+{% block ogtitle %}{{ post.title }} - Blog - Abdullah Alam{% endblock %}
+{% block tctitle %}{{ post.title }} - Blog - Abdullah Alam{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/post.css' %}">

@@ -1,6 +1,9 @@
 {% extends 'skeleton.html' %}
 {% load static %}
-{% block title %}Page Title{% endblock %}
+
+{% block title %}Photograph - {{ photo.title }}{% endblock %}
+{% block ogtitle %}Photograph - {{ photo.title }}{% endblock %}
+{% block tctitle %}Photograph - {{ photo.title }}{% endblock %}
  
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/photo.css' %}">

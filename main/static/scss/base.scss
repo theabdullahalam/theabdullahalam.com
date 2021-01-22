@@ -14,9 +14,51 @@ $titlesfont: 'Signika', sans-serif;
 $horizontal_padding_desktop: 15rem;
 $vertical_padding_desktop: 5rem;
 
+// BUTTON ANIMATIONS
+$transitiondout: 1s;
+$transitiondin: 0.15s;
+
 * {
     margin: 0;
     padding: 0;
+}
+
+
+.button {
+
+    $horizontal: 2rem;
+    $vertical: 1.5rem;
+    $gap: 1.5rem;
+
+    font-family: $titlesfont;
+    font-weight: 700;
+    
+    display: inline-block;
+    color: black;
+
+    border: 3px solid black;
+    border-radius: 1rem;
+
+    padding-top: $vertical;
+    padding-bottom: $vertical;
+    padding-left: $horizontal;
+    padding-right: $horizontal;
+
+    margin-right: $gap;
+    margin-bottom: $gap;
+
+    text-align: center;
+
+    transition: background $transitiondout, color $transitiondout, border $transitiondout;
+
+}
+
+.button:hover {
+    background: rgb(206, 89, 89);
+    color: white;
+    // border: white;
+
+    transition: background $transitiondin, color $transitiondin, border $transitiondin, font-size $transitiondin;
 }
 
 
@@ -43,6 +85,9 @@ body{
         font-weight: bold;
         color: rgba(0, 0, 0, 0.411);
     }
+
+
+
 
 
     #navheader{

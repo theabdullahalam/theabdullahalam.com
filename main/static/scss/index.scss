@@ -12,6 +12,157 @@
     padding-top: $vertical_padding_desktop;
     padding-bottom: $vertical_padding_desktop;
 
-    // font-size: 1.1rem;
+    #section1 {
+
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 3fr 1fr;
+
+        #post{
+
+            margin-right: 5rem;
+    
+            #headerimage{
+                width: 100%;
+                margin-top: 2rem;
+            }
+    
+            h1{
+                font-weight: bold;
+                font-family: $titlesfont;
+                font-size: 3rem;
+                margin-top: 2rem;
+            }
+    
+            .subtitle{
+                margin-bottom: 2rem;
+            }
+    
+            .postcontent{
+                font-size: 1.1rem;
+    
+                p {
+                    margin-bottom: 2rem;
+                    img{
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            .button {
+                width: 100%;
+                box-sizing: border-box;
+            }
+    
+        }
+
+        #sidebar {
+
+            h2 {
+                margin-bottom: 1.5rem;
+            }
+    
+            h2.extramargin{
+                margin-bottom: 2rem;
+            }
+    
+            h3 {
+    
+                font-weight: bold;
+                font-size: 1.8rem;
+                font-family: $titlesfont;
+    
+                margin-top: 1rem;
+    
+                a {
+                    color: black;
+                }
+            }
+
+            img.dp {
+                $size: 15rem;
+                border-radius: 50%;
+                width: $size;
+                height: $size;
+
+                place-self: center start;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+
+                -webkit-box-shadow: 4px 4px 8px -3px rgba(0,0,0,0.47);
+                -moz-box-shadow: 4px 4px 8px -3px rgba(0,0,0,0.47);
+                box-shadow: 4px 4px 8px -3px rgba(0,0,0,0.47);
+            }
+
+            #bio{
+                p {
+                    margin-top: 1rem;
+                }
+            }
+    
+        }
+
+    }
+
+    #section2 {
+
+        margin-top: 3rem;
+
+        #photographs{
+
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: 1fr 1fr 1fr;
+    
+            margin-top: 1rem;
+    
+            .column {
+    
+                padding-right: 0.8rem;
+    
+                $shadowanimation: 0.15s;
+    
+                img {
+                    
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                    box-sizing: border-box;
+                    z-index: 1;
+    
+                    transition: 
+                        box-shadow $shadowanimation, 
+                        -webkit-box-shadow $shadowanimation, 
+                        -moz-box-shadow $shadowanimation,
+                        border $shadowanimation/3;
+                }
+    
+                img:hover{
+    
+                    -webkit-box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
+                    -moz-box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
+                    box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
+                    z-index: 4;
+    
+                    // border: 4px solid white;
+    
+                    transition: 
+                        box-shadow $shadowanimation, 
+                        -webkit-box-shadow $shadowanimation, 
+                        -moz-box-shadow $shadowanimation,
+                        border $shadowanimation/3;
+                }
+            }
+    
+        }
+
+
+        .button {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 3rem;
+        }
+
+
+    }
     
 }

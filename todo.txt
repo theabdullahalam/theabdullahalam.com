@@ -1,4 +1,5 @@
 Index Page
+    Create
 
 JS Dark Mode
     Move all color styles to base
@@ -7,5 +8,24 @@ JS Dark Mode
     Create JS floating switch button
     Toggle css on button click
 
+Page Titles
+
+Dynamic info
+    About home
+    About page bio
+
+Twitter Card and OpenGraph Tags
+
+Sitemaps
+    Blog
+    Photographs
+
+Photography
+    Curate Photographs
+    Resize (not compress) them
+    Upload with captions
+
+Blog
+    Upload Existing
+
 Newsletter subscription
-Creative writing, perhaps?

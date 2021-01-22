@@ -8,18 +8,65 @@
 
 {% block body %}
 
-<h1>Hola</h1>
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, vel necessitatibus. Fuga, autem molestiae nostrum fugiat vel repellat minima. Debitis?
-</p>
-<p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum cupiditate consequuntur possimus obcaecati laborum aut natus fuga aspernatur asperiores ab eligendi amet, architecto harum numquam delectus dolores dicta iusto beatae esse iure commodi sed ipsum! Officia eum libero nulla eaque illo magni perspiciatis dolorem obcaecati ipsam sapiente corrupti, impedit at, alias non suscipit necessitatibus repellat distinctio optio dolor dolorum exercitationem minus? Voluptas saepe voluptates, labore voluptatum sapiente similique accusamus repellat deserunt, officia cupiditate reiciendis laborum nam molestias libero neque tempora, placeat ipsam ullam assumenda veniam. Fugit molestias obcaecati dicta at, quis illum soluta, nulla nemo rerum temporibus blanditiis, aut natus.
-</p>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ipsam praesentium ratione dolore dolores sint fugiat, maiores quod enim fuga similique temporibus esse quam et rem sed incidunt atque eligendi iusto? Consequuntur repellat labore excepturi.
-</p>
-<p>
-    <a href="{% url 'blog' %}">Posts</a>
-</p>
+<div id="section1">
+    <div id="post">
+        <h2>LATEST</h2>
+        {% if post.header_image %}
+        <img src="{{ post.header_image.url }}" alt="{{ post.title }}" id="headerimage">
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p class="subtitle">{{ post.hfr_date }}</p>
+        <div class="postcontent">
+            {{ post.content | safe }}
+        </div>
+
+        <a class="button" href="{% url 'blog' %}">MORE POSTS</a>
+    </div>
+    
+    <div id="sidebar">
+
+
+        <h2>ABOUT</h2>
+        <img class="dp" src="{% static 'img/dp.jpg' %}" alt="Abdullah Alam">
+        <div id="bio">
+            <p>
+                Hi, I’m Abdullah. I like to make stuff.
+            </p>
+            <p>
+                Not enough of a bio? Here’s the long, formal version. <b>Abdullah is a software developer, photographer and writer. He loves to travel, and writes blogs about trekking and hiking and photography.</b>
+            </p>
+            <p>
+                Find me on:
+            </p>
+        </div>
+    
+        <h2 class="{% if not post.header_image %}extramargin{% endif %}">BLOG</h2>
+        {% for p in sidebarposts %}
+        <h3><a href="{% url 'post' p.slug %}">{{ p.title }}</a></h3>
+        <p class="subtitle">
+            {{ p.hfr_date }} • {{ p.p_type.type_name }}
+        </p>
+        {% endfor %}
+    
+    </div>
+</div>
+
+<div id="section2">
+    <h2>PHOTOGRAPHY</h2>
+    <div id="photographs">
+        {% for col in columns %}
+            <div class="column">
+                {% for pic in col %}
+                    <a href="{% url 'photo' pic.slug %}">
+                        <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                    </a>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <a class="button" href="{% url 'photography' %}">MORE PHOTOGRAPHY</a>
+</div>
+
 
 {% endblock %}

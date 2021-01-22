@@ -1,6 +1,12 @@
 from django.contrib import admin
-from .models import Post, PostTopic, PhotoCategory, Photograph
- 
+from .models import Post, PostTopic, PhotoCategory, Photograph, DynamicStuff
+
+@admin.register(DynamicStuff)
+class DynamicStuffAdmin(admin.ModelAdmin):
+    list_display = ('title', 'key',)
+    ordering = ('title',)
+    search_fields = ('title', 'key', 'value',)
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title',)

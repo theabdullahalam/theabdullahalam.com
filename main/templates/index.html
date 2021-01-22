@@ -32,15 +32,7 @@
         <h2>ABOUT</h2>
         <img class="dp" src="{% static 'img/dp.jpg' %}" alt="Abdullah Alam">
         <div id="bio">
-            <p>
-                Hi, I’m Abdullah. I like to make stuff.
-            </p>
-            <p>
-                Not enough of a bio? Here’s the long, formal version. <b>Abdullah is a software developer, photographer and writer. He loves to travel, and writes blogs about trekking and hiking and photography.</b>
-            </p>
-            <p>
-                Find me on:
-            </p>
+            {{ bio.value | safe }}
         </div>
     
         <h2 class="{% if not post.header_image %}extramargin{% endif %}">BLOG</h2>

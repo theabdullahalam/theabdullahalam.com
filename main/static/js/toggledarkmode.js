@@ -1,10 +1,17 @@
 function toggleDarkMode(){
     
     // GET DARK MODE SHEET 
-    var darksheet = document.getElementById('darkmodesheet');
+    let darksheet = document.getElementById('darkmodesheet');
+
+    // ENABLE ANIMATION STYLESHEET
+    let animationsheet = document.getElementById('darkanimation');
+    animationsheet.disabled = false
 
     // SWITCH
     darksheet.disabled = !darksheet.disabled
+
+    // DISABLE ANIMATION SHEET AFTER ANIMATION IS COMPLETE
+    setTimeout(() => {animationsheet.disabled = true}, 1000)
 
     // REMEMBER
     document.cookie = 'darksheet=' + String(darksheet.disabled) + '; path=/; SameSite=Lax'

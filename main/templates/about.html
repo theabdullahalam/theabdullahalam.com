@@ -25,15 +25,7 @@
 <div id="profile">
     <img src="{% static 'img/dp.jpg' %}" alt="Abdullah Alam">
     <div id="text">
-        <p>
-            Hi, I’m Abdullah. I like to make stuff.
-        </p>
-        <p>
-            Not enough of a bio? Here’s the long, formal version. <b>Abdullah is a software developer, photographer and writer. He loves to travel, and writes blogs about trekking and hiking and photography.</b>
-        </p>
-        <p>
-            Find me on:
-        </p>
+        {{ bio.value | safe }}
     </div>
 </div>
 

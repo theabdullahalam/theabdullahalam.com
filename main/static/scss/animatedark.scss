@@ -1,0 +1,11 @@
+* {
+
+    $toggleduration: 0.8s;
+
+    transition: 
+        color $toggleduration,
+        background $toggleduration,
+        border $toggleduration,
+        border-bottom $toggleduration
+        ;
+}

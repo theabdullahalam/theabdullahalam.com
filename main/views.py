@@ -7,10 +7,13 @@ from django.shortcuts import redirect, render
 from django.templatetags.static import static
 from django.urls import reverse
 
-from .models import Post, PostTopic, Photograph, PhotoCategory
+from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff
 
 
 def index(request):
+
+    # GET BIO
+    bio = DynamicStuff.objects.get(key='index-page-bio')
 
     # GET LATEST 6 POSTS
     latestposts = Post.objects.all().order_by('-created', 'title')[:6]
@@ -32,13 +35,22 @@ def index(request):
     context = {
         'post': post,
         'sidebarposts': sidebarposts,
-        'columns': parts
+        'columns': parts,
+        'bio': bio
     }
 
     return render(request, 'index.html', context=context)
 
 def about(request):
-    return render(request, 'about.html')
+    
+    # GET BIO
+    bio = DynamicStuff.objects.get(key='about-page-bio')
+
+    context = {
+        'bio': bio
+    }
+
+    return render(request, 'about.html', context=context)
  
 def post(request, slug):
     # FETCH OBJ

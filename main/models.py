@@ -101,3 +101,14 @@ class Photograph(models.Model):
     class Meta:
         verbose_name = 'Photograph'
         verbose_name_plural = 'Photographs'
+
+
+class DynamicStuff(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    title = models.CharField(max_length=250)
+    key = models.CharField(max_length=250)
+    value = RichTextUploadingField()
+
+    class Meta:
+        verbose_name = 'Dynamic Thing'
+        verbose_name_plural = 'Dynamic Stuff'

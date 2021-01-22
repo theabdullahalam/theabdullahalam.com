@@ -1,7 +1,3 @@
-Dynamic info
-    About home
-    About page bio
-
 Twitter Card and OpenGraph Tags
 
 Responsive

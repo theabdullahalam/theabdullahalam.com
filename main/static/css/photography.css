@@ -118,23 +118,22 @@ body #navheader #menu a {
   }
 }
 body #content {
-  box-sizing: border-box;
-  padding-left: 15rem;
-  padding-right: 15rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   min-height: 90vh;
 }
 @media screen and (max-width: 1500px) {
   body #content {
-    padding-left: 4rem;
-    padding-right: 4rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
   }
 }
 @media screen and (max-width: 800px) {
   body #content {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
 }
 body #content #sidebar h3 a {

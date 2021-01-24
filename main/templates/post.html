@@ -23,14 +23,17 @@
 
 <div id="post">
     <h2>BLOG • {{ post.p_type.type_name.upper }}</h2>
+
     {% if post.header_image %}
     <img src="{{ post.header_image.url }}" alt="{{ post.title }}" id="headerimage">
     {% endif %}
+
     <h1>{{ post.title }}</h1>
     <p class="subtitle">{{ post.hfr_date }}</p>
     <div class="postcontent">
         {{ post.content | safe }}
-    </div>    
+    </div>
+
 </div>
 
 <div id="sidebar">

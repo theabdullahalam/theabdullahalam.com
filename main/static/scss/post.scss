@@ -6,10 +6,21 @@
     grid-template-rows: auto;
     grid-template-columns: 3fr 1fr;
 
+    @media screen and (max-width: 800px) {
+
+        display: flex;
+        flex-direction: column;
+
+    }
+
 
     #post{
 
         margin-right: 3rem;
+
+        @media screen and (max-width: 800px) {
+            margin-right: initial;
+        }
 
         #headerimage{
             width: 100%;

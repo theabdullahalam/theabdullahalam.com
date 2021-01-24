@@ -186,22 +186,22 @@ body{
 
     #content {
 
-        box-sizing: border-box;
-        padding-left: $horizontal_padding_desktop;
-        padding-right: $horizontal_padding_desktop;
-        padding-top: $vertical_padding_desktop;
-        padding-bottom: $vertical_padding_desktop;
+        margin-left: $horizontal_padding_desktop;
+        margin-right: $horizontal_padding_desktop;
+        margin-top: $vertical_padding_desktop;
+        margin-bottom: $vertical_padding_desktop;
         min-height: 90vh;
 
+        // border: 3px solid red;
 
         @media screen and (max-width: 1500px) {
-            padding-left: $horizontal_padding_desktop_small;
-            padding-right: $horizontal_padding_desktop_small;
+            margin-left: $horizontal_padding_desktop_small;
+            margin-right: $horizontal_padding_desktop_small;
         }
 
         @media screen and (max-width: 800px) {
-            padding-left: $horizontal_padding_mobile;
-            padding-right: $horizontal_padding_mobile;
+            margin-left: $horizontal_padding_mobile !important;
+            margin-right: $horizontal_padding_mobile !important;
         }
 
 

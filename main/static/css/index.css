@@ -206,8 +206,19 @@ a :visited {
   grid-template-rows: auto;
   grid-template-columns: 3fr 1fr;
 }
+@media screen and (max-width: 800px) {
+  #content #section1 {
+    display: flex;
+    flex-direction: column;
+  }
+}
 #content #section1 #post {
   margin-right: 5rem;
+}
+@media screen and (max-width: 800px) {
+  #content #section1 #post {
+    margin-right: 0;
+  }
 }
 #content #section1 #post #headerimage {
   width: 100%;
@@ -234,6 +245,11 @@ a :visited {
 #content #section1 #post .button {
   width: 100%;
   box-sizing: border-box;
+}
+@media screen and (max-width: 800px) {
+  #content #section1 #sidebar {
+    margin-top: 3rem;
+  }
 }
 #content #section1 #sidebar h2 {
   margin-bottom: 1.5rem;
@@ -270,8 +286,19 @@ a :visited {
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1rem;
 }
+@media screen and (max-width: 700px) {
+  #content #section2 #photographs {
+    display: flex;
+    flex-direction: column;
+  }
+}
 #content #section2 #photographs .column {
   padding-right: 0.8rem;
+}
+@media screen and (max-width: 700px) {
+  #content #section2 #photographs .column {
+    padding-right: 0;
+  }
 }
 #content #section2 #photographs .column img {
   width: 100%;

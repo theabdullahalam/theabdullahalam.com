@@ -1,15 +1,3 @@
-Responsive
-    Skeleton
-        Dark Mode Button
-
-Sitemaps
-    Blog
-    Photographs
-
-Dark Mode
-    Ctrl + F5 messes up dark mode wtf
-        FIREFOX BUG
-
 Favicon
     Color (Red?)
     Padding

@@ -26,12 +26,39 @@
 
     }
 
+    
+    .threecolumns{
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .twocolumns{
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr;
+        display: none !important;
+
+        @media screen and (max-width: 700px) {
+            .column:nth-child(2){
+                padding-right: 0 !important;
+            }
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+
+        .threecolumns{
+            display: none !important;
+        }
+
+        .twocolumns{
+            display: grid !important;
+        }
+
+    }
+
     #photographs{
 
         display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: 1fr 1fr 1fr;
-
         margin-top: 1rem;
 
         .column {

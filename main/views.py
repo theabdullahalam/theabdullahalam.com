@@ -327,16 +327,22 @@ def photo(request, slug):
 
     # INITIALISE parts FOR POSTERITY
     parts = []
+    twoparts = []
 
     # SPLIT PHOTOGRAPHS INTO THREE COLUMNS
     if len(p_list) > 0:
         parts = list(chunks(p_list, 3))
+
+    # SPLIT PHOTOGRAPHS INTO TWO COLUMNS FOR MOBILE
+    if len(p_list) > 0:
+        twoparts = list(chunks(p_list, 2))
 
     # SET CONTEXT
     context = {
         'photo': photo,
         'showrelated': len(p_list) > 0,
         'columns': parts,
+        'twocolumns': twoparts,
         'category': category,
         'description': get_sane_description(str(photo.content)),
         'fullurl': get_full_url(reverse('photo', args=[slug])),

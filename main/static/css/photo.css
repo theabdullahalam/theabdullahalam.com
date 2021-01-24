@@ -213,10 +213,30 @@ a :visited {
 #content #photo .subtitle {
   margin-bottom: 2rem;
 }
-#content #photographs {
-  display: grid;
+#content .threecolumns {
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr;
+}
+#content .twocolumns {
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  display: none !important;
+}
+@media screen and (max-width: 700px) {
+  #content .twocolumns .column:nth-child(2) {
+    padding-right: 0 !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  #content .threecolumns {
+    display: none !important;
+  }
+  #content .twocolumns {
+    display: grid !important;
+  }
+}
+#content #photographs {
+  display: grid;
   margin-top: 1rem;
 }
 #content #photographs .column {

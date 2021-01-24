@@ -32,7 +32,9 @@
 
 {% if showrelated %}
 <h2><a href="{% url 'photography' category.slug %}">{{ category.categoryname.upper }}</a></h2>
-<div id="photographs">
+
+<!-- THREE COLUMNS -->
+<div id="photographs" class="threecolumns">
     {% for col in columns %}
         <div class="column">
             {% for pic in col %}
@@ -43,6 +45,21 @@
         </div>
     {% endfor %}
 </div>
+
+<!-- THREE COLUMNS -->
+<div id="photographs" class="twocolumns">
+    {% for col in twocolumns %}
+        <div class="column">
+            {% for pic in col %}
+                <a href="{% url 'photo' pic.slug %}">
+                    <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                </a>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+
 {% endif %}
  
 {% endblock %}

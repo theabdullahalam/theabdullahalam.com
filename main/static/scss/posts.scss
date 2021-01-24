@@ -3,11 +3,6 @@
 
 #content {
 
-    padding-left: $horizontal_padding_desktop;
-    padding-right: $horizontal_padding_desktop;
-    padding-top: $vertical_padding_desktop;
-    padding-bottom: $vertical_padding_desktop;
-
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 3fr 1fr;

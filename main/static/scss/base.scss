@@ -78,9 +78,37 @@ body{
         right: 4rem;
 
         $size: 2rem;
+        $smallsize: 1.5rem;
 
         width: $size;
         height: $size;
+
+
+        @media screen and (max-width: 1500px) {
+            bottom: 2rem;
+            right: 2rem;
+        }
+
+
+        @media screen and (max-width: 800px) {
+
+            bottom: 6rem;
+            right: -12px;
+            padding: 0.8rem;
+            padding-right: 1.6rem;
+
+            background: white;
+            -webkit-box-shadow: -3px 0px 8px -1px rgba(0,0,0,0.37);
+            -moz-box-shadow: -3px 0px 8px -1px rgba(0,0,0,0.37);
+            box-shadow: -3px 0px 8px -1px rgba(0,0,0,0.37);
+
+            border-radius: 1rem;
+
+            width: $smallsize;
+            height: $smallsize;
+
+        }
+
 
     }
 

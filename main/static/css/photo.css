@@ -39,6 +39,27 @@ body #darkmodetoggle {
   width: 2rem;
   height: 2rem;
 }
+@media screen and (max-width: 1500px) {
+  body #darkmodetoggle {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  body #darkmodetoggle {
+    bottom: 6rem;
+    right: -12px;
+    padding: 0.8rem;
+    padding-right: 1.6rem;
+    background: white;
+    -webkit-box-shadow: -3px 0px 8px -1px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: -3px 0px 8px -1px rgba(0, 0, 0, 0.37);
+    box-shadow: -3px 0px 8px -1px rgba(0, 0, 0, 0.37);
+    border-radius: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
 body #darkmodetoggle:hover {
   cursor: pointer;
 }

@@ -12,6 +12,13 @@ body {
 
     #darkmodetoggle {
         color: white;
+
+        @media screen and (max-width: 800px) {
+
+            background: rgb(32, 32, 32);
+
+        }
+
     }
 
     #navheader {

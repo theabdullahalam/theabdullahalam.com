@@ -1,8 +1,4 @@
 Responsive
-    Photography
-    Photo
-    Index
-    About
     Skeleton
         Dark Mode Button
 

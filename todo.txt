@@ -1,5 +1,4 @@
 Responsive
-    Blog
     Photography
     Photo
     Index

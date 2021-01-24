@@ -214,6 +214,13 @@ a :visited {
   grid-template-rows: auto;
   grid-template-columns: 1fr 2fr 1fr;
 }
+@media screen and (max-width: 1200px) {
+  #content #profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 #content #profile img {
   border-radius: 50%;
   width: 15rem;
@@ -224,6 +231,11 @@ a :visited {
   -webkit-box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.47);
   -moz-box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.47);
   box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.47);
+}
+@media screen and (max-width: 1200px) {
+  #content #profile img {
+    place-self: initial;
+  }
 }
 #content #profile #text {
   place-self: center start;
@@ -240,12 +252,44 @@ a :visited {
   grid-template-rows: 1fr 1fr;
   width: 75%;
 }
+@media screen and (max-width: 1200px) {
+  #content #contact {
+    margin-top: 2rem;
+    width: 100%;
+  }
+  #content #contact .button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 800px) {
+  #content #contact {
+    display: flex;
+    flex-direction: column;
+  }
+}
 #content #morelinks {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   width: 75%;
   margin-top: 2rem;
+}
+@media screen and (max-width: 1200px) {
+  #content #morelinks {
+    margin-top: 2rem;
+    width: 100%;
+  }
+  #content #morelinks .button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 800px) {
+  #content #morelinks {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=about.css.map */

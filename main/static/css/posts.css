@@ -201,6 +201,18 @@ a :visited {
   grid-template-rows: auto;
   grid-template-columns: 3fr 1fr;
 }
+@media screen and (max-width: 800px) {
+  #content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 800px) {
+  #content #posts {
+    margin-top: 4rem;
+    order: 2;
+  }
+}
 #content #posts .post {
   margin-top: 2rem;
 }
@@ -222,9 +234,19 @@ a :visited {
 #content #posts #pagination div:nth-child(2) {
   margin-left: auto;
 }
+@media screen and (max-width: 800px) {
+  #content #topics {
+    order: 1;
+  }
+}
 #content #topics #topiclist {
   margin-top: 2rem;
   list-style: none;
+}
+@media screen and (max-width: 800px) {
+  #content #topics #topiclist {
+    margin-top: 1rem;
+  }
 }
 #content #topics #topiclist li {
   font-family: "Signika", sans-serif;

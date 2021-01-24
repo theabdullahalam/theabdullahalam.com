@@ -7,7 +7,21 @@
     grid-template-rows: auto;
     grid-template-columns: 3fr 1fr;
 
+    @media screen and (max-width: 800px) {
+
+        display: flex;
+        flex-direction: column;
+
+    }
+
     #posts{
+
+        @media screen and (max-width: 800px) {
+
+            margin-top: 4rem;
+            order: 2;
+    
+        }
         
         .post{
             
@@ -46,9 +60,18 @@
 
     #topics {
 
+        @media screen and (max-width: 800px) {
+            order: 1;    
+        }
+
         #topiclist{
+
             margin-top: 2rem;
             list-style: none;
+
+            @media screen and (max-width: 800px) {
+                margin-top: 1rem;
+            }
 
             li {
 

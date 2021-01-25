@@ -1,11 +1,3 @@
-Favicon
-    Color (Red?)
-    Padding
-
-Commento
-
-Fathom Analytics
-
 Deploy
 
 Photography

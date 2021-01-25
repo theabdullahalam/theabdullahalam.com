@@ -30,9 +30,13 @@
 
     <h1>{{ post.title }}</h1>
     <p class="subtitle">{{ post.hfr_date }}</p>
+
     <div class="postcontent">
         {{ post.content | safe }}
     </div>
+
+    <script defer src="https://commento.sentient-pixels.com/js/commento.js"></script>
+    <div id="commento"></div>
 
 </div>
 

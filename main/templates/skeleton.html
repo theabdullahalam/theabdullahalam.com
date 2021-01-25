@@ -23,7 +23,25 @@
         <meta name="twitter:description" content="{% block tcdescription %}{% endblock %}"/>
         <meta name="twitter:image" content="{% block tcimage %}{% endblock %}"/>
 
+        <!-- BASIC FAVICON -->
         <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+
+        
+        <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+        <script>
+            (function(f, a, t, h, o, m){
+                a[h]=a[h]||function(){
+                    (a[h].q=a[h].q||[]).push(arguments)
+                };
+                o=f.createElement('script'),
+                m=f.getElementsByTagName('script')[0];
+                o.async=1; o.src=t; o.id='fathom-script';
+                m.parentNode.insertBefore(o,m)
+            })(document, window, '//fathom.sentient-pixels.com/tracker.js', 'fathom');
+            fathom('set', 'siteId', 'STOFD');
+            fathom('trackPageview');
+        </script>
+        <!-- / Fathom -->
 
         {% block head %}{% endblock %}
 

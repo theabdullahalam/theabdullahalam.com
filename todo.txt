@@ -1,11 +1,6 @@
-Deploy
-
 Photography
     Curate Photographs
     Resize (not compress) them
     Upload with captions
-
-Blog
-    Upload Existing
 
 Newsletter subscription

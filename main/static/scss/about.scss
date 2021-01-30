@@ -28,10 +28,19 @@
         }
 
         img{
+
             $size: 15rem;
+            $smolsize: 8rem;
+
+
             border-radius: 50%;
             width: $size;
             height: $size;
+
+            @media screen and (max-width: 250px) {
+                width: $smolsize;
+                height: $smolsize;
+            }
 
             place-self: center start;
             @media screen and (max-width: 1200px) {

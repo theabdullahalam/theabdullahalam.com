@@ -185,9 +185,10 @@ def post(request, slug):
 
 
     # FULL IMAGE URL
-    fullimage = ''
+    fullimage = get_full_url(static('img/favicon.png'))
     if post_obj.header_image != '':
         fullimage = get_full_url(post_obj.header_image.url)
+
  
     # CREATE CONTEXT
     context = {
@@ -236,6 +237,9 @@ def blog(request, topic='all', pageno=1):
  
         post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
 
+    # TWITTER IMAGE
+    fullimage = get_full_url(static('img/favicon.png'))
+
 
     # FIGURE OUT URL
     fullurl = ''
@@ -259,7 +263,8 @@ def blog(request, topic='all', pageno=1):
         'pageinator': paginator,
         'page_obj': page_obj,
         'description': get_sane_description(str(DynamicStuff.objects.get(key='blog-description').value)),
-        'fullurl': fullurl
+        'fullurl': fullurl,
+        'fullimage': fullimage
     }
  
     # RETURN

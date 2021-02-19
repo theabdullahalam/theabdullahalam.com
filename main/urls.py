@@ -2,6 +2,7 @@ from django.urls import path
 from django.contrib.sitemaps.views import sitemap
 
 from .sitemaps import PostSiteMap, PostTopicSiteMap
+from .feeds import LatestPostsFeed
 from . import views
 
 sitemaps = {
@@ -36,6 +37,7 @@ urlpatterns = [
     path('photo/<slug:slug>', views.photo, name='photo'),
     path('photo/<slug:slug>/', views.photo, name='photo'),
 
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('feed', LatestPostsFeed(), name='all_posts_feed')
  
 ]

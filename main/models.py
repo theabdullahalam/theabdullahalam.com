@@ -16,6 +16,9 @@ class PostTopic(models.Model):
         if not self.slug:
             self.slug = slugify(self.type_name)
         return super(PostTopic, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('blog', args=[str(self.slug)])
  
     def __str__(self):
         return str(self.type_name)

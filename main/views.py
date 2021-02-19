@@ -272,19 +272,48 @@ def blog(request, topic='all', pageno=1):
 
 def photography(request, category='all'):
     
-    photographs = None
-
-    # FETCH ALL PHOTOGRAPHS
-    if category != 'all':
-        photographs = Photograph.objects.filter(p_category__slug = category).order_by('-modified', 'title')
-    else:
-        photographs = Photograph.objects.all().order_by('-modified', 'title')
+    photolist = None
 
     # FETCH ALL CATEGORIES
     categories = PhotoCategory.objects.all().order_by('categoryname')
 
+    # FETCH PHOTOGRAPHS
+    if category != 'all':
+        photolist = Photograph.objects.filter(p_category__slug = category).order_by('-modified', 'title')
+    else:
+        # REARRANGE PHOTOGRAPHS IN SEQUENCE 
+
+        #THIS IS SIMPLAY A LIST OF LISTS OF PHOTOGRAPHS, EACH LIST WITH PHOTOGRAPHS OF A PARTICULAR CATEGORY    
+        catlist_of_photolists = [] 
+        for c in categories:
+            catlist_of_photolists.append(
+                Photograph.objects.filter(p_category__slug = c.slug).order_by('-modified', 'title')
+            )
+
+        # NOW WE LOOP THROUGH THAT LIST AND ADD PICS ONE BY ONE INTO A NEW LIST
+        pointer = 0
+        photolist = []
+        somevar = True
+
+        # GET TOTAL NO. OF PICTURES
+        totalpics = 0
+        for c in catlist_of_photolists:
+            totalpics += len(c)
+
+        for i in range(0, totalpics):
+            for c in catlist_of_photolists:
+                if pointer < len(c):
+                    photolist.append(c[pointer])
+                    added = True
+
+            pointer += 1
+            
+    # endif lol
+
+
+
     # SPLIT PHOTOGRAPHS INTO THREE COLUMNS
-    parts = list(chunks(photographs, 3))
+    parts = list(chunks(photolist, 3))
 
     # GET BIO
     description = get_sane_description(str(DynamicStuff.objects.get(key = 'photography-description').value))
@@ -302,7 +331,7 @@ def photography(request, category='all'):
         'categories': categories,
         'category': category,
         'description': description,
-        'fullimage': get_full_url(photographs[0].image.url),
+        'fullimage': get_full_url(photolist[0].image.url),
         'fullurl': fullurl
     }
  

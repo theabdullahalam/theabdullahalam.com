@@ -43,7 +43,18 @@
         }
 
         .postcontent{
+
             font-size: 1.1rem;
+
+            ul {
+                
+                margin-left: 1em;
+                margin-bottom: 2rem;
+
+                li {
+                    margin-bottom: 0.5rem;
+                }
+            }
 
             p {
                 margin-bottom: 2rem;

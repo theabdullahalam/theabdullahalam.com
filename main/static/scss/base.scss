@@ -200,6 +200,16 @@ body{
                 text-align: center;
             }
 
+            br {
+                display: none;
+
+                @media screen and (max-width: 900px) {
+                    display: inline-block !important;
+                }
+            }
+
+
+
             a {
                 font-family: $titlesfont;
                 font-weight: 500;

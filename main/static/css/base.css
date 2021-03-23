@@ -132,6 +132,14 @@ body #navheader #menu {
     text-align: center;
   }
 }
+body #navheader #menu br {
+  display: none;
+}
+@media screen and (max-width: 900px) {
+  body #navheader #menu br {
+    display: inline-block !important;
+  }
+}
 body #navheader #menu a {
   font-family: "Signika", sans-serif;
   font-weight: 500;

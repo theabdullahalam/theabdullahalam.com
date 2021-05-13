@@ -1,282 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&family=Signika:wght@300;500;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.button {
-  font-family: "Signika", sans-serif;
-  font-weight: 700;
-  display: inline-block;
-  color: black;
-  border: 3px solid black;
-  border-radius: 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin-right: 1.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  transition: background 1s, color 1s, border 1s;
-}
-
-.button:hover {
-  background: #ce5959;
-  color: white;
-  transition: background 0.15s, color 0.15s, border 0.15s, font-size 0.15s;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Nunito", sans-serif;
-}
-body #darkmodetoggle {
-  position: fixed;
-  bottom: 4rem;
-  right: 4rem;
-  width: 2rem;
-  height: 2rem;
-}
-@media screen and (max-width: 1500px) {
-  body #darkmodetoggle {
-    bottom: 2rem;
-    right: 2rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  body #darkmodetoggle {
-    bottom: 6rem;
-    right: -12px;
-    padding: 0.8rem;
-    padding-right: 1.6rem;
-    background: white;
-    -webkit-box-shadow: -3px 0px 8px -1px rgba(0, 0, 0, 0.37);
-    -moz-box-shadow: -3px 0px 8px -1px rgba(0, 0, 0, 0.37);
-    box-shadow: -3px 0px 8px -1px rgba(0, 0, 0, 0.37);
-    border-radius: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-}
-body #darkmodetoggle:hover {
-  cursor: pointer;
-}
-body h2 {
-  font-family: "Signika", sans-serif;
-  color: #CB3135;
-  font-size: 1.5rem;
-  margin-top: 4rem;
-  font-weight: 500;
-}
-@media screen and (max-width: 250px) {
-  body h2 {
-    font-size: 1rem;
-  }
-}
-body h2:first-child {
-  margin-top: 0;
-}
-body .subtitle {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.411);
-}
-body #navheader {
-  width: 100%;
-  color: rgba(0, 0, 0, 0.801);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  box-sizing: border-box;
-  padding-left: 15rem;
-  padding-right: 15rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.158);
-}
-@media screen and (max-width: 800px) {
-  body #navheader {
-    flex-direction: column;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    text-align: center;
-  }
-}
-@media screen and (max-width: 1500px) {
-  body #navheader {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-}
-body #navheader #title {
-  font-family: "East Sea Dokdo", cursive;
-  font-size: 4rem;
-}
-@media screen and (max-width: 250px) {
-  body #navheader #title {
-    font-size: 3rem;
-    line-height: 3rem;
-  }
-}
-body #navheader #title a {
-  color: rgba(0, 0, 0, 0.801);
-}
-body #navheader #menu {
-  font-size: 1.1rem;
-}
-@media screen and (max-width: 800px) {
-  body #navheader #menu {
-    margin-top: 1rem;
-    text-align: center;
-  }
-}
-body #navheader #menu br {
-  display: none;
-}
-@media screen and (max-width: 900px) {
-  body #navheader #menu br {
-    display: inline-block !important;
-  }
-}
-body #navheader #menu a {
-  font-family: "Signika", sans-serif;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.801);
-  margin-left: 4rem;
-}
-@media screen and (max-width: 1100px) {
-  body #navheader #menu a {
-    margin-left: 2rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  body #navheader #menu a {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 0.5rem;
-  }
-}
-body #content {
-  margin-left: 15rem;
-  margin-right: 15rem;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  min-height: 90vh;
-}
-@media screen and (max-width: 1500px) {
-  body #content {
-    margin-left: 4rem;
-    margin-right: 4rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  body #content {
-    margin-left: 1rem !important;
-    margin-right: 1rem !important;
-  }
-}
-body #content #sidebar h3 a {
-  color: black;
-}
-body #content #categorylist ul li a {
-  color: black;
-}
-body #content #posts .post h1 a {
-  color: black;
-}
-body #content #topics #topiclist li a {
-  color: black;
-}
-body #footer {
-  width: 100%;
-  background: #0f0f0f;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding-left: 15rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-@media screen and (max-width: 1500px) {
-  body #footer {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  body #footer {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-body #footer #title {
-  font-family: "East Sea Dokdo", cursive;
-  font-size: 3.5rem;
-}
-body #footer #menu {
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-body #footer #menu a {
-  font-family: "Signika", sans-serif;
-  font-weight: 700;
-  color: white;
-  margin-top: 1rem;
-}
-
-a {
-  text-decoration: none;
-  color: #CB3135;
-}
-a :visited {
-  color: #CB3135;
-}
-
-.button {
-  color: rgba(255, 255, 255, 0.9);
-  border: 3px solid rgba(255, 255, 255, 0.9);
-}
-
-body {
+body.darkmode {
   background: #141414;
   color: #f0f0f0;
 }
-body #darkmodetoggle {
+body.darkmode .button {
+  color: rgba(255, 255, 255, 0.9);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+}
+body.darkmode #darkmodetoggle {
   color: white;
 }
 @media screen and (max-width: 800px) {
-  body #darkmodetoggle {
+  body.darkmode #darkmodetoggle {
     background: #202020;
   }
 }
-body #navheader {
-  color: rgba(255, 255, 255, 0.801);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.158);
-}
-body #navheader #title a {
+body.darkmode #navheader {
   color: rgba(255, 255, 255, 0.801);
 }
-body #navheader #menu a {
+body.darkmode #navheader #title a {
   color: rgba(255, 255, 255, 0.801);
 }
-body .subtitle {
+body.darkmode #navheader #menu a {
+  color: rgba(255, 255, 255, 0.801);
+}
+body.darkmode .subtitle {
   color: rgba(255, 255, 255, 0.411);
 }
-body #content #sidebar h3 a {
+body.darkmode #content #sidebar h3 a {
   color: rgba(255, 255, 255, 0.9);
 }
-body #content #categorylist ul li a {
+body.darkmode #content #categorylist ul li a {
   color: rgba(255, 255, 255, 0.9);
 }
-body #content #posts .post h1 a {
+body.darkmode #content .postcontent .codeblock {
+  border: 1px solid rgba(255, 255, 255, 0.171);
+  color: rgba(215, 252, 255, 0.712);
+}
+body.darkmode #content #posts .post h1 a {
   color: rgba(255, 255, 255, 0.9);
 }
-body #content #topics #topiclist li a {
+body.darkmode #content #topics #topiclist li a {
   color: rgba(255, 255, 255, 0.9);
 }
 

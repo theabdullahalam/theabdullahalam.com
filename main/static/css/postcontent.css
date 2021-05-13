@@ -1,0 +1,27 @@
+.postcontent {
+  font-size: 1.1rem;
+}
+.postcontent .codeblock {
+  border: 1px solid rgba(0, 0, 0, 0.171);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  font-family: "Source Code Pro", monospace;
+  color: rgba(0, 39, 42, 0.712);
+  font-size: 0.9rem;
+}
+.postcontent ul {
+  margin-left: 1em;
+  margin-bottom: 2rem;
+}
+.postcontent ul li {
+  margin-bottom: 0.5rem;
+}
+.postcontent p {
+  margin-bottom: 2rem;
+  line-height: 1.8rem;
+}
+.postcontent p img {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=postcontent.css.map */

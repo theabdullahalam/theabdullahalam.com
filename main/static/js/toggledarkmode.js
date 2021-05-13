@@ -1,20 +1,49 @@
-function toggleDarkMode(){
+function loadDarkMode(){
+    let darkmode = getCookieVal('darkmode');
     
-    // GET DARK MODE SHEET 
-    let darksheet = document.getElementById('darkmodesheet');
+    if (darkmode === null){
+        document.cookie = 'darkmode=false; path=/; SameSite=Lax';
+        darkmode = getCookieVal('darkmode');
+    }
 
-    // ENABLE ANIMATION STYLESHEET
-    let animationsheet = document.getElementById('darkanimation');
-    animationsheet.disabled = false
+    if (darkmode === 'false'){
+        setDarkMode(false)
+    }
 
-    // SWITCH
-    darksheet.disabled = !darksheet.disabled
+    if (darkmode === 'true'){
+        setDarkMode(true)
+    }
+    
+}
 
-    // DISABLE ANIMATION SHEET AFTER ANIMATION IS COMPLETE
-    setTimeout(() => {animationsheet.disabled = true}, 1000)
 
-    // REMEMBER
-    document.cookie = 'darksheet=' + String(darksheet.disabled) + '; path=/; SameSite=Lax'
+function setDarkMode(state){
+    let body = document.getElementById('body');
+    if (state){
+        body.classList.add('darkmode');
+    }else{
+        body.classList.remove('darkmode');
+    }
+}
+
+
+
+function toggleDarkMode(){
+
+    // GET COOKIE
+    let cookie_val = getCookieVal('darkmode');
+
+    // TOGGLE DARKMODE
+    if (cookie_val === 'true'){
+        cookie_val = 'false';
+        setDarkMode(false)
+    }else{
+        cookie_val = 'true';
+        setDarkMode(true)
+    }
+
+    // UPDATE COOKIE
+    document.cookie = 'darkmode=' + cookie_val + '; path=/; SameSite=Lax'
 
 }
 
@@ -26,7 +55,7 @@ function getCookieVal(key){
     // IF COOKIE STRING CONTAINS ;
     if(cookiestring.includes('; ')){
         cookies = cookiestring.split('; ')
-        for (i = 0; i < cookies.length - 1; i++){
+        for (i = 0; i < cookies.length; i++){
             cookie = cookies[i]
             keyvals = cookie.split('=')
 
@@ -47,22 +76,6 @@ function getCookieVal(key){
 
 }
 
-function updateDarkMode(){
 
-    // darksheet COOKIE VAL
-    let darksheetcookie = getCookieVal('darksheet')
-    console.log(darksheetcookie !== null)
-
-    // GET DARK MODE SHEET 
-    var darksheet = document.getElementById('darkmodesheet');
-
-    // SWITCH
-    if(darksheetcookie !== null){ // DO NOTHING ON FIRST LOAD
-        darksheet.disabled = (getCookieVal('darksheet') === 'true')
-    }    
-    
-}
-
-
-// UPDATE DARK MODE ON LOAD
-updateDarkMode()
+// LOAD DARK MODE ON LOAD
+loadDarkMode()

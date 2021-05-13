@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Bilma";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/static/fonts/Bilma.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Maka";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/static/fonts/Maka.otf) format("opentype");
+}
+
+/*# sourceMappingURL=fonts.css.map */

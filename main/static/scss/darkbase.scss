@@ -1,12 +1,11 @@
-@import 'base';
+body.darkmode{
 
-.button {
-    color: rgba(255, 255, 255, 0.9);
-    border: 3px solid rgba(255, 255, 255, 0.9);
-}
 
-body {
-
+    .button {
+        color: rgba(255, 255, 255, 0.9);
+        border: 3px solid rgba(255, 255, 255, 0.9);
+    }   
+    
     background: rgb(20, 20, 20);
     color: rgb(240, 240, 240);
 
@@ -24,7 +23,6 @@ body {
     #navheader {
 
         color: rgba(255, 255, 255, 0.801);
-        border-bottom: 2px solid rgba(255, 255, 255, 0.158);
 
         #title {
             a{
@@ -44,6 +42,7 @@ body {
     }
 
     #content {
+
         #sidebar {
             h3 {
                 a {
@@ -59,6 +58,14 @@ body {
                         color: rgba(255, 255, 255, 0.9);
                     }
                 }
+            }
+        }
+
+
+        .postcontent{
+            .codeblock{
+                border: 1px solid rgba(255, 255, 255, 0.171);
+                color: rgba(215, 252, 255, 0.712);
             }
         }
 
@@ -84,5 +91,6 @@ body {
             }    
         }
     }
-
+    
 }
+

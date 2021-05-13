@@ -1,4 +1,5 @@
 @import 'base';
+@import 'postcontent';
 
 * {
     margin: 0;
@@ -46,27 +47,7 @@
             .subtitle{
                 margin-bottom: 2rem;
             }
-    
-            .postcontent{
-                font-size: 1.1rem;
 
-                ul {
-                
-                    margin-left: 1em;
-                    margin-bottom: 2rem;
-    
-                    li {
-                        margin-bottom: 0.5rem;
-                    }
-                }
-    
-                p {
-                    margin-bottom: 2rem;
-                    img{
-                        max-width: 100%;
-                    }
-                }
-            }
 
             .button {
                 width: 100%;

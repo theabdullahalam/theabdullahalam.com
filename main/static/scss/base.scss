@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'fonts';
 @import 'darkbase';
+@import 'animatedark';
 
 // FONTS
 
@@ -178,7 +179,7 @@ body{
 
         $vertical_padding_desktop: 2rem;
         padding-top: $vertical_padding_desktop;
-        padding-bottom: $vertical_padding_desktop;
+        padding-bottom: $vertical_padding_desktop*2;
 
         @media screen and (max-width: 800px) {
             padding-bottom: $vertical_padding_desktop/3;
@@ -191,9 +192,9 @@ body{
             // font-family: 'East Sea Dokdo', cursive;
             font-family: 'Maka';
             font-weight: bold;
-            font-size: 2rem;
+            font-size: 1.8rem;
 
-            @media screen and (max-width: 250px) {
+            @media screen and (max-width: 800px) {
                 font-size: 3rem;
                 line-height: 3rem;
             }
@@ -208,11 +209,13 @@ body{
         #menu{
             // margin-left: 4rem;
             // margin-left: auto;
-            font-size: 1.1rem;
+            font-size: 1rem;
 
             @media screen and (max-width: 800px) {
+                // margin-left: initial;
                 margin-top: 1rem;
                 text-align: left;
+                font-size: 1.1rem;
             }
 
             br {
@@ -227,10 +230,12 @@ body{
 
             a {
                 font-family: $titlesfont;
-                font-weight: 500;
-                // color: rgba(0, 0, 0, 0.801);
-                color: $navtextcolor;
-                margin-left: 4rem;
+                // font-weight: 300;
+                // font-size: 1rem;
+                color: rgba(0, 0, 0, 0.801);
+                // color: $navtextcolor;
+                // color: red;
+                margin-left: 2rem;
 
                 @media screen and (max-width: 1100px) {
                     margin-left: 2rem;
@@ -243,6 +248,7 @@ body{
                 }
 
             }
+
         }
 
 
@@ -344,7 +350,7 @@ body{
         padding-bottom: $vertical_padding_desktop;
 
         #title{
-            font-family: 'East Sea Dokdo', cursive;
+            font-family: 'Maka';
             font-size: 3.5rem;
         }
 

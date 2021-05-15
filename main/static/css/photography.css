@@ -22,6 +22,9 @@ body.darkmode .button {
   color: rgba(255, 255, 255, 0.9);
   border: 3px solid rgba(255, 255, 255, 0.9);
 }
+body.darkmode h2 {
+  color: #ee6f74;
+}
 body.darkmode #darkmodetoggle {
   color: white;
 }
@@ -57,6 +60,10 @@ body.darkmode #content #posts .post h1 a {
 }
 body.darkmode #content #topics #topiclist li a {
   color: rgba(255, 255, 255, 0.9);
+}
+
+*.animatefade {
+  transition: color 0.5s, background 0.5s, border 0.5s, border-bottom 0.5s;
 }
 
 * {
@@ -153,7 +160,7 @@ body #navheader {
   padding-left: 15rem;
   padding-right: 15rem;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 @media screen and (max-width: 800px) {
   body #navheader {
@@ -178,9 +185,9 @@ body #navheader {
 body #navheader #title {
   font-family: "Maka";
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
-@media screen and (max-width: 250px) {
+@media screen and (max-width: 800px) {
   body #navheader #title {
     font-size: 3rem;
     line-height: 3rem;
@@ -190,12 +197,13 @@ body #navheader #title a {
   color: #1d1d1d;
 }
 body #navheader #menu {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 @media screen and (max-width: 800px) {
   body #navheader #menu {
     margin-top: 1rem;
     text-align: left;
+    font-size: 1.1rem;
   }
 }
 body #navheader #menu br {
@@ -208,9 +216,8 @@ body #navheader #menu br {
 }
 body #navheader #menu a {
   font-family: "Signika", sans-serif;
-  font-weight: 500;
-  color: #1d1d1d;
-  margin-left: 4rem;
+  color: rgba(0, 0, 0, 0.801);
+  margin-left: 2rem;
 }
 @media screen and (max-width: 1100px) {
   body #navheader #menu a {
@@ -279,7 +286,7 @@ body #footer {
   }
 }
 body #footer #title {
-  font-family: "East Sea Dokdo", cursive;
+  font-family: "Maka";
   font-size: 3.5rem;
 }
 body #footer #menu {

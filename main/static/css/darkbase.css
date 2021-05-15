@@ -1,46 +1,17 @@
-body.darkmode {
-  background: #141414;
-  color: #f0f0f0;
-}
-body.darkmode .button {
-  color: rgba(255, 255, 255, 0.9);
-  border: 3px solid rgba(255, 255, 255, 0.9);
-}
-body.darkmode #darkmodetoggle {
-  color: white;
-}
-@media screen and (max-width: 800px) {
-  body.darkmode #darkmodetoggle {
-    background: #202020;
-  }
-}
-body.darkmode #navheader {
-  color: rgba(255, 255, 255, 0.801);
-}
-body.darkmode #navheader #title a {
-  color: rgba(255, 255, 255, 0.801);
-}
-body.darkmode #navheader #menu a {
-  color: rgba(255, 255, 255, 0.801);
-}
-body.darkmode .subtitle {
-  color: rgba(255, 255, 255, 0.411);
-}
-body.darkmode #content #sidebar h3 a {
-  color: rgba(255, 255, 255, 0.9);
-}
-body.darkmode #content #categorylist ul li a {
-  color: rgba(255, 255, 255, 0.9);
-}
-body.darkmode #content .postcontent .codeblock {
-  border: 1px solid rgba(255, 255, 255, 0.171);
-  color: rgba(215, 252, 255, 0.712);
-}
-body.darkmode #content #posts .post h1 a {
-  color: rgba(255, 255, 255, 0.9);
-}
-body.darkmode #content #topics #topiclist li a {
-  color: rgba(255, 255, 255, 0.9);
-}
+/* Error: Undefined variable.
+ *    ,
+ * 11 |         color: $darkmode_accent_color;
+ *    |                ^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   django/main/static/scss/darkbase.scss 11:16  root stylesheet */
 
-/*# sourceMappingURL=darkbase.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 11 \2502          color: $darkmode_accent_color;\a    \2502                 ^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   django/main/static/scss/darkbase.scss 11:16  root stylesheet";
+}

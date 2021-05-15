@@ -27,11 +27,26 @@ function setDarkMode(state){
 }
 
 
+function animateChange(state){
+    let body = document.getElementById('body');
+    if (state){
+        body.classList.add('animatefade');
+    }else{
+        body.classList.remove('animatefade');
+    }
+}
+
 
 function toggleDarkMode(){
 
     // GET COOKIE
     let cookie_val = getCookieVal('darkmode');
+
+    // TEMPORARILY ENABLE ANIMATIONS FOR ONE SECOND
+    animateChange(true)
+    setTimeout(()=>{
+        animateChange(false)
+    }, 1000);
 
     // TOGGLE DARKMODE
     if (cookie_val === 'true'){

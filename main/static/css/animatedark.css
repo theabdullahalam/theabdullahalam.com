@@ -1,3 +1,5 @@
-
+*.animatefade {
+  transition: color 0.5s, background 0.5s, border 0.5s, border-bottom 0.5s;
+}
 
 /*# sourceMappingURL=animatedark.css.map */

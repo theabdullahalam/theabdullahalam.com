@@ -64,6 +64,9 @@ body.darkmode{
                     a {
                         color: rgba(255, 255, 255, 0.9);
                     }
+                    a.current{
+                        color: $darkmode_accent_color;
+                    }
                 }
             }
         }

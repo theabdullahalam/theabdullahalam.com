@@ -51,6 +51,9 @@ body.darkmode #content #sidebar h3 a {
 body.darkmode #content #categorylist ul li a {
   color: rgba(255, 255, 255, 0.9);
 }
+body.darkmode #content #categorylist ul li a.current {
+  color: #ee6f74;
+}
 body.darkmode #content .postcontent .codeblock {
   border: 1px solid rgba(255, 255, 255, 0.171);
   color: rgba(215, 252, 255, 0.712);

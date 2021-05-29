@@ -1,5 +1,11 @@
 # theabdullahalam.com
-This is a work in progress repo for my personal website that will host my own personal blog, link to subscribe to my newsletter, and my photography portfolio.
+
+My corner of the internet :)
+Stuff:
+- Personal Blog
+- Photography Portfolio
+- Link to my socials and other profiles
+- Proof of concept: minimal, responsive functional blog in pure HTML/CSS/JS
 
 Stack:
 - nginx

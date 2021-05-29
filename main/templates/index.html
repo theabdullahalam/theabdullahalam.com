@@ -22,18 +22,35 @@
 {% block body %}
 
 <div id="section1">
-    <div id="post">
+    <div id="postlist">
+        
         <h2>LATEST</h2>
-        {% if post.header_image %}
-        <img src="{{ post.header_image.url }}" alt="{{ post.title }}" id="headerimage">
-        {% endif %}
-        <h1>{{ post.title }}</h1>
-        <p class="subtitle">{{ post.hfr_date }}</p>
-        <div class="postcontent">
-            {{ post.content | safe }}
+
+        
+
+
+        <!-- LATEST POSTS -->
+        <div class="latestsposts">
+            {% for n in '1234' %}
+            <div class="latestpost">
+                <span class="postdate">22 Jan 2021</span>
+                <h1>Annnnnd Yet Another Dumb Post</h1>
+                <span class="posttopic">Film</span>
+
+                <p class="postexercpt">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero quaerat officiis impedit consequatur architecto dolorem labore nam, doloremque dicta enim aspernatur provident ducimus? Repellendus corrupti, blanditiis dolorum quod amet eius!
+                </p>
+
+                <a class="button" href="">READ</a>
+            </div>
+            {% endfor %}
         </div>
+        <!-- LATEST POSTS -->
+
+
 
         <a class="button" href="{% url 'blog' %}">MORE POSTS</a>
+        
     </div>
     
     <div id="sidebar">

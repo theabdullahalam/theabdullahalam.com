@@ -45,6 +45,12 @@ body.darkmode #navheader #menu a {
 body.darkmode .subtitle {
   color: rgba(255, 255, 255, 0.411);
 }
+body.darkmode #content #section1 #postlist .latestsposts .latestpost .postdate {
+  color: rgba(255, 255, 255, 0.39);
+}
+body.darkmode #content #section1 #postlist .latestsposts .latestpost .posttopic {
+  color: rgba(255, 255, 255, 0.39);
+}
 body.darkmode #content #sidebar h3 a {
   color: rgba(255, 255, 255, 0.9);
 }

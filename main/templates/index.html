@@ -31,17 +31,17 @@
 
         <!-- LATEST POSTS -->
         <div class="latestsposts">
-            {% for n in '1234' %}
+            {% for post in mainposts %}
             <div class="latestpost">
-                <span class="postdate">22 Jan 2021</span>
-                <h1>Annnnnd Yet Another Dumb Post</h1>
-                <span class="posttopic">Film</span>
+                <span class="postdate">{{ post.hfr_date }}</span>
+                <h1>{{ post.title }}</h1>
+                <span class="posttopic">{{ post.p_type.type_name }}</span>
 
                 <p class="postexercpt">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero quaerat officiis impedit consequatur architecto dolorem labore nam, doloremque dicta enim aspernatur provident ducimus? Repellendus corrupti, blanditiis dolorum quod amet eius!
+                    {{ post.preview | safe }}
                 </p>
 
-                <a class="button" href="">READ</a>
+                <a class="button" href="{% url 'post' post.slug %}">READ</a>
             </div>
             {% endfor %}
         </div>
@@ -50,7 +50,7 @@
 
 
         <a class="button" href="{% url 'blog' %}">MORE POSTS</a>
-        
+
     </div>
     
     <div id="sidebar">

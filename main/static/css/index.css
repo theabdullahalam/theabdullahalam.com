@@ -366,6 +366,8 @@ a :visited {
   margin-right: 2rem;
 }
 #content #section1 #postlist .latestsposts .latestpost {
+  display: flex;
+  flex-direction: column;
   margin-top: 2rem;
 }
 #content #section1 #postlist .latestsposts .latestpost .postdate {
@@ -382,9 +384,10 @@ a :visited {
 }
 #content #section1 #postlist .latestsposts .latestpost .postexercpt {
   margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 #content #section1 #postlist .latestsposts .latestpost .button {
-  margin-top: 1rem;
+  margin-top: auto;
   width: 100%;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;

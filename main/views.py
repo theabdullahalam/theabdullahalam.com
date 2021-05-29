@@ -106,8 +106,8 @@ def index(request):
     # GET DP
     dp = DynamicStuff.objects.get(key='dp')
 
-    # GET LATEST 6 POSTS
-    latestposts = Post.objects.all().order_by('-created', 'title')[:6]
+    # GET LATEST 9 POSTS
+    latestposts = Post.objects.all().order_by('-created', 'title')[:9]
     for post in latestposts:
         hfr_date = post.created.strftime('%e %b %Y')
         post.hfr_date = hfr_date
@@ -115,8 +115,8 @@ def index(request):
         post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
 
     # MAIN POST AND SIDEBAR POSTS
-    post = latestposts[0]
-    sidebarposts = latestposts[1:]
+    mainposts = latestposts[:4]
+    sidebarposts = latestposts[4:]
 
     # GET LATEST NINE PHOTOGRAPHS
     photographs = Photograph.objects.all().order_by('-created', 'title')[:9]
@@ -124,7 +124,7 @@ def index(request):
 
     # SET CONTEXT
     context = {
-        'post': post,
+        'mainposts': mainposts,
         'sidebarposts': sidebarposts,
         'columns': parts,
         'bio': bio,

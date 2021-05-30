@@ -43,6 +43,9 @@
         </script>
         <!-- / Fathom -->
 
+        <!-- PRISM SYNTAX HIGHLIGHTING -->
+        <link rel="stylesheet" href="{% static 'css/prism.css' %}">
+
         {% block head %}{% endblock %}
 
         <!-- DARK MODE -->
@@ -96,6 +99,9 @@
 
         <!-- DARK MODE TOGGLING SCRIPT -->
         <script src="{% static 'js/toggledarkmode.js' %}"></script>
+
+        <!-- SYNTAX HIGHLIGHTING -->
+        <script src="{% static 'js/prism.js' %}"></script>
 
     </body>
 </html>

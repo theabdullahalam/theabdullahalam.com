@@ -324,6 +324,7 @@ a :visited {
 }
 .postcontent .code-toolbar {
   margin-bottom: 2rem;
+  font-size: 1rem;
 }
 .postcontent h2 {
   color: black;

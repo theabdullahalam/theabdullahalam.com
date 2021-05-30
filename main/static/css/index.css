@@ -324,6 +324,7 @@ a :visited {
 }
 .postcontent .code-toolbar {
   margin-bottom: 2rem;
+  font-size: 1rem;
 }
 .postcontent h2 {
   color: black;
@@ -363,9 +364,20 @@ a :visited {
 #content #section1 #postlist {
   margin-right: 2rem;
 }
+@media screen and (max-width: 800px) {
+  #content #section1 #postlist {
+    margin-right: 0;
+  }
+}
 #content #section1 #postlist .latestsposts {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+@media screen and (max-width: 1100px) {
+  #content #section1 #postlist .latestsposts {
+    display: flex;
+    flex-direction: column;
+  }
 }
 #content #section1 #postlist .latestsposts .latestpost:nth-child(odd) {
   margin-right: 2rem;

@@ -1,6 +1,7 @@
 # theabdullahalam.com
 
-My corner of the internet :)
+My corner of the internet :)  
+
 Stuff:
 - Personal Blog
 - Photography Portfolio

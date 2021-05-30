@@ -382,6 +382,11 @@ a :visited {
 #content #section1 #postlist .latestsposts .latestpost:nth-child(odd) {
   margin-right: 2rem;
 }
+@media screen and (max-width: 1100px) {
+  #content #section1 #postlist .latestsposts .latestpost:nth-child(odd) {
+    margin-right: 0;
+  }
+}
 #content #section1 #postlist .latestsposts .latestpost {
   display: flex;
   flex-direction: column;

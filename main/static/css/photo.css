@@ -15,8 +15,8 @@
   src: url(/static/fonts/Maka.otf) format("opentype");
 }
 body.darkmode {
-  background: #141414;
-  color: #f0f0f0;
+  background: rgb(20, 20, 20);
+  color: rgb(240, 240, 240);
 }
 body.darkmode .button {
   color: rgba(255, 255, 255, 0.9);
@@ -30,7 +30,7 @@ body.darkmode #darkmodetoggle {
 }
 @media screen and (max-width: 800px) {
   body.darkmode #darkmodetoggle {
-    background: #202020;
+    background: rgb(32, 32, 32);
   }
 }
 body.darkmode #navheader {
@@ -98,7 +98,7 @@ body.darkmode #content #topics #topiclist li a {
 }
 
 .button:hover {
-  background: #ce5959;
+  background: rgb(206, 89, 89);
   color: white;
   transition: background 0.15s, color 0.15s, border 0.15s, font-size 0.15s;
 }
@@ -161,7 +161,7 @@ body .subtitle {
 }
 body #navheader {
   width: 100%;
-  color: #1d1d1d;
+  color: rgb(29, 29, 29);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -203,7 +203,7 @@ body #navheader #title {
   }
 }
 body #navheader #title a {
-  color: #1d1d1d;
+  color: rgb(29, 29, 29);
 }
 body #navheader #menu {
   font-size: 1rem;
@@ -273,7 +273,7 @@ body #content #topics #topiclist li a {
 }
 body #footer {
   width: 100%;
-  background: #0f0f0f;
+  background: rgb(15, 15, 15);
   color: white;
   display: flex;
   flex-direction: column;

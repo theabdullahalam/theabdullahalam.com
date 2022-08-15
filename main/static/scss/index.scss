@@ -23,7 +23,7 @@
 
             margin-right: 2rem;
 
-            @media screen and(max-width: 800px) {
+            @media screen and (max-width: 800px) {
                 margin-right: 0;
             }
 
@@ -32,7 +32,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
 
-                @media screen and(max-width: 1100px) {
+                @media screen and (max-width: 1100px) {
                     display: flex;
                     flex-direction: column;
                 }
@@ -40,7 +40,7 @@
                 .latestpost:nth-child(odd){
                     margin-right: 2rem;
 
-                    @media screen and(max-width: 1100px) {
+                    @media screen and (max-width: 1100px) {
                         margin-right: 0;
                     }
                 }

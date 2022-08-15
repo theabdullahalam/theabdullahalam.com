@@ -22,6 +22,52 @@ class PostTopic(models.Model):
  
     def __str__(self):
         return str(self.type_name)
+
+class Section(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    name = models.CharField(max_length=250)
+    index_template = models.CharField(max_length=250, blank=True, null=True, default=None)
+
+    def __str__(self):
+        return str(self.name)
+
+    
+
+class Tag(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    name = models.CharField(max_length=250)
+    index_template = models.CharField(max_length=250, blank=True, null=True, default=None)
+
+    def __str__(self):
+        return str(self.name)
+
+class Note(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    image = models.ImageField(upload_to='headers', null=True, blank=True)
+    title = models.CharField(max_length=250)
+    content = RichTextUploadingField(max_length=28000)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag, related_name="notes")
+    created = models.DateTimeField(editable=True, blank=True)
+    modified = models.DateTimeField(editable=True, blank=True)
+    slug = models.SlugField(unique=True, max_length=100, blank=True)
+
+    def save(self, *args, **kwargs):
+        # UPDATE TIMESTAMPS
+        if not self.id:
+            self.created = timezone.now()
+        self.modified = timezone.now()
+ 
+        # GENERATE SLUG
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super(Note, self).save(*args, **kwargs)
+ 
+    def __str__(self):
+        return str(self.title)
+
+    def get_absolute_url(self):
+        return reverse('note', args=[str(self.slug)])
  
 class Post(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)

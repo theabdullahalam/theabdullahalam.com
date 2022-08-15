@@ -1,5 +1,23 @@
 from django.contrib import admin
-from .models import Post, PostTopic, PhotoCategory, Photograph, DynamicStuff
+from .models import Post, PostTopic, PhotoCategory, Photograph, DynamicStuff, Tag, Section, Note
+
+@admin.register(Note)
+class NoteAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    ordering = ('title',)
+    search_fields = ('title',)
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    ordering = ('name',)
+    search_fields = ('name',)
+
+@admin.register(Section)
+class SectionAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    ordering = ('name',)
+    search_fields = ('name',)
 
 @admin.register(DynamicStuff)
 class DynamicStuffAdmin(admin.ModelAdmin):

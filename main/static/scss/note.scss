@@ -8,6 +8,10 @@ $top-margin: 2.5rem;
 $accent_color: #ee6f74;
 $accent_color_dark: #E04F4F;
 
+* {
+  transition: color 0.5s ease, background 0.5s ease, border 0.5s ease;
+}
+
 body {
 
   margin: 0;
@@ -26,6 +30,8 @@ body {
   "logo title ."
   "sections content tags"
   ;
+
+  background: white;
 
 
   // dark mode
@@ -141,6 +147,7 @@ body {
     grid-area: content;
     margin-left: $grid-margin;
     margin-top: $top-margin;
+    background: white;
 
     box-shadow: 1px 0px 22px -2px rgba(0,0,0,0.15);
     -webkit-box-shadow: 1px 0px 22px -2px rgba(0,0,0,0.15);
@@ -183,6 +190,51 @@ body {
         }
       }
     }
+  }
+
+  #darkmodetoggle {
+
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+
+    $size: 2rem;
+    $smallsize: 1.5rem;
+
+    width: $size;
+    height: $size;
+
+
+    @media screen and (max-width: 1500px) {
+        bottom: 2rem;
+        right: 2rem;
+    }
+
+
+    @media screen and (max-width: 800px) {
+
+      bottom: 6rem;
+      right: -12px;
+      padding: 0.8rem;
+      padding-right: 1.6rem;
+
+      background: white;
+      -webkit-box-shadow: -3px 0px 8px -1px rgba(0,0,0,0.37);
+      -moz-box-shadow: -3px 0px 8px -1px rgba(0,0,0,0.37);
+      box-shadow: -3px 0px 8px -1px rgba(0,0,0,0.37);
+
+      border-radius: 1rem;
+
+      width: $smallsize;
+      height: $smallsize;
+
+    }
+
+
+  }
+
+  #darkmodetoggle:hover {
+    cursor: pointer;
   }
 
 }

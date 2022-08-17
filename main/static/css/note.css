@@ -38,11 +38,13 @@ body.dark {
 body.dark #site-title {
   color: whitesmoke;
 }
-body.dark #sections-list li a, body.dark #tags-list li a {
+body.dark #sections-list li a,
+body.dark #tags-list li a {
   color: rgba(255, 255, 255, 0.3);
   transition: color 0.2s;
 }
-body.dark #sections-list li a:hover, body.dark #tags-list li a:hover {
+body.dark #sections-list li a:hover,
+body.dark #tags-list li a:hover {
   color: #ee6f74;
 }
 body.dark #content {
@@ -54,6 +56,14 @@ body.dark #content {
 }
 body.dark #content .details {
   color: rgba(255, 255, 255, 0.5);
+}
+body.dark #darkmodetoggle {
+  color: white;
+}
+@media screen and (max-width: 800px) {
+  body.dark #darkmodetoggle {
+    background: rgb(32, 32, 32);
+  }
 }
 body #site-logo {
   height: 5rem;
@@ -84,7 +94,7 @@ body .side-list li a {
   transition: color 0.2s;
 }
 body .side-list li a:hover {
-  color: #E04F4F;
+  color: #e04f4f;
 }
 body .side-list li a i {
   font-size: 0.8rem;

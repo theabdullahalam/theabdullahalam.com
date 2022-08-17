@@ -11,3 +11,11 @@ v
     - Name
   - Tag
     - Name
+
+- Note Contents
+  - tags
+  - sections
+  - content
+  - backlinks
+  - from same section
+  - from same tag

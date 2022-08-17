@@ -97,6 +97,13 @@ def get_paragraph_preview(content):
 
 
 
+def note(request):
+    context = {
+        "title": "Digital Garden"
+    }
+    return render(request, 'note.html', context=context)
+
+
 
 def index(request):
 

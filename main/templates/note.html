@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/d8749e6d0b.js" crossorigin="anonymous"></script>
+
+    <meta name="description" content="{% block metadescription %}{% endblock %}" />
+
+    {% comment %} OPENGRAPH META TAGS {% endcomment %}
+    <meta property="og:title" content="{% block ogtitle %}{% endblock %}" />
+    <meta property="og:description" content="{% block ogdescription %}{% endblock %}" />
+    <meta property="og:url" content="{% block ogurl %}{% endblock %}" />
+    <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
+    <meta property="og:type" content="{% block ogtype %}{% endblock %}" />
+
+    <!-- TWITTER CARD META TAGS -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@theabdullahalam" />
+    <meta name="twitter:title" content="{% block tctitle %}{% endblock %}" />
+    <meta name="twitter:description" content="{% block tcdescription %}{% endblock %}" />
+    <meta name="twitter:image" content="{% block tcimage %}{% endblock %}" />
+
+    <!-- BASIC FAVICON -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+
+    <!-- PRISM SYNTAX HIGHLIGHTING -->
+    <link rel="stylesheet" href="{% static 'css/prism.css' %}" />
+
+    <!-- NOTE SCSS -->
+    <link rel="stylesheet" href="{% static 'css/note.css' %}" />
+
+    {% block head %}{% endblock %}
+
+    <!-- DARK MODE -->
+    <!-- <link disabled="" id="darkanimation" rel="stylesheet" href="{% static 'css/animatedark.css' %}">
+        <link disabled="" id="darkmodesheet" rel="stylesheet" href="{% static 'css/darkbase.css' %}"> -->
+  </head>
+
+  <body id="body" class="">
+    <!-- logo -->
+    <img src="{% static 'img/favicon.png' %}" alt="Website Logo" id="site-logo" />
+
+    <!-- title -->
+    <a href="{% url 'index' %}" id="site-title">ABDULLAH ALAM</a>
+
+    <!-- section list -->
+    <ul id="sections-list" class="side-list">
+      <li>
+        <a href="#">photography <i class="fas fa-layer-group"></i></a>
+      </li>
+      <li>
+        <a href="#">poetry <i class="fas fa-layer-group"></i></a>
+      </li>
+      <li>
+        <a href="#">prose <i class="fas fa-layer-group"></i></a>
+      </li>
+    </ul>
+
+    <!-- content -->
+    <div id="content">
+      <h1>This is an amazing article</h1>
+      <p class="details">
+        Last Updated: 17th August · Poetry · life, relationships, love, optimism
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis voluptas veritatis fugiat
+        voluptatibus. Quaerat cum nisi odit? Labore nobis mollitia quasi! Earum aliquid similique
+        eos, fugit saepe dolor et libero voluptate soluta impedit ut accusamus neque nisi
+        praesentium nam, eaque eum porro qui quasi quos.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error sit tempora, ab qui minima at
+        iste beatae alias dignissimos aliquam iure ipsum vero, deleniti facilis? Aut minus quas iste
+        quidem nostrum doloremque distinctio hic error enim? Autem velit suscipit voluptatem error
+        ut molestias totam est dignissimos? Magni doloremque accusantium aut consectetur debitis
+        eius modi unde culpa odit ad eum aspernatur veniam exercitationem obcaecati quas dignissimos
+        suscipit, repellendus, quibusdam praesentium, consequatur inventore totam nulla nihil.
+        Nostrum quaerat tenetur voluptate autem cumque.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nulla adipisci corrupti
+        dolorum voluptates. Earum, molestiae ea quaerat itaque voluptatem magni blanditiis cum aut.
+        Quos, nisi at. Architecto odit praesentium assumenda quod vel laudantium sequi nesciunt?
+        Nemo ducimus impedit ad, exercitationem fugit unde cupiditate repudiandae cumque sit
+        possimus ullam et, nostrum tenetur optio ipsum natus ea. Dolore tenetur voluptatem tempore.
+        Omnis veritatis facere quis, adipisci tempora distinctio repudiandae ducimus minima! Aliquam
+        veniam nisi aperiam ipsa. Ipsam eaque accusamus necessitatibus, veniam illum odit cumque
+        distinctio molestiae nobis voluptates aperiam natus debitis ratione quisquam dolorem
+        praesentium porro eius! Culpa veniam nobis doloremque. Unde nisi dolores veniam atque,
+        eveniet quo ipsum minus ea placeat mollitia, hic fuga dolor, ipsa repellat officiis
+        expedita! Quod, maiores. Molestiae necessitatibus labore quibusdam maiores repudiandae,
+        recusandae rem sint quo! Quis debitis, doloribus excepturi, ipsa molestiae maiores laborum,
+        aliquam quibusdam pariatur nemo velit molestias saepe libero ad dignissimos? Exercitationem?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi similique sed praesentium?
+        Cupiditate iste ducimus libero qui, nobis repudiandae quo!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nulla adipisci corrupti
+        dolorum voluptates. Earum, molestiae ea quaerat itaque voluptatem magni blanditiis cum aut.
+        Quos, nisi at. Architecto odit praesentium assumenda quod vel laudantium sequi nesciunt?
+        Nemo ducimus impedit ad, exercitationem fugit unde cupiditate repudiandae cumque sit
+        possimus ullam et, nostrum tenetur optio ipsum natus ea. Dolore tenetur voluptatem tempore.
+        Omnis veritatis facere quis, adipisci tempora distinctio repudiandae ducimus minima! Aliquam
+        veniam nisi aperiam ipsa. Ipsam eaque accusamus necessitatibus, veniam illum odit cumque
+        distinctio molestiae nobis voluptates aperiam natus debitis ratione quisquam dolorem
+        praesentium porro eius! Culpa veniam nobis doloremque. Unde nisi dolores veniam atque,
+        eveniet quo ipsum minus ea placeat mollitia, hic fuga dolor, ipsa repellat officiis
+        expedita! Quod, maiores. Molestiae necessitatibus labore quibusdam maiores repudiandae,
+        recusandae rem sint quo! Quis debitis, doloribus excepturi, ipsa molestiae maiores laborum,
+        aliquam quibusdam pariatur nemo velit molestias saepe libero ad dignissimos? Exercitationem?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi similique sed praesentium?
+        Cupiditate iste ducimus libero qui, nobis repudiandae quo!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nulla adipisci corrupti
+        dolorum voluptates. Earum, molestiae ea quaerat itaque voluptatem magni blanditiis cum aut.
+        Quos, nisi at. Architecto odit praesentium assumenda quod vel laudantium sequi nesciunt?
+        Nemo ducimus impedit ad, exercitationem fugit unde cupiditate repudiandae cumque sit
+        possimus ullam et, nostrum tenetur optio ipsum natus ea. Dolore tenetur voluptatem tempore.
+        Omnis veritatis facere quis, adipisci tempora distinctio repudiandae ducimus minima! Aliquam
+        veniam nisi aperiam ipsa. Ipsam eaque accusamus necessitatibus, veniam illum odit cumque
+        distinctio molestiae nobis voluptates aperiam natus debitis ratione quisquam dolorem
+        praesentium porro eius! Culpa veniam nobis doloremque. Unde nisi dolores veniam atque,
+        eveniet quo ipsum minus ea placeat mollitia, hic fuga dolor, ipsa repellat officiis
+        expedita! Quod, maiores. Molestiae necessitatibus labore quibusdam maiores repudiandae,
+        recusandae rem sint quo! Quis debitis, doloribus excepturi, ipsa molestiae maiores laborum,
+        aliquam quibusdam pariatur nemo velit molestias saepe libero ad dignissimos? Exercitationem?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi similique sed praesentium?
+        Cupiditate iste ducimus libero qui, nobis repudiandae quo!
+      </p>
+    </div>
+
+    <!-- tags list -->
+    <ul id="tags-list" class="side-list">
+      <li>
+        <a href="#"><i class="fas fa-tag"></i> photography</a>
+      </li>
+      <li>
+        <a href="#"><i class="fas fa-tag"></i> poetry</a>
+      </li>
+      <li>
+        <a href="#"><i class="fas fa-tag"></i> prose</a>
+      </li>
+    </ul>
+
+    <!-- SYNTAX HIGHLIGHTING -->
+    <script src="{% static 'js/prism.js' %}"></script>
+  </body>
+</html>

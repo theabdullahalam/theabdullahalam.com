@@ -174,7 +174,6 @@ body #related .section .note-list {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 body #related .section .note-list .note {
   background: white;
@@ -192,6 +191,16 @@ body #related .section .note-list .note:hover {
   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+}
+body #related .section .note-list .note.image-note {
+  background-position: center !important;
+  background-size: cover !important;
+  color: white;
+}
+body #related .section .note-list .note.image-note:hover {
+  box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
 }
 body #darkmodetoggle {
   position: fixed;

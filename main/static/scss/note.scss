@@ -238,7 +238,7 @@ body {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
-        justify-content: space-between;
+        // justify-content: space-between;
 
         .note {
           background: white;
@@ -261,6 +261,19 @@ body {
           }
 
         }
+
+        .note.image-note {
+          background-position: center !important;
+          background-size: cover !important;
+          color: white;
+
+          &:hover {
+            box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+            -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+            -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+          }
+        }
+
       }
     }
 

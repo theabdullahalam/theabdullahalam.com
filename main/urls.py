@@ -19,6 +19,9 @@ urlpatterns = [
 
     path('section/<slug:slug>', views.section, name='section'),
     path('section/<slug:slug>/', views.section, name='section'),
+
+    path('tag/<slug:slug>', views.tag, name='tag'),
+    path('tag/<slug:slug>/', views.tag, name='tag'),
     
     path('about', views.about, name='about'),
     path('about/', views.about, name='about'),

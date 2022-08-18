@@ -27,9 +27,19 @@ class Section(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     name = models.CharField(max_length=250)
     index_template = models.CharField(max_length=250, blank=True, null=True, default=None)
+    slug = models.SlugField(unique=True, max_length=100, blank=True)
 
     def __str__(self):
         return str(self.name)
+
+    def save(self, *args, **kwargs): 
+        # GENERATE SLUG
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super(Section(), self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('section', args=[str(self.slug)])
 
     
 
@@ -37,9 +47,19 @@ class Tag(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     name = models.CharField(max_length=250)
     index_template = models.CharField(max_length=250, blank=True, null=True, default=None)
+    slug = models.SlugField(unique=True, max_length=100, blank=True)
 
     def __str__(self):
         return str(self.name)
+
+    def save(self, *args, **kwargs): 
+        # GENERATE SLUG
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super(Tag, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('tag', args=[str(self.slug)])
 
 class Note(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)

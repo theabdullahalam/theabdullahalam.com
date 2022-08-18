@@ -1,3 +1,81 @@
-#content {
-  
+@import 'vars';
+
+body {
+  &.dark {
+    #content {
+      .note-list {
+        .note {
+          outline: 1px solid rgba(50, 50, 50, 0);
+          background: rgb(30, 30, 30);
+          box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+          -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+          -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+
+          &:hover {
+            outline: 1px solid rgb(80, 80, 80);
+            box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
+            -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
+          }
+        }
+      }
+    }
+  }
+
+  #content {
+    h1 {
+      margin-top: -1.5rem;
+      i {
+        font-size: 0.6em;
+      }
+    }
+
+    .note-list {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      // justify-content: space-between;
+
+      .note {
+        background: white;
+        box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
+        padding: 1rem;
+        border-radius: 0.5rem;
+
+        flex-basis: 32.5%;
+
+        color: currentColor;
+        text-decoration: none;
+        box-sizing: border-box;
+
+        h3 {
+          i {
+            font-size: 0.7em;
+            margin-left: 0.5rem;
+          }
+        }
+
+        &:hover {
+          transform: scale(1.02);
+          box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+          -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+          -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      .note.image-note {
+        background-position: center !important;
+        background-size: cover !important;
+        color: white;
+
+        &:hover {
+          box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+          -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+          -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+        }
+      }
+    }
+  }
 }

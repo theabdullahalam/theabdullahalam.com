@@ -1,22 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,700&display=swap');
 @import 'fonts';
-
-$grid-margin: 2rem;
-$side-margin: 6rem;
-$top-margin: 2.5rem;
-$accent_color: #ee6f74;
-$accent_color_dark: #e04f4f;
+@import 'vars';
 
 * {
   transition: 
       color 0.3s ease, 
       background 0.3s ease, 
       border 0.3s ease,
-      box-shadow 0.3s ease, 
       outline 0.3s ease,
-      -webkit-box-shadow 0.3s ease, 
-      -moz-box-shadow 0.3s ease;
+      transform 0.1s ease-out,
+      box-shadow 0.1s ease, 
+      -webkit-box-shadow 0.1s ease, 
+      -moz-box-shadow 0.1s ease;
 }
 
 body {
@@ -65,27 +61,6 @@ body {
     #content {
       .details {
         color: rgba(255, 255, 255, 0.5);
-      }
-    }
-
-    #related{
-      .section {
-        .note-list {
-          .note {
-            outline: 1px solid rgba(50, 50, 50, 0);
-            background: rgb(30, 30, 30);
-            box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-            -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-            -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-
-            &:hover {
-              outline: 1px solid rgb(80, 80, 80);
-              box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
-              -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
-              -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
-            }
-          }
-        }
       }
     }
 
@@ -226,76 +201,6 @@ body {
         }
       }
     }
-  }
-
-  #related{
-    grid-area: related;
-    margin-left: $grid-margin;
-    margin-top: $top-margin;
-
-    .section {
-
-      margin-bottom: $top-margin * 2;
-
-      h2 {
-        font-family: 'Ubuntu', sans-serif;
-        i {
-          font-size: 1.2rem;
-          margin-right: 0.8rem;
-        }
-      }
-
-      .note-list {
-
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        // justify-content: space-between;
-
-        .note {
-          background: white;
-          box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-          -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-          -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-          padding: 1rem;
-          border-radius: 0.5rem;
-
-          flex-basis: 32.5%;
-
-          color: currentColor;
-          text-decoration: none;
-          box-sizing: border-box;
-
-          h3 {
-            i {
-              font-size: 0.7em;
-              margin-left: 0.5rem;
-            }
-          }
-
-          &:hover {
-            box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-            -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-            -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-          }
-
-        }
-
-        .note.image-note {
-          background-position: center !important;
-          background-size: cover !important;
-          color: white;
-
-          &:hover {
-            box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
-            -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
-            -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
-          }
-        }
-
-      }
-    }
-
   }
 
   #darkmodetoggle {

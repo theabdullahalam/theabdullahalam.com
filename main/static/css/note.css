@@ -187,6 +187,10 @@ body #related .section .note-list .note {
   text-decoration: none;
   box-sizing: border-box;
 }
+body #related .section .note-list .note h3 i {
+  font-size: 0.7em;
+  margin-left: 0.5rem;
+}
 body #related .section .note-list .note:hover {
   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);

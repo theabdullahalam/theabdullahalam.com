@@ -103,6 +103,18 @@ def note(request):
     }
     return render(request, 'note.html', context=context)
 
+def section(request, slug):
+    context = {
+        "title": "Digital Garden"
+    }
+    return render(request, 'notelist.html', context=context)
+
+def tag(request, slug):
+    context = {
+        "title": "Digital Garden"
+    }
+    return render(request, 'notelist.html', context=context)
+
 
 
 def index(request):

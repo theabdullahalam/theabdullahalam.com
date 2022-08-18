@@ -16,6 +16,9 @@ urlpatterns = [
 
     path('note', views.note, name='note'),
     path('note/', views.note, name='note'),
+
+    path('section/<slug:slug>', views.section, name='section'),
+    path('section/<slug:slug>/', views.section, name='section'),
     
     path('about', views.about, name='about'),
     path('about/', views.about, name='about'),

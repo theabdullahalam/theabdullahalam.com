@@ -104,6 +104,7 @@ body {
       }
     }
   }
+  // end dark mode
 
   #site-logo {
     height: 5rem;
@@ -131,6 +132,33 @@ body {
   .side-list {
     list-style: none;
     margin-top: $top-margin - 0.35rem;
+
+    @media screen and (max-width: 1560px) {
+      // grid-column: 1/3 !important;
+      // grid-row: 1/2 !important;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto !important;
+
+      z-index: 3;
+
+      box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
+
+      background: whitesmoke;
+      border: 1px solid rgb(233, 233, 233);
+      
+      padding: 2rem;
+      min-width: unset !important;
+      width: 85vw;
+      
+
+      border-radius: 0.5rem;
+      
+    }
 
     li {
       margin-bottom: 1rem;
@@ -206,6 +234,7 @@ body {
     grid-area: tags;
     margin-left: $grid-margin - 2rem;
     min-width: 15vw;
+    display: none;
 
     li {
       a {

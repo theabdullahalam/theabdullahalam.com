@@ -114,9 +114,12 @@ def note(request, slug):
     related_section.notes_list = related_section.notes.all()
 
     related_tags = note.tags.all()
+    comma_tags = []
     for tag in related_tags:
         tag.notes_list = tag.notes.all()
+        comma_tags.append(tag.name.lower())
 
+    note.comma_tags = comma_tags
     connections = Connection.objects.filter(to_note=note)
 
     context = {
@@ -133,8 +136,6 @@ def section(request, slug):
 
     section = Section.objects.get(slug=slug)
     notes = Note.objects.filter(section=section)
-
-    print(section)
 
     context = {
         "index": section,

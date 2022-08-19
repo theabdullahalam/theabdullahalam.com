@@ -23,9 +23,13 @@
 
   <h1>{{ note.title }}</h1>
   <p class="details">
-    Last Updated: 17th August · Poetry · life, relationships, love, optimism
+    {{ note.section}} - {{ note.comma_tags|join:', ' }}
   </p>
   {{ note.content | safe }}
+  <p class="details">
+    Created: {{ note.created_human_readable }}<br />
+    Modified: {{ note.modified_human_readable }}<br />
+  </p>
 </div>
 
 <div id="related">

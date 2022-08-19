@@ -26,7 +26,7 @@ body {
   margin-bottom: $top-margin * 3;
 
   display: grid;
-  grid-template-columns: 4fr 64vw 5fr;
+  grid-template-columns: 5fr 64vw 6fr;
   grid-template-rows: 1fr auto auto;
   grid-template-areas:
     'logo title .'

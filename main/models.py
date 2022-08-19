@@ -7,6 +7,7 @@ from django.contrib.sites.models import Site
 from django.utils.html import strip_tags
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
+from django.utils import dateformat
  
 class PostTopic(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
@@ -109,6 +110,12 @@ class Note(models.Model):
     def get_sane_description(self, thestring):
         return str(strip_tags(thestring)).replace('&#39;', '\'').replace('&rsquo;', '\'').replace('\n', ' ')
 
+    def modified_human_readable(self):
+        return dateformat.format(self.modified, "jS M, Y")
+
+    def created_human_readable(self):
+        return dateformat.format(self.created, "jS M, Y")
+
     def get_paragraph_preview(self):
         preview = ''
 
@@ -127,8 +134,6 @@ class Note(models.Model):
         return self.get_sane_description(preview)
 
     def make_connections(self):
-        print("Making...")
-
         soup = BeautifulSoup(self.content, 'html.parser')
         for link in soup.find_all('a'):
             url = urlparse(link.get("href"))

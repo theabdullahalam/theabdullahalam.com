@@ -4,6 +4,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.sites.models import Site
+from django.utils.html import strip_tags
  
 class PostTopic(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
@@ -36,7 +37,7 @@ class Section(models.Model):
         # GENERATE SLUG
         if not self.slug:
             self.slug = slugify(self.name)
-        return super(Section(), self).save(*args, **kwargs)
+        return super(Section, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('section', args=[str(self.slug)])
@@ -88,6 +89,26 @@ class Note(models.Model):
 
     def get_absolute_url(self):
         return reverse('note', args=[str(self.slug)])
+
+    def get_sane_description(self, thestring):
+        return str(strip_tags(thestring)).replace('&#39;', '\'').replace('&rsquo;', '\'').replace('\n', ' ')
+
+    def get_paragraph_preview(self):
+        preview = ''
+
+        try:
+            first_para = str(self.content).split('</p>')[0].split('<p>')[1]
+            first_twenty = first_para.split(' ')[:35]
+            # remove comma from last
+            if first_twenty[-1][-1] == ',':
+                first_twenty[-1] = first_twenty[-1][:-1]
+
+            preview = ' '.join(first_twenty)
+        except IndexError as ie:
+            print(str(ie))
+            preview = self.content
+
+        return self.get_sane_description(preview)
  
 class Post(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)

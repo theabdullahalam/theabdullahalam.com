@@ -8,7 +8,7 @@ from django.templatetags.static import static
 from django.urls import reverse
 from django.utils.html import strip_tags
 
-from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff
+from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff, Tag, Section, Note
 
 
 
@@ -90,28 +90,51 @@ def get_paragraph_preview(content):
 
     return preview
 
+def get_universal_context():
+    sections = Section.objects.all()
+    tags = Tag.objects.all()
 
+    return {
+        "sections": sections,
+        "tags": tags
+    }
 
 
 # --------------------- VIEWS -------------------------
 
 
 
-def note(request):
+
+
+def note(request, slug):
     context = {
         "title": "Digital Garden"
     }
     return render(request, 'note.html', context=context)
 
 def section(request, slug):
+
+    section = Section.objects.get(slug=slug)
+    notes = Note.objects.filter(section=section)
+
+    print(section)
+
     context = {
-        "title": "Digital Garden"
+        "index": section,
+        "notes": notes,
+        **get_universal_context()
     }
     return render(request, 'notelist.html', context=context)
 
 def tag(request, slug):
+
+    tag = Tag.objects.get(slug=slug)
+    notes = Note.objects.filter(tags = tag)
+
     context = {
-        "title": "Digital Garden"
+        "index": tag,
+        "notes": notes,
+        **get_universal_context()
     }
     return render(request, 'notelist.html', context=context)
 

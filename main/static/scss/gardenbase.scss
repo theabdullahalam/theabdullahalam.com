@@ -26,7 +26,7 @@ body {
   margin-bottom: $top-margin * 3;
 
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 4fr 64vw 5fr;
   grid-template-rows: 1fr auto auto;
   grid-template-areas:
     'logo title .'
@@ -150,8 +150,9 @@ body {
 
   #sections-list {
     grid-area: sections;
+    place-self: start end;
     margin-right: $grid-margin;
-    min-width: 10vw;
+    // width: 10vw;
 
     text-align: right;
 
@@ -167,7 +168,9 @@ body {
   #content {
     grid-area: content;
     margin-left: $grid-margin;
-    margin-top: $top-margin;    
+    margin-top: $top-margin;
+
+    // width: 100%;
 
     h1 {
       font-family: 'Ubuntu', sans-serif;
@@ -191,7 +194,7 @@ body {
   #tags-list {
     grid-area: tags;
     margin-left: $grid-margin - 2rem;
-    min-width: 15vw;
+    // width: 15vw;
     // display: none;
 
     li {

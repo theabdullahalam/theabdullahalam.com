@@ -107,8 +107,22 @@ def get_universal_context():
 
 
 def note(request, slug):
+
+    note = Note.objects.get(slug = slug)
+
+    related_section = note.section
+    related_section.notes_list = related_section.notes.all()
+
+    related_tags = note.tags.all()
+    for tag in related_tags:
+        tag.notes_list = tag.notes.all()
+
     context = {
-        "title": "Digital Garden"
+        "note": note,
+        "section": section,
+        "related_section": related_section,
+        "related_tags": related_tags,
+        **get_universal_context()
     }
     return render(request, 'note.html', context=context)
 

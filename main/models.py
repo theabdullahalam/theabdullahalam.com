@@ -67,7 +67,7 @@ class Note(models.Model):
     image = models.ImageField(upload_to='headers', null=True, blank=True)
     title = models.CharField(max_length=250)
     content = RichTextUploadingField(max_length=28000)
-    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name="notes")
     tags = models.ManyToManyField(Tag, related_name="notes")
     created = models.DateTimeField(editable=True, blank=True)
     modified = models.DateTimeField(editable=True, blank=True)

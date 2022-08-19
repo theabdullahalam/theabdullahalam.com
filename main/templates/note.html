@@ -1,13 +1,13 @@
 {% extends 'gardenbase.html' %}
 {% load static %}
 
-{% block title %}{{ post.title }} - Blog - Abdullah Alam{% endblock %}
-{% block ogtitle %}{{ post.title }} - Blog - Abdullah Alam{% endblock %}
-{% block tctitle %}{{ post.title }} - Blog - Abdullah Alam{% endblock %}
+{% block title %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
+{% block ogtitle %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
+{% block tctitle %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
 
-{% block metadescription %}{{ description | safe }}{% endblock %}
-{% block ogdescription %}{{ description | safe }}{% endblock %}
-{% block tcdescription %}{{ description | safe }}{% endblock %}
+{% block metadescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
+{% block ogdescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
+{% block tcdescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
 
 {% block ogimage %}{{ fullimage }}{% endblock %}
 {% block tcimage %}{{ fullimage }}{% endblock %}
@@ -21,82 +21,11 @@
 
 {% block body %}
 
-  <h1>This is an amazing article</h1>
+  <h1>{{ note.title }}</h1>
   <p class="details">
     Last Updated: 17th August · Poetry · life, relationships, love, optimism
   </p>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis voluptas veritatis fugiat
-    voluptatibus. Quaerat cum nisi odit? Labore nobis mollitia quasi! Earum aliquid similique
-    eos, fugit saepe dolor et libero voluptate soluta impedit ut accusamus neque nisi
-    praesentium nam, eaque eum porro qui quasi quos.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error sit tempora, ab qui minima at
-    iste beatae alias dignissimos aliquam iure ipsum vero, deleniti facilis? Aut minus quas iste
-    quidem nostrum doloremque distinctio hic error enim? Autem velit suscipit voluptatem error
-    ut molestias totam est dignissimos? Magni doloremque accusantium aut consectetur debitis
-    eius modi unde culpa odit ad eum aspernatur veniam exercitationem obcaecati quas dignissimos
-    suscipit, repellendus, quibusdam praesentium, consequatur inventore totam nulla nihil.
-    Nostrum quaerat tenetur voluptate autem cumque.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nulla adipisci corrupti
-    dolorum voluptates. Earum, molestiae ea quaerat itaque voluptatem magni blanditiis cum aut.
-    Quos, nisi at. Architecto odit praesentium assumenda quod vel laudantium sequi nesciunt?
-    Nemo ducimus impedit ad, exercitationem fugit unde cupiditate repudiandae cumque sit
-    possimus ullam et, nostrum tenetur optio ipsum natus ea. Dolore tenetur voluptatem tempore.
-    Omnis veritatis facere quis, adipisci tempora distinctio repudiandae ducimus minima! Aliquam
-    veniam nisi aperiam ipsa. Ipsam eaque accusamus necessitatibus, veniam illum odit cumque
-    distinctio molestiae nobis voluptates aperiam natus debitis ratione quisquam dolorem
-    praesentium porro eius! Culpa veniam nobis doloremque. Unde nisi dolores veniam atque,
-    eveniet quo ipsum minus ea placeat mollitia, hic fuga dolor, ipsa repellat officiis
-    expedita! Quod, maiores. Molestiae necessitatibus labore quibusdam maiores repudiandae,
-    recusandae rem sint quo! Quis debitis, doloribus excepturi, ipsa molestiae maiores laborum,
-    aliquam quibusdam pariatur nemo velit molestias saepe libero ad dignissimos? Exercitationem?
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi similique sed praesentium?
-    Cupiditate iste ducimus libero qui, nobis repudiandae quo!
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nulla adipisci corrupti
-    dolorum voluptates. Earum, molestiae ea quaerat itaque voluptatem magni blanditiis cum aut.
-    Quos, nisi at. Architecto odit praesentium assumenda quod vel laudantium sequi nesciunt?
-    Nemo ducimus impedit ad, exercitationem fugit unde cupiditate repudiandae cumque sit
-    possimus ullam et, nostrum tenetur optio ipsum natus ea. Dolore tenetur voluptatem tempore.
-    Omnis veritatis facere quis, adipisci tempora distinctio repudiandae ducimus minima! Aliquam
-    veniam nisi aperiam ipsa. Ipsam eaque accusamus necessitatibus, veniam illum odit cumque
-    distinctio molestiae nobis voluptates aperiam natus debitis ratione quisquam dolorem
-    praesentium porro eius! Culpa veniam nobis doloremque. Unde nisi dolores veniam atque,
-    eveniet quo ipsum minus ea placeat mollitia, hic fuga dolor, ipsa repellat officiis
-    expedita! Quod, maiores. Molestiae necessitatibus labore quibusdam maiores repudiandae,
-    recusandae rem sint quo! Quis debitis, doloribus excepturi, ipsa molestiae maiores laborum,
-    aliquam quibusdam pariatur nemo velit molestias saepe libero ad dignissimos? Exercitationem?
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi similique sed praesentium?
-    Cupiditate iste ducimus libero qui, nobis repudiandae quo!
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nulla adipisci corrupti
-    dolorum voluptates. Earum, molestiae ea quaerat itaque voluptatem magni blanditiis cum aut.
-    Quos, nisi at. Architecto odit praesentium assumenda quod vel laudantium sequi nesciunt?
-    Nemo ducimus impedit ad, exercitationem fugit unde cupiditate repudiandae cumque sit
-    possimus ullam et, nostrum tenetur optio ipsum natus ea. Dolore tenetur voluptatem tempore.
-    Omnis veritatis facere quis, adipisci tempora distinctio repudiandae ducimus minima! Aliquam
-    veniam nisi aperiam ipsa. Ipsam eaque accusamus necessitatibus, veniam illum odit cumque
-    distinctio molestiae nobis voluptates aperiam natus debitis ratione quisquam dolorem
-    praesentium porro eius! Culpa veniam nobis doloremque. Unde nisi dolores veniam atque,
-    eveniet quo ipsum minus ea placeat mollitia, hic fuga dolor, ipsa repellat officiis
-    expedita! Quod, maiores. Molestiae necessitatibus labore quibusdam maiores repudiandae,
-    recusandae rem sint quo! Quis debitis, doloribus excepturi, ipsa molestiae maiores laborum,
-    aliquam quibusdam pariatur nemo velit molestias saepe libero ad dignissimos? Exercitationem?
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi similique sed praesentium?
-    Cupiditate iste ducimus libero qui, nobis repudiandae quo!
-  </p>
+  {{ note.content | safe }}
 </div>
 
 <div id="related">
@@ -137,99 +66,53 @@
   </div>
 
   <div class="section" id="section-section">
-    <h2><i class="fas fa-layer-group"></i> photography</h2>
+    <h2><i class="fas fa-layer-group"></i> {{ related_section.name | lower }}</h2>
 
     <div class="note-list">
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
+
+      {% for note in related_section.notes_list %}
+        <a 
+          class="note {% if note.image %} image-note {% endif %}" 
+          href="{% url 'note' note.slug %}"
+          {% if note.image %}
+            style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ note.image.url }})"
+          {% endif %}
+        >
+          <h3>{{ note.title }}</h3>
+          <p>
+            {{ note.get_paragraph_preview }}
+          </p>
+        </a>
+      {% endfor %}
       <a class="note" href="#">
         <h3>More notes in photography <i class="fas fa-arrow-right"></i></h3>
       </a>
     </div>
   </div>
 
+  {% for tag in related_tags %}
   <div class="section" id="tag-section">
-    <h2><i class="fas fa-tag"></i> astronomy</h2>
-
+    <h2><i class="fas fa-tag"></i> {{ tag.name | lower }}</h2>
     <div class="note-list">
+      {% for note in tag.notes_list %}
+        <a 
+          class="note {% if note.image %} image-note {% endif %}" 
+          href="{% url 'note' note.slug %}"
+          {% if note.image %}
+            style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ note.image.url }})"
+          {% endif %}
+        >
+          <h3>{{ note.title }}</h3>
+          <p>
+            {{ note.get_paragraph_preview }}
+          </p>
+        </a>
+      {% endfor %}
       <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
+        <h3>More notes in photography <i class="fas fa-arrow-right"></i></h3>
       </a>
     </div>
   </div>
-
-  <div class="section" id="tag-section">
-    <h2><i class="fas fa-tag"></i> colors</h2>
-
-    <div class="note-list">
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestiae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, delectus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-      <a class="note" href="#">
-        <h3>Another Amazing Essay about something Random</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis animi molestiae ipsa, perspiciatis veritatis non itaque, soluta adipisci eum neque veniam autem magni modi ducimus.
-        </p>
-      </a>
-    </div>
-  </div>
+  {% endfor %}
 
 {% endblock %}

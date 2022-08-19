@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import Post, PostTopic, PhotoCategory, Photograph, DynamicStuff, Tag, Section, Note
+from .models import Post, PostTopic, PhotoCategory, Photograph, DynamicStuff, Tag, Section, Note, Connection
+
+@admin.register(Connection)
+class ConnectionAdmin(admin.ModelAdmin):
+    pass
 
 @admin.register(Note)
 class NoteAdmin(admin.ModelAdmin):

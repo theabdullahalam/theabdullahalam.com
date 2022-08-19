@@ -5,6 +5,8 @@ from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.sites.models import Site
 from django.utils.html import strip_tags
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse
  
 class PostTopic(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
@@ -62,6 +64,14 @@ class Tag(models.Model):
     def get_absolute_url(self):
         return reverse('tag', args=[str(self.slug)])
 
+class Connection(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    to_note = models.ForeignKey("Note", on_delete=models.CASCADE, related_name="connection_to")
+    from_note = models.ForeignKey("Note", on_delete=models.CASCADE, related_name="connection_from")
+
+    def __str__(self):
+        return str(self.from_note.title + ' -> ' + self.to_note.title)
+
 class Note(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     image = models.ImageField(upload_to='headers', null=True, blank=True)
@@ -82,7 +92,13 @@ class Note(models.Model):
         # GENERATE SLUG
         if not self.slug:
             self.slug = slugify(self.title)
-        return super(Note, self).save(*args, **kwargs)
+
+        return_val = super(Note, self).save(*args, **kwargs)
+
+        # make connections
+        self.make_connections()
+
+        return return_val
  
     def __str__(self):
         return str(self.title)
@@ -109,6 +125,28 @@ class Note(models.Model):
             preview = self.content
 
         return self.get_sane_description(preview)
+
+    def make_connections(self):
+        print("Making...")
+
+        soup = BeautifulSoup(self.content, 'html.parser')
+        for link in soup.find_all('a'):
+            url = urlparse(link.get("href"))
+            path = url.path
+            parts = path.split("/")
+            slug = parts[-1] if parts[-1] != '' else parts[-2]
+            to_note = Note.objects.filter(slug = slug).first()
+
+            if to_note is not None:
+                connection = Connection.objects.filter(from_note=self, to_note=to_note).first()
+                if connection is None:
+                    c = Connection(
+                        from_note=self,
+                        to_note=to_note
+                    )
+                    c.save()
+
+        
  
 class Post(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)

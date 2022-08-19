@@ -8,7 +8,7 @@ from django.templatetags.static import static
 from django.urls import reverse
 from django.utils.html import strip_tags
 
-from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff, Tag, Section, Note
+from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff, Tag, Section, Note, Connection
 
 
 
@@ -117,11 +117,14 @@ def note(request, slug):
     for tag in related_tags:
         tag.notes_list = tag.notes.all()
 
+    connections = Connection.objects.filter(to_note=note)
+
     context = {
         "note": note,
         "section": section,
         "related_section": related_section,
         "related_tags": related_tags,
+        "connections": connections,
         **get_universal_context()
     }
     return render(request, 'note.html', context=context)

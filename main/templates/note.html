@@ -53,9 +53,11 @@
             </p>
           </a>
         {% endfor %}
-        <a class="note" href="#">
-          <h3>More notes in photography <i class="fas fa-arrow-right"></i></h3>
-        </a>
+        {% if connections_has_more %}
+          <a class="note" href="#">
+            <h3>More notes in mentioning this one <i class="fas fa-arrow-right"></i></h3>
+          </a>
+        {% endif %}
 
       </div>
     </div>
@@ -81,9 +83,11 @@
             </p>
           </a>
         {% endfor %}
-        <a class="note" href="#">
-          <h3>More notes in photography <i class="fas fa-arrow-right"></i></h3>
-        </a>
+        {% if related_section.has_more %}
+          <a class="note" href="#">
+            <h3>More notes in {{section.name}} <i class="fas fa-arrow-right"></i></h3>
+          </a>
+        {% endif %}
       </div>
     </div>
   {% endif %}
@@ -107,9 +111,11 @@
               </p>
             </a>
           {% endfor %}
-          <a class="note" href="#">
-            <h3>More notes in photography <i class="fas fa-arrow-right"></i></h3>
-          </a>
+          {% if tag.has_more %}
+            <a class="note" href="#">
+              <h3>More notes in {{tag.name}} <i class="fas fa-arrow-right"></i></h3>
+            </a>
+        {% endif %}
         </div>
       </div>
     {% endif %}

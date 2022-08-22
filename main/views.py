@@ -110,23 +110,45 @@ def note(request, slug):
 
     note = Note.objects.get(slug = slug)
 
+    # related section stuff
     related_section = note.section
-    related_section.notes_list = related_section.notes.all()
+    related_notes = related_section.notes.all().exclude(slug = note.slug)
+    if len(related_notes) > 6:
+        related_section.has_more = True
+        related_section.notes_list = related_notes[:5]
+    else:
+        related_section.notes_list = related_notes
 
+    # related tag stuff
     related_tags = note.tags.all()
     comma_tags = []
     for tag in related_tags:
-        tag.notes_list = tag.notes.all()
+        related_notes = tag.notes.all().exclude(slug = note.slug)
+        if len(related_notes) > 6:
+            tag.has_more = True
+            tag.notes_list = related_notes[:5]
+        else:
+            tag.notes_list = related_notes
+        
         comma_tags.append(tag.name.lower())
-
     note.comma_tags = comma_tags
-    connections = Connection.objects.filter(to_note=note)
+
+    # related connections stuff
+    connection_objects = Connection.objects.filter(to_note=note)
+    connections = []
+    connections_has_more = False
+    if len(connections) > 6:
+        connections = connection_objects[:5]
+        connections_has_more = True
+    else:
+        connections = connection_objects
 
     context = {
         "note": note,
         "section": section,
         "related_section": related_section,
         "related_tags": related_tags,
+        "connections_has_more": connections_has_more,
         "connections": connections,
         **get_universal_context()
     }

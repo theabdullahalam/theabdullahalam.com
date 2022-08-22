@@ -55,11 +55,25 @@ body {
       color: whitesmoke;
     }
 
+    .side-list {
+      @media screen and (max-width: 980px) {
+        box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
+        -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
+  
+        background: rgb(30, 30, 30);
+        border: 1px solid rgb(81, 81, 81);
+      }
+    }
+
     #sections-list,
     #tags-list {
       li {
         a {
           color: rgba(255, 255, 255, 0.3);
+          @media screen and (max-width: 980px) {
+            color: whitesmoke;
+          }
           transition: color 0.2s;
 
           &:hover {

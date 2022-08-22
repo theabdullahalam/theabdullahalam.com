@@ -28,6 +28,10 @@ body {
 
     p {
       max-width: 65%;
+
+      @media screen and (max-width: 1200px) {
+        max-width: unset;
+      }
     }
 
   }
@@ -36,6 +40,11 @@ body {
     grid-area: related;
     margin-left: $grid-margin;
     margin-top: $top-margin;
+
+    @media screen and (max-width: 980px) {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
 
     .section {
       margin-bottom: $top-margin * 2;

@@ -33,6 +33,17 @@ body {
     'sections content tags'
     '. related .';
 
+  @media screen and (max-width: 980px) {
+
+    margin-top: $top-margin-mobile;
+
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+    'logo title buttons'
+    'content content content'
+    'related related related';
+  }
+
   background: white;
 
   // dark mode
@@ -81,6 +92,12 @@ body {
     place-self: center end;
 
     margin-right: $grid-margin - 1rem;
+    
+    @media screen and (max-width: 980px) {
+      margin-right: 0;
+      height: 2.2rem;
+      margin-left: 1.4rem;
+    }
   }
 
   #site-title {
@@ -92,36 +109,63 @@ body {
 
     margin-left: $grid-margin;
 
+    @media screen and (max-width: 980px) {
+      margin-left: 1rem;
+    }
+
     place-self: center start;
     color: rgb(13, 13, 13);
     text-decoration: none;
   }
 
+  #buttons{
+    grid-area: buttons;
+    margin-right: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    @media screen and (min-width: 980px) {
+      display: none;
+    }
+
+    i {
+      cursor: pointer;
+    }
+
+  }
+
   .side-list {
     list-style: none;
-    margin-top: $top-margin - 0.35rem;
+    margin-top: $top-margin - 0.3rem;
 
-    @media screen and (max-width: 1560px) {
-      // grid-column: 1/3 !important;
-      // grid-row: 1/2 !important;
+    @media screen and (max-width: 980px) {
+      
       position: absolute;
       left: 0;
       right: 0;
-      margin-left: auto;
-      margin-right: auto !important;
+      top: 3rem;
+      margin-left: 2rem !important;
+      margin-right: 2rem !important;
+      // width: 80vw;
+
+      display: none;
+      &.visible {
+        display: initial;
+      }
 
       z-index: 3;
 
-      box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-      -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-      -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
+      box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+      -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
 
       background: whitesmoke;
       border: 1px solid rgb(233, 233, 233);
       
       padding: 2rem;
       min-width: unset !important;
-      width: 85vw;
+      // width: 85vw;
       
 
       border-radius: 0.5rem;
@@ -129,17 +173,30 @@ body {
     }
 
     li {
+
       margin-bottom: 1rem;
+      @media screen and (max-width: 980px) {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
 
       a {
         text-decoration: none;
         color: rgba(0, 0, 0, 0.3);
-        transition: color 0.2s;
-
         &:hover {
-          // color: rgba(0, 0, 0, 0.8);
           color: $accent_color_dark;
         }
+        
+        transition: color 0.2s;
+
+        @media screen and (max-width: 980px) {
+          color: rgba(0, 0, 0, 0.9);
+          &:hover {
+            color: $accent_color_dark;
+          }
+        }
+
+
 
         i {
           font-size: 0.8rem;
@@ -152,7 +209,11 @@ body {
     grid-area: sections;
     place-self: start end;
     margin-right: $grid-margin;
-    // width: 10vw;
+    padding-left: 0;
+    
+    @media screen and (max-width: 1250px) {
+      margin-right: 1rem;
+    }
 
     text-align: right;
 
@@ -170,7 +231,14 @@ body {
     margin-left: $grid-margin;
     margin-top: $top-margin;
 
-    // width: 100%;
+    
+    @media screen and (max-width: 1250px) {
+      margin-left: 0;
+    }
+    
+    @media screen and (max-width: 980px) {
+      margin-top: $top-margin-mobile;
+    }
 
     h1 {
       font-family: 'Ubuntu', sans-serif;
@@ -194,13 +262,37 @@ body {
   #tags-list {
     grid-area: tags;
     margin-left: $grid-margin - 2rem;
-    // width: 15vw;
-    // display: none;
+
+    @media screen and (max-width: 1250px) {
+      margin-left: 1rem;
+      padding-left: 0;
+    }
+
+    @media screen and (max-width: 980px) {
+      text-align: right;
+    }
 
     li {
       a {
+
+        @media screen and (max-width: 980px) {
+          display: flex;
+          justify-content: flex-end;
+          align-items: baseline;
+        }
+
         i {
           margin-right: 0.5rem;
+          @media screen and (max-width: 980px) {
+            order: 2;
+            margin-left: 1rem;
+          }
+        }
+
+        span {
+          @media screen and (max-width: 980px) {
+            order: 1;
+          }
         }
       }
     }
@@ -222,7 +314,7 @@ body {
       right: 2rem;
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 980px) {
       bottom: 6rem;
       right: -12px;
       padding: 0.8rem;

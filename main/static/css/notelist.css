@@ -17,6 +17,12 @@ body .note-list {
   flex-wrap: wrap;
   width: 100%;
 }
+@media screen and (max-width: 830px) {
+  body .note-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
 body .note-list .note {
   background: white;
   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
@@ -28,6 +34,21 @@ body .note-list .note {
   color: currentColor;
   text-decoration: none;
   box-sizing: border-box;
+}
+@media screen and (max-width: 1300px) {
+  body .note-list .note {
+    flex-basis: 31%;
+  }
+}
+@media screen and (max-width: 980px) {
+  body .note-list .note {
+    flex-basis: 49%;
+  }
+}
+@media screen and (max-width: 830px) {
+  body .note-list .note {
+    flex-basis: unset;
+  }
 }
 body .note-list .note h3 i {
   font-size: 0.7em;

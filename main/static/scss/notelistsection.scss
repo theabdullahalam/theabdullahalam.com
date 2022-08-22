@@ -26,6 +26,11 @@ body {
     flex-wrap: wrap;
     width: 100%;
 
+    @media screen and (max-width: 830px) {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
     .note {
       background: white;
       box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
@@ -35,6 +40,20 @@ body {
       border-radius: 0.5rem;
 
       flex-basis: 32%;
+
+      @media screen and (max-width: 1300px) {
+        flex-basis: 31%;
+      }
+
+      @media screen and (max-width: 980px) {
+        flex-basis: 49%;
+      }
+
+      @media screen and (max-width: 830px) {
+        flex-basis: unset;
+    }
+
+      
 
       color: currentColor;
       text-decoration: none;

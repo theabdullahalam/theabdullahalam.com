@@ -108,11 +108,18 @@ body #site-title {
     margin-left: 1rem;
   }
 }
+@media screen and (max-width: 400px) {
+  body #site-title {
+    font-weight: normal;
+    font-size: 2rem;
+    padding-right: 1rem;
+  }
+}
 body #buttons {
   grid-area: buttons;
   margin-right: 2rem;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
 }
 @media screen and (min-width: 980px) {
@@ -221,6 +228,11 @@ body #content .details {
 body #content p {
   line-height: 1.8rem;
   font-size: 1.4rem;
+}
+@media screen and (max-width: 400px) {
+  body #content p {
+    font-size: 1.2rem;
+  }
 }
 body #tags-list {
   grid-area: tags;

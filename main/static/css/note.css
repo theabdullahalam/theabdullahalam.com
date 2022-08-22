@@ -87,6 +87,11 @@ body #content {
   padding: 2rem;
   border-radius: 0.5rem;
 }
+@media screen and (max-width: 400px) {
+  body #content h1 {
+    font-size: 3rem;
+  }
+}
 body #content p {
   max-width: 65%;
 }

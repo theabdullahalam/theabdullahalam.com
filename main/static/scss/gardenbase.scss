@@ -156,8 +156,18 @@ body {
   }
 
   .side-list {
+
     list-style: none;
     margin-top: $top-margin - 0.3rem;
+
+    @keyframes show {
+      0% {
+        transform: scaleY(0);
+      }
+      100% {
+        transform: scaleY(1);
+      }
+    }
 
     @media screen and (max-width: 980px) {
       
@@ -172,6 +182,9 @@ body {
       display: none;
       &.visible {
         display: initial;
+        transform-origin: top right;
+        animation: show 0.3s;
+        animation-timing-function: cubic-bezier(0.77,0.2,0.05,1.0);        
       }
 
       z-index: 3;

@@ -45,15 +45,15 @@
 
     <!-- menu buttons -->
     <div id="buttons">
-      <i class="fas fa-layer-group" onclick="toggleSectionsMenu()"></i>
-      <i class="fas fa-tag" onclick="toggleTagsMenu()"></i>
+      <i class="fas fa-layer-group menu-element" onclick="toggleSectionsMenu()"></i>
+      <i class="fas fa-tag menu-element" onclick="toggleTagsMenu()"></i>
     </div>
 
     <!-- section list -->
-    <ul id="sections-list" class="side-list">
+    <ul id="sections-list" class="side-list menu-element">
       {% for section in sections %}
-        <li>
-          <a href="{% url 'section' section.slug %}">{{ section.name | lower }} <i class="fas fa-layer-group"></i></a>
+        <li class="menu-element">
+          <a href="{% url 'section' section.slug %}" class="menu-element">{{ section.name | lower }} <i class="fas fa-layer-group menu-element"></i></a>
         </li>
       {% endfor %}
     </ul>
@@ -67,8 +67,8 @@
     <!-- tags list -->
     <ul id="tags-list" class="side-list">
       {% for tag in tags %}
-        <li>
-          <a href="{% url 'tag' tag.slug %}"><i class="fas fa-tag"></i> <span>{{ tag.name | lower }}</span></a>
+        <li class="menu-element">
+          <a href="{% url 'tag' tag.slug %}" class="menu-element"><i class="fas fa-tag menu-element"></i> <span class="menu-element">{{ tag.name | lower }}</span></a>
         </li>
       {% endfor %}
     </ul>
@@ -93,6 +93,15 @@
       function toggleTagsMenu(){
         document.getElementById("tags-list").classList.toggle("visible")
       }
+
+      function hideMenus(e){
+        if (!e.target.classList.contains("menu-element")){
+          document.getElementById("sections-list").classList.remove("visible")
+          document.getElementById("tags-list").classList.remove("visible")
+        }
+      }
+
+      document.addEventListener("click", hideMenus)
     </script>
 
   </body>

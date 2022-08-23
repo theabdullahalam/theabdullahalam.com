@@ -14,7 +14,7 @@
   font-display: swap;
   src: url(/static/fonts/Maka.otf) format("opentype");
 }
-* {
+.animatechange *, .animatechange {
   transition: color 0.3s ease, background 0.3s ease, border 0.3s ease, outline 0.3s ease, transform 0.1s ease-out, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease, -moz-box-shadow 0.1s ease;
 }
 

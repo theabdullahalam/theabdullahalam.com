@@ -91,7 +91,18 @@ def get_paragraph_preview(content):
     return preview
 
 def get_universal_context():
-    sections = Section.objects.all()
+    notes_to_list = Note.objects.filter(show_in_section_list=True)
+    all_sections = Section.objects.all()
+    sections = []
+    for n in notes_to_list:
+        sections.append({
+            "name": n.title,
+            "slug": n.slug,
+            "is_note": True
+        })
+    for s in all_sections:
+        sections.append(s)
+
     tags = Tag.objects.all()
 
     return {
@@ -112,7 +123,7 @@ def note(request, slug):
 
     # related section stuff
     related_section = note.section
-    related_notes = related_section.notes.all().exclude(slug = note.slug)
+    related_notes = related_section.notes.all().exclude(slug = note.slug) if (note.show_related_notes and related_section.show_related_notes) else []
     if len(related_notes) > 6:
         related_section.has_more = True
         related_section.notes_list = related_notes[:5]
@@ -123,7 +134,7 @@ def note(request, slug):
     related_tags = note.tags.all()
     comma_tags = []
     for tag in related_tags:
-        related_notes = tag.notes.all().exclude(slug = note.slug)
+        related_notes = tag.notes.all().exclude(slug = note.slug) if (note.show_related_notes and related_section.show_related_notes) else []
         if len(related_notes) > 6:
             tag.has_more = True
             tag.notes_list = related_notes[:5]
@@ -157,7 +168,7 @@ def note(request, slug):
 def section(request, slug):
 
     section = Section.objects.get(slug=slug)
-    notes = Note.objects.filter(section=section)
+    notes = Note.objects.filter(section=section, private=False)
 
     context = {
         "index": section,
@@ -169,14 +180,14 @@ def section(request, slug):
 def tag(request, slug):
 
     tag = Tag.objects.get(slug=slug)
-    notes = Note.objects.filter(tags = tag)
+    notes = Note.objects.filter(tags = tag, private=False)
 
     context = {
         "index": tag,
         "notes": notes,
         **get_universal_context()
     }
-    return render(request, section.index_template if section.index_template else 'notelist.html', context=context)
+    return render(request, tag.index_template if tag.index_template else 'notelist.html', context=context)
 
 
 

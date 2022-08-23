@@ -31,6 +31,7 @@ class Section(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     name = models.CharField(max_length=250)
     index_template = models.CharField(max_length=250, blank=True, null=True, default=None)
+    show_related_notes = models.BooleanField(default=True)
     slug = models.SlugField(unique=True, max_length=100, blank=True)
 
     def __str__(self):

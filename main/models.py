@@ -75,6 +75,7 @@ class Connection(models.Model):
 
 class Note(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    template = models.CharField(max_length=250, blank=True, null=True, default="note.html")
     image = models.ImageField(upload_to='headers', null=True, blank=True)
     title = models.CharField(max_length=250)
     content = RichTextUploadingField(max_length=28000)
@@ -82,6 +83,9 @@ class Note(models.Model):
     tags = models.ManyToManyField(Tag, related_name="notes")
     created = models.DateTimeField(editable=True, blank=True)
     modified = models.DateTimeField(editable=True, blank=True)
+    private = models.BooleanField(default=False)
+    show_in_section_list = models.BooleanField(default=False)
+    show_related_notes = models.BooleanField(default=True)
     slug = models.SlugField(unique=True, max_length=100, blank=True)
 
     def save(self, *args, **kwargs):

@@ -152,7 +152,7 @@ def note(request, slug):
         "connections": connections,
         **get_universal_context()
     }
-    return render(request, 'note.html', context=context)
+    return render(request, note.template, context=context)
 
 def section(request, slug):
 
@@ -164,7 +164,7 @@ def section(request, slug):
         "notes": notes,
         **get_universal_context()
     }
-    return render(request, 'notelist.html', context=context)
+    return render(request, section.index_template if section.index_template else 'notelist.html', context=context)
 
 def tag(request, slug):
 
@@ -176,7 +176,7 @@ def tag(request, slug):
         "notes": notes,
         **get_universal_context()
     }
-    return render(request, 'notelist.html', context=context)
+    return render(request, section.index_template if section.index_template else 'notelist.html', context=context)
 
 
 

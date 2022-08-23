@@ -1,0 +1,49 @@
+{% extends 'skeleton.html' %}
+{% load static %}
+
+{% block title %}Photography Portfolio - Abdullah Alam{% endblock %}
+{% block ogtitle %}Photography Portfolio - Abdullah Alam{% endblock %}
+{% block tctitle %}Photography Portfolio - Abdullah Alam{% endblock %}
+
+{% block metadescription %}{{ description | safe }}{% endblock %}
+{% block ogdescription %}{{ description | safe }}{% endblock %}
+{% block tcdescription %}{{ description | safe }}{% endblock %}
+
+{% block ogimage %}{{ fullimage }}{% endblock %}
+{% block tcimage %}{{ fullimage }}{% endblock %}
+
+{% block ogurl %}{{ fullurl }}{% endblock %}
+{% block ogtype %}website{% endblock %}
+ 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/photography.css' %}">
+{% endblock %}
+ 
+{% block body %}
+
+<h2>PHOTOGRAPHY</h2>
+<div id="categorylist">
+    <ul>
+        <li>
+            <a href="{% url 'photography' %}" class="{% if category == 'all' %}current{% endif %}">ALL</a>
+        </li>
+        {% for c in categories %}
+        <li>
+            <a href="{% url 'photography' c.slug %}" class="{% if category == c.slug %}current{% endif %}">{{ c.categoryname.upper }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div id="photographs">
+    {% for col in columns %}
+        <div class="column">
+            {% for pic in col %}
+                <a href="{% url 'photo' pic.slug %}">
+                    <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                </a>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+ 
+{% endblock %}

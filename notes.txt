@@ -19,3 +19,6 @@ v
   - backlinks
   - from same section
   - from same tag
+
+
+- perhaps a separate photogrid template?

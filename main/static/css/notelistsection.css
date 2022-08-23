@@ -37,12 +37,7 @@ body .note-list .note {
 }
 @media screen and (max-width: 1300px) {
   body .note-list .note {
-    flex-basis: 31%;
-  }
-}
-@media screen and (max-width: 980px) {
-  body .note-list .note {
-    flex-basis: 49%;
+    flex-basis: 47%;
   }
 }
 @media screen and (max-width: 830px) {

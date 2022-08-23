@@ -8,6 +8,8 @@ from django.utils.html import strip_tags
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from django.utils import dateformat
+from martor.models import MartorField
+import markdown
  
 class PostTopic(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
@@ -79,7 +81,7 @@ class Note(models.Model):
     template = models.CharField(max_length=250, blank=True, null=True, default="note.html")
     image = models.ImageField(upload_to='headers', null=True, blank=True)
     title = models.CharField(max_length=250)
-    content = RichTextUploadingField(max_length=28000)
+    markdown_content = MartorField()
     section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name="notes")
     tags = models.ManyToManyField(Tag, related_name="notes")
     created = models.DateTimeField(editable=True, blank=True)
@@ -121,11 +123,14 @@ class Note(models.Model):
     def created_human_readable(self):
         return dateformat.format(self.created, "jS M, Y")
 
+    def get_html_content(self):
+        return markdown.markdown(self.markdown_content)
+
     def get_paragraph_preview(self):
         preview = ''
 
         try:
-            first_para = str(self.content).split('</p>')[0].split('<p>')[1]
+            first_para = str(self.get_html_content()).split('</p>')[0].split('<p>')[1]
             first_twenty = first_para.split(' ')[:35]
             # remove comma from last
             if first_twenty[-1][-1] == ',':
@@ -134,12 +139,12 @@ class Note(models.Model):
             preview = ' '.join(first_twenty)
         except IndexError as ie:
             print(str(ie))
-            preview = self.content
+            preview = self.get_html_content()
 
         return self.get_sane_description(preview)
 
     def make_connections(self):
-        soup = BeautifulSoup(self.content, 'html.parser')
+        soup = BeautifulSoup(self.get_html_content(), 'html.parser')
         for link in soup.find_all('a'):
             url = urlparse(link.get("href"))
             path = url.path

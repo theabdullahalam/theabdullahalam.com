@@ -245,6 +245,9 @@ body #content p {
     font-size: 1.2rem;
   }
 }
+body #content code {
+  font-size: 1rem;
+}
 body #tags-list {
   grid-area: tags;
   margin-left: 0rem;

@@ -1,24 +1,2 @@
-v
-- New Models
-  - Note
-    - Title
-    - Media
-    - Content
-    - Section
-    - Tags
-    - Template
-  - Section
-    - Name
-  - Tag
-    - Name
-
-- Note Contents
-  - tags
-  - sections
-  - content
-  - backlinks
-  - from same section
-  - from same tag
-
-
-- perhaps a separate photogrid template?
+- proper syntax highlighting
+- separate photogrid template

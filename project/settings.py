@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'main',
+    'martor',
 ]
 
 MIDDLEWARE = [
@@ -151,6 +152,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# MARTOR STUFF
+MARTOR_THEME = 'bootstrap'
+
 
 
 # Internationalization

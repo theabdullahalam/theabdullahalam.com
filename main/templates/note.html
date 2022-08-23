@@ -1,5 +1,6 @@
 {% extends 'gardenbase.html' %}
 {% load static %}
+{% load martortags %}
 
 {% block title %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
 {% block ogtitle %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
@@ -25,7 +26,7 @@
   <p class="details">
     {{ note.section}} - {{ note.comma_tags|join:', ' }}
   </p>
-  {{ note.content | safe }}
+  {{ note.markdown_content | safe_markdown }}
   <p class="details">
     Created: {{ note.created_human_readable }}<br />
     Modified: {{ note.modified_human_readable }}<br />

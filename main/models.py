@@ -130,15 +130,26 @@ class Note(models.Model):
         preview = ''
 
         try:
-            first_para = str(self.get_html_content()).split('</p>')[0].split('<p>')[1]
-            first_twenty = first_para.split(' ')[:35]
-            # remove comma from last
-            if first_twenty[-1][-1] == ',':
-                first_twenty[-1] = first_twenty[-1][:-1]
+            soup = BeautifulSoup(self.get_html_content(), "html.parser")
+            paras = soup.find_all('p')
+            if len(paras) > 0:
+                first_para = paras[0].string
+                words = first_para.split(' ')
+                if len(words) > 0:
+                    first_twenty = words[:15]
+                    # remove comma from last
+                    if first_twenty[-1][-1] == ',':
+                        first_twenty[-1] = first_twenty[-1][:-1]
 
-            preview = ' '.join(first_twenty)
+                    # build preview text
+                    preview = ' '.join(first_twenty)
+
+                    # add dot dot dot if clipped
+                    if len(words) > 15:
+                        preview += "..."
+
         except IndexError as ie:
-            print(str(ie))
+            print(self.title + ": " + str(ie))
             preview = self.get_html_content()
 
         return self.get_sane_description(preview)

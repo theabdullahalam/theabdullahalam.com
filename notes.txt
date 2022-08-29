@@ -1,7 +1,8 @@
-Beautiful soup parsing for paragraph preview
+.Beautiful soup parsing for paragraph preview
 .quotes format
 image fitting in content
 separate photogrid template
+format lists
 deployment
 
 - bugs

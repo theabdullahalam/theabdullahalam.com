@@ -2,9 +2,11 @@
 .quotes format
 .image fitting in content
 .quotes light mode
-separate photogrid template
+.separate photogrid template
+blank = true for notes
 format lists
 header image
+make subtitles clickable
 deployment
 
 - bugs

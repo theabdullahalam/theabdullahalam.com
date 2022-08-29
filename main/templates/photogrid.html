@@ -16,14 +16,18 @@
 {% block ogtype %}blog{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/photogrid.html.css' %}">
+<link rel="stylesheet" href="{% static 'css/photogrid.css' %}">
 {% endblock %}
 
 {% block body %}
 
-  <h1>phomtomgrafy</h1> 
+  <h1>Photography</h1> 
   <div id="photogrid">
-    
+      {% for note in notes %}
+        <a href="{% url 'note' note.slug %}">
+          <img src="{{ note.image.url }}" alt="" />
+        </a>
+      {% endfor %}
   </div>
 
 {% endblock %}

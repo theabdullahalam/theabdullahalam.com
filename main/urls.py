@@ -47,6 +47,8 @@ urlpatterns = [
     path('photo/<slug:slug>/', views.photo, name='photo'),
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    path('feed', LatestPostsFeed(), name='all_posts_feed')
+    path('feed', LatestPostsFeed(), name='all_posts_feed'),
+
+    path("api/uploader/", views.markdown_uploader, name="markdown_uploader_page")
  
 ]

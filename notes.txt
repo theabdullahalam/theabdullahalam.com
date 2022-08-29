@@ -1,8 +1,10 @@
 .Beautiful soup parsing for paragraph preview
 .quotes format
-image fitting in content
+.image fitting in content
+.quotes light mode
 separate photogrid template
 format lists
+header image
 deployment
 
 - bugs

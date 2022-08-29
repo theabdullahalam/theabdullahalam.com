@@ -134,7 +134,7 @@ class Note(models.Model):
             paras = soup.find_all('p')
             if len(paras) > 0:
                 first_para = paras[0].string
-                words = first_para.split(' ')
+                words = first_para.split(' ') if first_para is not None else ''
                 if len(words) > 0:
                     first_twenty = words[:15]
                     # remove comma from last

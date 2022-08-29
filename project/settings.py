@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import time
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -155,6 +156,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # MARTOR STUFF
 MARTOR_THEME = 'bootstrap'
+MARTOR_ENABLE_CONFIGS = {
+    'imgur': 'true',
+    'jquery': 'true'
+}
+MARTOR_UPLOAD_PATH = 'images/uploads/{}'.format(time.strftime("%Y/%m/%d/"))
+MARTOR_UPLOAD_URL = '/api/uploader/'
+MAX_IMAGE_UPLOAD_SIZE = 5242880
+
 
 
 

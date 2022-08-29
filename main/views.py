@@ -1,4 +1,5 @@
 import os
+import random
 
 from django.contrib.sites.models import Site
 from django.core.paginator import Paginator
@@ -90,6 +91,7 @@ def get_paragraph_preview(content):
 
     return preview
 
+# universal context for garden
 def get_universal_context():
     notes_to_list = Note.objects.filter(show_in_section_list=True)
     all_sections = Section.objects.all()
@@ -111,19 +113,23 @@ def get_universal_context():
     }
 
 
+def get_random_notes(count):
+    notes = list(Note.objects.all())
+    random.shuffle(notes)
+    return notes[:count]
+
+
 # --------------------- VIEWS -------------------------
 
 
+def note(request, slug = None):
 
-
-
-def note(request, slug):
-
-    note = Note.objects.get(slug = slug)
+    m_slug = slug if slug is not None else "home-page"
+    note = Note.objects.get(slug = m_slug)
 
     # related section stuff
     related_section = note.section
-    related_notes = related_section.notes.all().exclude(slug = note.slug) if (note.show_related_notes and related_section.show_related_notes) else []
+    related_notes = related_section.notes.all().exclude(slug = note.slug).exclude(section__slug = "miscellaneous") if (note.show_related_notes and related_section.show_related_notes) else []
     if len(related_notes) > 6:
         related_section.has_more = True
         related_section.notes_list = related_notes[:5]
@@ -134,7 +140,7 @@ def note(request, slug):
     related_tags = note.tags.all()
     comma_tags = []
     for tag in related_tags:
-        related_notes = tag.notes.all().exclude(slug = note.slug) if (note.show_related_notes and related_section.show_related_notes) else []
+        related_notes = tag.notes.all().exclude(slug = note.slug).exclude(section__slug = "miscellaneous") if (note.show_related_notes and related_section.show_related_notes) else []
         if len(related_notes) > 6:
             tag.has_more = True
             tag.notes_list = related_notes[:5]
@@ -145,7 +151,7 @@ def note(request, slug):
     note.comma_tags = comma_tags
 
     # related connections stuff
-    connection_objects = Connection.objects.filter(to_note=note)
+    connection_objects = Connection.objects.filter(to_note=note).exclude(to_note__section__slug = "miscellaneous")
     connections = []
     connections_has_more = False
     if len(connections) > 6:
@@ -154,13 +160,21 @@ def note(request, slug):
     else:
         connections = connection_objects
 
+    # home page stuff
+    random_notes = []
+
+    if m_slug == "home-page":
+        random_notes = get_random_notes(9)
+
     context = {
+        "slug": m_slug,
         "note": note,
         "section": section,
         "related_section": related_section,
         "related_tags": related_tags,
         "connections_has_more": connections_has_more,
         "connections": connections,
+        "random_notes": random_notes,
         **get_universal_context()
     }
     return render(request, note.template, context=context)

@@ -6,6 +6,7 @@ function loadDarkMode(){
         darkmode = getCookieVal('darkmode');
     }
 
+
     if (darkmode === 'false'){
         setDarkMode(false)
     }
@@ -41,6 +42,7 @@ function toggleDarkMode(){
 
     // GET COOKIE
     let cookie_val = getCookieVal('darkmode');
+    // This is some crazy cool stuff
 
     // TEMPORARILY ENABLE ANIMATIONS FOR ONE SECOND
     animateChange(true)

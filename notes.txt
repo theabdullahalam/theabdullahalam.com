@@ -1,2 +1,7 @@
-- proper syntax highlighting
-- separate photogrid template
+Beautiful soup parsing for paragraph preview
+.quotes format
+image fitting in content
+separate photogrid template
+deployment
+
+- bugs

@@ -27,78 +27,93 @@
     {{ note.section}} - {{ note.comma_tags|join:', ' }}
   </p>
   {{ note.markdown_content | safe_markdown }}
+
+  <!-- HOME PAGE STUFF -->
+  {% if slug == "home-page" %}
+    <p>
+      Dive in to any section...
+    </p>
+    <p>
+      {% for section in sections %}
+        {% if not section.is_note %}  
+          <a href="{% url 'section' section.slug %}" class="link-button">{{ section.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </p>
+    <p>
+      Or check out a random note...
+    </p>
+    <div class="note-list">
+
+      {% for note in random_notes %}
+        <a 
+          class="note {% if note.image %} image-note {% endif %}" 
+          href="{% url 'note' note.slug %}"
+          {% if note.image %}
+            style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ note.image.url }})"
+          {% endif %}
+        >
+          <h3>{{ note.title }}</h3>
+          <p>
+            {{ note.get_paragraph_preview }}
+          </p>
+        </a>
+      {% endfor %}
+      {% if related_section.has_more %}
+        <a class="note" href="#">
+          <h3>More notes in {{section.name}} <i class="fas fa-arrow-right"></i></h3>
+        </a>
+      {% endif %}
+    </div>
+    
+
+  {% endif %}
+
   <p class="details">
     Created: {{ note.created_human_readable }}<br />
     Modified: {{ note.modified_human_readable }}<br />
   </p>
 </div>
 
-<div id="related">
+{% if slug != "home-page" %}
+  <div id="related">
 
-  {% if connections|length > 0 %}
-    <div class="section" id="backlinks-section">
-      <h2><i class="fas fa-link"></i> mentioned in</h2>
-      <div class="note-list">
-        
-        {% for connection in connections %}
-          <a 
-            class="note {% if connection.from_note.image %} image-note {% endif %}" 
-            href="{% url 'note' connection.from_note.slug %}"
-            {% if note.image %}
-              style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ connection.from_note.image.url }})"
-            {% endif %}
-          >
-            <h3>{{ connection.from_note.title }}</h3>
-            <p>
-              {{ connection.from_note.get_paragraph_preview }}
-            </p>
-          </a>
-        {% endfor %}
-        {% if connections_has_more %}
-          <a class="note" href="#">
-            <h3>More notes in mentioning this one <i class="fas fa-arrow-right"></i></h3>
-          </a>
-        {% endif %}
-
-      </div>
-    </div>
-  {% endif %}
-
-  {% if related_section.notes_list|length > 0 %}
-    <div class="section" id="section-section">
-      <h2><i class="fas fa-layer-group"></i> {{ related_section.name | lower }}</h2>
-
-      <div class="note-list">
-
-        {% for note in related_section.notes_list %}
-          <a 
-            class="note {% if note.image %} image-note {% endif %}" 
-            href="{% url 'note' note.slug %}"
-            {% if note.image %}
-              style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ note.image.url }})"
-            {% endif %}
-          >
-            <h3>{{ note.title }}</h3>
-            <p>
-              {{ note.get_paragraph_preview }}
-            </p>
-          </a>
-        {% endfor %}
-        {% if related_section.has_more %}
-          <a class="note" href="#">
-            <h3>More notes in {{section.name}} <i class="fas fa-arrow-right"></i></h3>
-          </a>
-        {% endif %}
-      </div>
-    </div>
-  {% endif %}
-
-  {% for tag in related_tags %}
-    {% if tag.notes_list|length > 0 %}
-      <div class="section" id="tag-section">
-        <h2><i class="fas fa-tag"></i> {{ tag.name | lower }}</h2>
+    {% if connections|length > 0 %}
+      <div class="section" id="backlinks-section">
+        <h2><i class="fas fa-link"></i> mentioned in</h2>
         <div class="note-list">
-          {% for note in tag.notes_list %}
+          
+          {% for connection in connections %}
+            <a 
+              class="note {% if connection.from_note.image %} image-note {% endif %}" 
+              href="{% url 'note' connection.from_note.slug %}"
+              {% if note.image %}
+                style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ connection.from_note.image.url }})"
+              {% endif %}
+            >
+              <h3>{{ connection.from_note.title }}</h3>
+              <p>
+                {{ connection.from_note.get_paragraph_preview }}
+              </p>
+            </a>
+          {% endfor %}
+          {% if connections_has_more %}
+            <a class="note" href="#">
+              <h3>More notes in mentioning this one <i class="fas fa-arrow-right"></i></h3>
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+    {% endif %}
+
+    {% if related_section.notes_list|length > 0 %}
+      <div class="section" id="section-section">
+        <h2><i class="fas fa-layer-group"></i> {{ related_section.name | lower }}</h2>
+
+        <div class="note-list">
+
+          {% for note in related_section.notes_list %}
             <a 
               class="note {% if note.image %} image-note {% endif %}" 
               href="{% url 'note' note.slug %}"
@@ -112,14 +127,43 @@
               </p>
             </a>
           {% endfor %}
-          {% if tag.has_more %}
+          {% if related_section.has_more %}
             <a class="note" href="#">
-              <h3>More notes in {{tag.name}} <i class="fas fa-arrow-right"></i></h3>
+              <h3>More notes in {{section.name}} <i class="fas fa-arrow-right"></i></h3>
             </a>
-        {% endif %}
+          {% endif %}
         </div>
       </div>
     {% endif %}
-  {% endfor %}
 
+    {% for tag in related_tags %}
+      {% if tag.notes_list|length > 0 %}
+        <div class="section" id="tag-section">
+          <h2><i class="fas fa-tag"></i> {{ tag.name | lower }}</h2>
+          <div class="note-list">
+            {% for note in tag.notes_list %}
+              <a 
+                class="note {% if note.image %} image-note {% endif %}" 
+                href="{% url 'note' note.slug %}"
+                {% if note.image %}
+                  style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ note.image.url }})"
+                {% endif %}
+              >
+                <h3>{{ note.title }}</h3>
+                <p>
+                  {{ note.get_paragraph_preview }}
+                </p>
+              </a>
+            {% endfor %}
+            {% if tag.has_more %}
+              <a class="note" href="#">
+                <h3>More notes in {{tag.name}} <i class="fas fa-arrow-right"></i></h3>
+              </a>
+          {% endif %}
+          </div>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
+{% endif %}
 {% endblock %}

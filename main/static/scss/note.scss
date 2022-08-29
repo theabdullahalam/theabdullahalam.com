@@ -1,6 +1,8 @@
 @import 'vars';
 @import 'notelistsection';
 
+$desktop_max_width: 65%;
+
 body {
 
   &.dark {
@@ -11,6 +13,20 @@ body {
       -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
 
       border: 1px solid rgb(50, 50, 50);
+
+      blockquote {
+        background: rgb(43, 43, 43);
+      }
+
+      p {
+        .link-button {
+          color: $accent_color;
+
+          &:visited {
+            color: $accent_color;
+          }
+        }
+      }
     }
   }
 
@@ -26,17 +42,55 @@ body {
     padding: 2rem;
     border-radius: 0.5rem;
 
+
+    @media screen and (max-width: 980px) {
+      // margin-left: 1rem;
+      // margin-right: 1rem;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
     h1 {
       @media screen and (max-width: 400px) {
         font-size: 3rem;
       }
     }
 
-    p {
-      max-width: 65%;
+    blockquote {
+      margin: 0;
+      padding: 2rem;
+
+      max-width: $desktop_max_width - 5%;
 
       @media screen and (max-width: 1200px) {
         max-width: unset;
+      }
+      
+    }
+
+    
+    p {
+      max-width: $desktop_max_width;
+      
+      @media screen and (max-width: 1200px) {
+        max-width: unset;
+      }
+      
+      .link-button {
+        border: 1px solid $accent_color;
+        color: $accent_color_dark;
+        text-decoration: none;
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+  
+        &:visited {
+          color: $accent_color_dark;
+        }
+  
       }
     }
 

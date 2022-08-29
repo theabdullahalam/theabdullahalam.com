@@ -91,6 +91,17 @@ body {
       .details {
         color: rgba(255, 255, 255, 0.5);
       }
+      p {
+        a {
+          text-decoration: none;
+          color: $accent_color;
+  
+          &:visited {
+            text-decoration: none;
+            color: $accent_color;
+          }
+        }
+      }
     }
 
     #darkmodetoggle {
@@ -114,7 +125,7 @@ body {
     @media screen and (max-width: 980px) {
       margin-right: 0;
       height: 2.2rem;
-      margin-left: 1.4rem;
+      margin-left: 0.4rem;
     }
   }
 
@@ -151,6 +162,10 @@ body {
 
     @media screen and (min-width: 980px) {
       display: none;
+    }
+
+    @media screen and (max-width: 980px){
+      margin-right: 1rem;
     }
 
     i {
@@ -275,6 +290,7 @@ body {
     
     @media screen and (max-width: 980px) {
       margin-top: $top-margin-mobile;
+      width: 100%;
     }
 
     h1 {
@@ -302,6 +318,19 @@ body {
     code {
       font-size: 1rem;
     }
+
+    p {
+      a {
+        text-decoration: none;
+        color: $accent_color_dark;
+  
+        &:visited {
+          text-decoration: none;
+          color: $accent_color_dark;
+        }
+      }
+    }
+    
   }
 
   #tags-list {

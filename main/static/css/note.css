@@ -1,12 +1,12 @@
 body.dark .note-list .note {
-  outline: 1px solid rgba(50, 50, 50, 0);
+  outline: 1px solid rgba(255, 255, 255, 0.148);
   background: rgb(30, 30, 30);
   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
 }
 body.dark .note-list .note:hover {
-  outline: 1px solid rgb(80, 80, 80);
+  outline: 1px solid rgba(255, 255, 255, 0.402);
   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
@@ -31,6 +31,7 @@ body .note-list .note {
   padding: 1rem;
   border-radius: 0.5rem;
   flex-basis: 32%;
+  transition: outline 0.3s ease, transform 0.1s ease-out, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease, -moz-box-shadow 0.1s ease;
   color: currentColor;
   text-decoration: none;
   box-sizing: border-box;
@@ -73,6 +74,15 @@ body.dark #content {
   -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
   border: 1px solid rgb(50, 50, 50);
 }
+body.dark #content blockquote {
+  background: rgb(43, 43, 43);
+}
+body.dark #content p .link-button {
+  color: #ee6f74;
+}
+body.dark #content p .link-button:visited {
+  color: #ee6f74;
+}
 body #content {
   background: white;
   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
@@ -82,9 +92,27 @@ body #content {
   padding: 2rem;
   border-radius: 0.5rem;
 }
+@media screen and (max-width: 980px) {
+  body #content {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 @media screen and (max-width: 400px) {
   body #content h1 {
     font-size: 3rem;
+  }
+}
+body #content blockquote {
+  margin: 0;
+  padding: 2rem;
+  max-width: 60%;
+}
+@media screen and (max-width: 1200px) {
+  body #content blockquote {
+    max-width: unset;
   }
 }
 body #content p {
@@ -94,6 +122,18 @@ body #content p {
   body #content p {
     max-width: unset;
   }
+}
+body #content p .link-button {
+  border: 1px solid #ee6f74;
+  color: #e04f4f;
+  text-decoration: none;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+body #content p .link-button:visited {
+  color: #e04f4f;
 }
 body #related {
   grid-area: related;

@@ -72,6 +72,14 @@ body.dark #tags-list li a:hover {
 body.dark #content .details {
   color: rgba(255, 255, 255, 0.5);
 }
+body.dark #content p a {
+  text-decoration: none;
+  color: #ee6f74;
+}
+body.dark #content p a:visited {
+  text-decoration: none;
+  color: #ee6f74;
+}
 body.dark #darkmodetoggle {
   color: white;
 }
@@ -90,7 +98,7 @@ body #site-logo {
   body #site-logo {
     margin-right: 0;
     height: 2.2rem;
-    margin-left: 1.4rem;
+    margin-left: 0.4rem;
   }
 }
 body #site-title {
@@ -125,6 +133,11 @@ body #buttons {
 @media screen and (min-width: 980px) {
   body #buttons {
     display: none;
+  }
+}
+@media screen and (max-width: 980px) {
+  body #buttons {
+    margin-right: 1rem;
   }
 }
 body #buttons i {
@@ -224,6 +237,7 @@ body #content {
 @media screen and (max-width: 980px) {
   body #content {
     margin-top: 2rem;
+    width: 100%;
   }
 }
 body #content h1 {
@@ -247,6 +261,14 @@ body #content p {
 }
 body #content code {
   font-size: 1rem;
+}
+body #content p a {
+  text-decoration: none;
+  color: #e04f4f;
+}
+body #content p a:visited {
+  text-decoration: none;
+  color: #e04f4f;
 }
 body #tags-list {
   grid-area: tags;

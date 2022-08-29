@@ -1,12 +1,12 @@
 body.dark .note-list .note {
-  outline: 1px solid rgba(50, 50, 50, 0);
+  outline: 1px solid rgba(255, 255, 255, 0.148);
   background: rgb(30, 30, 30);
   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
 }
 body.dark .note-list .note:hover {
-  outline: 1px solid rgb(80, 80, 80);
+  outline: 1px solid rgba(255, 255, 255, 0.402);
   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
@@ -31,6 +31,7 @@ body .note-list .note {
   padding: 1rem;
   border-radius: 0.5rem;
   flex-basis: 32%;
+  transition: outline 0.3s ease, transform 0.1s ease-out, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease, -moz-box-shadow 0.1s ease;
   color: currentColor;
   text-decoration: none;
   box-sizing: border-box;

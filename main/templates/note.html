@@ -103,9 +103,9 @@
             </a>
           {% endfor %}
           {% if connections_has_more %}
-            <a class="note" href="#">
+            <!-- <a class="note" href="#">
               <h3>More notes in mentioning this one <i class="fas fa-arrow-right"></i></h3>
-            </a>
+            </a> -->
           {% endif %}
 
         </div>
@@ -133,8 +133,8 @@
             </a>
           {% endfor %}
           {% if related_section.has_more %}
-            <a class="note" href="#">
-              <h3>More notes in {{section.name}} <i class="fas fa-arrow-right"></i></h3>
+            <a class="note" href="{% url 'section' related_section.slug %}">
+              <h3>More notes in "{{related_section.name}}" <i class="fas fa-arrow-right"></i></h3>
             </a>
           {% endif %}
         </div>
@@ -161,8 +161,8 @@
               </a>
             {% endfor %}
             {% if tag.has_more %}
-              <a class="note" href="#">
-                <h3>More notes in {{tag.name}} <i class="fas fa-arrow-right"></i></h3>
+              <a class="note" href="{% url 'tag' tag.slug %}">
+                <h3>More notes in "{{tag.name}}" <i class="fas fa-arrow-right"></i></h3>
               </a>
           {% endif %}
           </div>

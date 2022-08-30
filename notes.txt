@@ -23,4 +23,4 @@ photography
 .inline code blocks covering other text
 .notelist section card flashing on dark mode change
 ."More notes in" text in related section under note
-paragraph is small inside quote
+.paragraph is small inside quote

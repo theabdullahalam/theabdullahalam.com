@@ -89,6 +89,7 @@ class Note(models.Model):
     private = models.BooleanField(default=False)
     show_in_section_list = models.BooleanField(default=False)
     show_related_notes = models.BooleanField(default=True)
+    exclude_from_related_notes = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, max_length=100, blank=True)
 
     def save(self, *args, **kwargs):

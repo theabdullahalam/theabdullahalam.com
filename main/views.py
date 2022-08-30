@@ -121,7 +121,7 @@ def get_universal_context():
 
 
 def get_random_notes(count, exclude_slug=None):
-    all = Note.objects.all()
+    all = Note.objects.filter(exclude_from_related_notes = False, private=False)
     filtered = all if exclude_slug is None else all.exclude(slug=exclude_slug)
     notes = list(filtered)
     random.shuffle(notes)
@@ -183,7 +183,7 @@ def note(request, slug = None):
 
     # related section stuff
     related_section = note.section
-    related_notes = related_section.notes.all().exclude(slug = note.slug).exclude(section__slug = "miscellaneous") if (note.show_related_notes and related_section.show_related_notes) else []
+    related_notes = related_section.notes.filter(exclude_from_related_notes = False, private = False).exclude(slug = note.slug).exclude(section__slug = "miscellaneous") if (note.show_related_notes and related_section.show_related_notes) else []
     if len(related_notes) > 6:
         related_section.has_more = True
         related_section.notes_list = related_notes[:5]
@@ -194,7 +194,7 @@ def note(request, slug = None):
     related_tags = note.tags.all()
     comma_tags = []
     for tag in related_tags:
-        related_notes = tag.notes.all().exclude(slug = note.slug).exclude(section__slug = "miscellaneous") if (note.show_related_notes and related_section.show_related_notes) else []
+        related_notes = tag.notes.filter(exclude_from_related_notes = False, private = False).exclude(slug = note.slug).exclude(section__slug = "miscellaneous") if (note.show_related_notes and related_section.show_related_notes) else []
         if len(related_notes) > 6:
             tag.has_more = True
             tag.notes_list = related_notes[:5]
@@ -209,7 +209,7 @@ def note(request, slug = None):
     note.comma_tags = ", ".join(comma_tags)
 
     # related connections stuff
-    connection_objects = Connection.objects.filter(to_note=note).exclude(to_note__section__slug = "miscellaneous")
+    connection_objects = Connection.objects.filter(to_note=note, to_note__exclude_from_related_notes = False, to_note__private = False).exclude(to_note__section__slug = "miscellaneous")
     connections = []
     connections_has_more = False
     if len(connections) > 6:

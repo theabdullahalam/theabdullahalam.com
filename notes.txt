@@ -7,6 +7,8 @@
 .format lists
 .header image
 .make subtitles clickable
-deployment
+.deployment
 
 - bugs
+Home page note shows up in random notes on home page
+Too much bottom margin under h2 tags

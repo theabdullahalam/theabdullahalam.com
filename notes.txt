@@ -10,5 +10,6 @@
 .deployment
 
 - bugs
-Home page note shows up in random notes on home page
-Too much bottom margin under h2 tags
+.Home page note shows up in random notes on home page
+.Too much bottom margin under h2 tags
+inline code blocks covering other text

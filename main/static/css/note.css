@@ -79,7 +79,7 @@ body.dark #content blockquote {
   color: rgba(255, 255, 255, 0.674);
 }
 body.dark #content p code {
-  background: rgb(50, 50, 50);
+  background: rgba(255, 255, 255, 0.039);
 }
 body.dark #content p .link-button {
   color: #ee6f74;
@@ -152,7 +152,7 @@ body #content p {
   }
 }
 body #content p code {
-  background: rgb(235, 235, 235);
+  background: rgba(0, 0, 0, 0.053);
   padding: 0.3rem;
   box-sizing: border-box;
   border-radius: 0.3rem;

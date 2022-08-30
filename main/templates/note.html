@@ -29,7 +29,7 @@
 
   <h1>{{ note.title }}</h1>
   <p class="details">
-    {{ note.section}} - {{ note.comma_tags|join:', ' }}
+    <a href="{% url 'section' note.section.slug %}">{{ note.section}}</a> - {{ note.comma_tags|safe}}
   </p>
   {{ note.markdown_content | safe_markdown }}
 

@@ -92,6 +92,8 @@ body #content {
   border: 1px solid rgb(233, 233, 233);
   padding: 2rem;
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 @media screen and (max-width: 980px) {
   body #content {
@@ -102,7 +104,9 @@ body #content {
   }
 }
 body #content .header-image {
-  width: calc(100% + 2rem + 2rem);
+  max-width: calc(100% + 2rem + 2rem);
+  max-height: 98vh;
+  align-self: center;
   margin-left: -2rem;
   margin-right: -2rem;
   margin-top: -2rem;
@@ -110,7 +114,7 @@ body #content .header-image {
 }
 @media screen and (max-width: 980px) {
   body #content .header-image {
-    width: calc(100% + 1rem + 1rem + 0.2rem);
+    max-width: calc(100% + 1rem + 1rem + 0.2rem);
     margin-left: -1.1rem;
     margin-right: -1.1rem;
   }

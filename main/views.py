@@ -14,7 +14,7 @@ from django.utils.html import strip_tags
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
-
+from bs4 import BeautifulSoup
 
 from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff, Tag, Section, Note, Connection
 
@@ -199,8 +199,12 @@ def note(request, slug = None):
         else:
             tag.notes_list = related_notes
         
-        comma_tags.append(tag.name.lower())
-    note.comma_tags = comma_tags
+        soup =  BeautifulSoup('', "html.parser")
+        link = soup.new_tag("a")
+        link.string = tag.name.lower()
+        link["href"] = reverse("tag", kwargs={"slug": tag.slug})
+        comma_tags.append(str(link))
+    note.comma_tags = ", ".join(comma_tags)
 
     # related connections stuff
     connection_objects = Connection.objects.filter(to_note=note).exclude(to_note__section__slug = "miscellaneous")

@@ -6,8 +6,7 @@
 .blank = true for notes
 .format lists
 .header image
-make subtitles clickable
-popups?
+.make subtitles clickable
 deployment
 
 - bugs

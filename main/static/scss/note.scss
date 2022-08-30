@@ -45,6 +45,8 @@ body {
 
     padding: $content_padding_desktop;
     border-radius: $content_border_radius;
+    display: flex;
+    flex-direction: column;
 
 
     @media screen and (max-width: 980px) {
@@ -55,14 +57,16 @@ body {
     }
 
     .header-image {
-      width: calc(100% + $content_padding_desktop + $content_padding_desktop);
+      max-width: calc(100% + $content_padding_desktop + $content_padding_desktop);
+      max-height: 98vh;
+      align-self: center;
       margin-left: -$content_padding_desktop;
       margin-right: -$content_padding_desktop;
       margin-top: -$content_padding_desktop;
       border-radius: $content_border_radius $content_border_radius 0 0;
 
       @media screen and (max-width: 980px) {
-        width: calc(100% + $content_padding_mobile + $content_padding_mobile + 0.2rem);
+        max-width: calc(100% + $content_padding_mobile + $content_padding_mobile + 0.2rem);
         margin-left: - $content_padding_mobile - 0.1rem;
         margin-right: - $content_padding_mobile - 0.1rem;
       }

@@ -9,10 +9,12 @@
 .make subtitles clickable
 .deployment
 .about
-opengraph tags
+.opengraph tags
 add 'exclude from related notes' to note
-contact
+.contact
+seperate preview/description field to decouple from content
 photography
+filter private notes in all lists
 
 
 - bugs
@@ -20,3 +22,4 @@ photography
 .Too much bottom margin under h2 tags
 .inline code blocks covering other text
 .notelist section card flashing on dark mode change
+"More notes in" text in related section under note

@@ -2,9 +2,9 @@
 {% load static %}
 {% load martortags %}
 
-{% block title %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
-{% block ogtitle %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
-{% block tctitle %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
+{% block title %}{{ note.title }} - {{ note.section.name }} - Abdullah Alam{% endblock %}
+{% block ogtitle %}{{ note.title }} - {{ note.section.name }} - Abdullah Alam{% endblock %}
+{% block tctitle %}{{ note.title }} - {{ note.section.name }} - Abdullah Alam{% endblock %}
 
 {% block metadescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
 {% block ogdescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}

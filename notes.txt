@@ -22,5 +22,5 @@ photography
 .Too much bottom margin under h2 tags
 .inline code blocks covering other text
 .notelist section card flashing on dark mode change
-"More notes in" text in related section under note
+."More notes in" text in related section under note
 paragraph is small inside quote

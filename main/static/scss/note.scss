@@ -94,7 +94,11 @@ body {
       background: rgb(241, 241, 241);
       color: rgba(0, 0, 0, 0.674);
 
-      max-width: $desktop_max_width - 5%;
+      max-width: calc($desktop_max_width - 4rem);
+
+      p {
+        max-width: unset;
+      }
 
       @media screen and (max-width: 1200px) {
         max-width: unset;

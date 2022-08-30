@@ -136,7 +136,10 @@ body #content blockquote {
   padding: 2rem;
   background: rgb(241, 241, 241);
   color: rgba(0, 0, 0, 0.674);
-  max-width: 60%;
+  max-width: calc(65% - 4rem);
+}
+body #content blockquote p {
+  max-width: unset;
 }
 @media screen and (max-width: 1200px) {
   body #content blockquote {

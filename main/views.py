@@ -120,8 +120,10 @@ def get_universal_context():
     }
 
 
-def get_random_notes(count):
-    notes = list(Note.objects.all())
+def get_random_notes(count, exclude_slug=None):
+    all = Note.objects.all()
+    filtered = all if exclude_slug is None else all.exclude(slug=exclude_slug)
+    notes = list(filtered)
     random.shuffle(notes)
     return notes[:count]
 
@@ -220,7 +222,7 @@ def note(request, slug = None):
     random_notes = []
 
     if m_slug == "home-page":
-        random_notes = get_random_notes(9)
+        random_notes = get_random_notes(9, m_slug)
 
     context = {
         "slug": m_slug,

@@ -82,6 +82,7 @@ class Note(models.Model):
     image = models.ImageField(upload_to='headers', null=True, blank=True)
     title = models.CharField(max_length=250)
     markdown_content = MartorField(blank=True)
+    description = models.TextField(blank=True, default=None, null=True)
     section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name="notes")
     tags = models.ManyToManyField(Tag, related_name="notes")
     created = models.DateTimeField(editable=True, blank=True)
@@ -101,6 +102,10 @@ class Note(models.Model):
         # GENERATE SLUG
         if not self.slug:
             self.slug = slugify(self.title)
+
+        # GENERATE DESCRIPTION
+        if not self.description:
+            self.description = self.get_paragraph_preview()
 
         return_val = super(Note, self).save(*args, **kwargs)
 
@@ -145,6 +150,7 @@ class Note(models.Model):
 
                     # build preview text
                     preview = ' '.join(first_twenty)
+                    preview = preview.replace('\"', '')
 
                     # add dot dot dot if clipped
                     if len(words) > 15:

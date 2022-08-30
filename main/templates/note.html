@@ -6,9 +6,9 @@
 {% block ogtitle %}{{ note.title }} - {{ note.section.name }} - Abdullah Alam{% endblock %}
 {% block tctitle %}{{ note.title }} - {{ note.section.name }} - Abdullah Alam{% endblock %}
 
-{% block metadescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
-{% block ogdescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
-{% block tcdescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
+{% block metadescription %}{{ note.description | safe }}{% endblock %}
+{% block ogdescription %}{{ note.description | safe }}{% endblock %}
+{% block tcdescription %}{{ note.description | safe }}{% endblock %}
 
 {% block ogimage %}{{ fullimage }}{% endblock %}
 {% block tcimage %}{{ fullimage }}{% endblock %}
@@ -60,7 +60,7 @@
         >
           <h3>{{ note.title }}</h3>
           <p>
-            {{ note.get_paragraph_preview }}
+            {{ note.description }}
           </p>
         </a>
       {% endfor %}
@@ -128,7 +128,7 @@
             >
               <h3>{{ note.title }}</h3>
               <p>
-                {{ note.get_paragraph_preview }}
+                {{ note.description }}
               </p>
             </a>
           {% endfor %}
@@ -156,7 +156,7 @@
               >
                 <h3>{{ note.title }}</h3>
                 <p>
-                  {{ note.get_paragraph_preview }}
+                  {{ note.description }}
                 </p>
               </a>
             {% endfor %}

@@ -10,11 +10,11 @@
 .deployment
 .about
 .opengraph tags
-add 'exclude from related notes' to note
+.add 'exclude from related notes' to note
 .contact
+.filter private notes in all lists
 seperate preview/description field to decouple from content
 photography
-filter private notes in all lists
 
 
 - bugs

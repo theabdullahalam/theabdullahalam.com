@@ -22,6 +22,11 @@
 
 {% block body %}
 
+  <!-- HEADER IMAGE -->
+  {% if note.image %}
+    <img src="{{ note.image.url }}" alt="{{ note.title }}" class="header-image" />
+  {% endif %}
+
   <h1>{{ note.title }}</h1>
   <p class="details">
     {{ note.section}} - {{ note.comma_tags|join:', ' }}

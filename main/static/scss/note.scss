@@ -2,6 +2,9 @@
 @import 'notelistsection';
 
 $desktop_max_width: 65%;
+$content_padding_desktop: 2rem;
+$content_padding_mobile: 1rem;
+$content_border_radius: 0.5rem;
 
 body {
 
@@ -40,17 +43,29 @@ body {
 
     border: 1px solid rgb(233, 233, 233);
 
-    padding: 2rem;
-    border-radius: 0.5rem;
+    padding: $content_padding_desktop;
+    border-radius: $content_border_radius;
 
 
     @media screen and (max-width: 980px) {
-      // margin-left: 1rem;
-      // margin-right: 1rem;
       max-width: 100%;
       box-sizing: border-box;
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: $content_padding_mobile;
+      padding-right: $content_padding_mobile;
+    }
+
+    .header-image {
+      width: calc(100% + $content_padding_desktop + $content_padding_desktop);
+      margin-left: -$content_padding_desktop;
+      margin-right: -$content_padding_desktop;
+      margin-top: -$content_padding_desktop;
+      border-radius: $content_border_radius $content_border_radius 0 0;
+
+      @media screen and (max-width: 980px) {
+        width: calc(100% + $content_padding_mobile + $content_padding_mobile + 0.2rem);
+        margin-left: - $content_padding_mobile - 0.1rem;
+        margin-right: - $content_padding_mobile - 0.1rem;
+      }
     }
 
     h1 {

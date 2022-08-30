@@ -81,7 +81,7 @@ class Note(models.Model):
     template = models.CharField(max_length=250, blank=True, null=True, default="note.html")
     image = models.ImageField(upload_to='headers', null=True, blank=True)
     title = models.CharField(max_length=250)
-    markdown_content = MartorField()
+    markdown_content = MartorField(blank=True)
     section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name="notes")
     tags = models.ManyToManyField(Tag, related_name="notes")
     created = models.DateTimeField(editable=True, blank=True)

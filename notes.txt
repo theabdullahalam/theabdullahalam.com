@@ -13,7 +13,7 @@
 .add 'exclude from related notes' to note
 .contact
 .filter private notes in all lists
-seperate preview/description field to decouple from content
+.seperate preview/description field to decouple from content
 photography
 
 
@@ -23,3 +23,4 @@ photography
 .inline code blocks covering other text
 .notelist section card flashing on dark mode change
 "More notes in" text in related section under note
+paragraph is small inside quote

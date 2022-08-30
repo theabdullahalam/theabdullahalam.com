@@ -8,6 +8,12 @@
 .header image
 .make subtitles clickable
 .deployment
+.about
+opengraph tags
+add 'exclude from related notes' to note
+contact
+photography
+
 
 - bugs
 .Home page note shows up in random notes on home page

@@ -138,8 +138,9 @@ class Note(models.Model):
                 if len(words) > 0:
                     first_twenty = words[:15]
                     # remove comma from last
-                    if first_twenty[-1][-1] == ',':
-                        first_twenty[-1] = first_twenty[-1][:-1]
+                    if first_twenty[-1] != '': #if last word is not an empty string,
+                        if first_twenty[-1][-1] == ',': # if last char of last word is a comma,
+                            first_twenty[-1] = first_twenty[-1][:-1] # set the last word to the last word minus the last character (essentially delete last character of last word)
 
                     # build preview text
                     preview = ' '.join(first_twenty)

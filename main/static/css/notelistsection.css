@@ -31,7 +31,7 @@ body .note-list .note {
   padding: 1rem;
   border-radius: 0.5rem;
   flex-basis: 32%;
-  transition: outline 0.3s ease, transform 0.1s ease-out, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease, -moz-box-shadow 0.1s ease;
+  transition: background 0.3s ease, outline 0.3s ease, transform 0.1s ease-out, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease, -moz-box-shadow 0.1s ease;
   color: currentColor;
   text-decoration: none;
   box-sizing: border-box;

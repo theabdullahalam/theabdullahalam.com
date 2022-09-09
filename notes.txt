@@ -1,3 +1,22 @@
+- Todo
+photography
+remove misc from home page
+sort everything alphabetically
+reduce margin in menus on mobile
+
+- Bugs
+repitative related lists
+
+- Local Done
+quote margins
+
+- Done
+.Home page note shows up in random notes on home page
+.Too much bottom margin under h2 tags
+.inline code blocks covering other text
+.notelist section card flashing on dark mode change
+."More notes in" text in related section under note
+.paragraph is small inside quote
 .Beautiful soup parsing for paragraph preview
 .quotes format
 .image fitting in content
@@ -14,13 +33,3 @@
 .contact
 .filter private notes in all lists
 .seperate preview/description field to decouple from content
-photography
-
-
-- bugs
-.Home page note shows up in random notes on home page
-.Too much bottom margin under h2 tags
-.inline code blocks covering other text
-.notelist section card flashing on dark mode change
-."More notes in" text in related section under note
-.paragraph is small inside quote

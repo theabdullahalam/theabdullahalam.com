@@ -88,8 +88,14 @@ body {
       margin-top: 3rem;
     }
 
+    h6 {
+      margin: 0;
+    }
+
     blockquote {
       margin: 0;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
       padding: 2rem;
       background: rgb(241, 241, 241);
       color: rgba(0, 0, 0, 0.674);

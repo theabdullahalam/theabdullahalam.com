@@ -191,8 +191,8 @@ body .side-list li {
 }
 @media screen and (max-width: 980px) {
   body .side-list li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 body .side-list li a {

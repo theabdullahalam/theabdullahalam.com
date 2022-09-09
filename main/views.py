@@ -184,7 +184,7 @@ def note(request, slug = None):
     # related section stuff
     related_section = note.section
     related_notes = related_section.notes.filter(exclude_from_related_notes = False, private = False).exclude(slug = note.slug).exclude(section__slug = "miscellaneous").order_by("title") if (note.show_related_notes and related_section.show_related_notes) else []
-    related_section__notes_list__values__slug = related_notes.values("slug")[:5]
+    related_section__notes_list__values__slug = related_notes.values("slug")[:5] if related_notes != [] else []
     if len(related_notes) > 6:
         related_section.has_more = True
         related_section.notes_list = related_notes[:5]
@@ -195,7 +195,6 @@ def note(request, slug = None):
     related_tags = note.tags.all()
     comma_tags = []
     for tag in related_tags:
-        print(related_section.notes_list)
         related_notes = tag.notes.filter(exclude_from_related_notes = False, private = False).exclude(slug = note.slug).exclude(section__slug = "miscellaneous").exclude(slug__in = related_section__notes_list__values__slug).order_by("title") if (note.show_related_notes and related_section.show_related_notes) else []
         if len(related_notes) > 6:
             tag.has_more = True

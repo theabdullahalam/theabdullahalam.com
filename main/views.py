@@ -101,7 +101,7 @@ def get_paragraph_preview(content):
 # universal context for garden
 def get_universal_context():
     notes_to_list = Note.objects.filter(show_in_section_list=True)
-    all_sections = Section.objects.all()
+    all_sections = Section.objects.all().order_by("name")
     sections = []
     for n in notes_to_list:
         sections.append({
@@ -112,7 +112,7 @@ def get_universal_context():
     for s in all_sections:
         sections.append(s)
 
-    tags = Tag.objects.all()
+    tags = Tag.objects.all().order_by("name")
 
     return {
         "sections": sections,
@@ -183,7 +183,8 @@ def note(request, slug = None):
 
     # related section stuff
     related_section = note.section
-    related_notes = related_section.notes.filter(exclude_from_related_notes = False, private = False).exclude(slug = note.slug).exclude(section__slug = "miscellaneous") if (note.show_related_notes and related_section.show_related_notes) else []
+    related_notes = related_section.notes.filter(exclude_from_related_notes = False, private = False).exclude(slug = note.slug).exclude(section__slug = "miscellaneous").order_by("title") if (note.show_related_notes and related_section.show_related_notes) else []
+    related_section__notes_list__values__slug = related_notes.values("slug")[:5]
     if len(related_notes) > 6:
         related_section.has_more = True
         related_section.notes_list = related_notes[:5]
@@ -194,7 +195,8 @@ def note(request, slug = None):
     related_tags = note.tags.all()
     comma_tags = []
     for tag in related_tags:
-        related_notes = tag.notes.filter(exclude_from_related_notes = False, private = False).exclude(slug = note.slug).exclude(section__slug = "miscellaneous") if (note.show_related_notes and related_section.show_related_notes) else []
+        print(related_section.notes_list)
+        related_notes = tag.notes.filter(exclude_from_related_notes = False, private = False).exclude(slug = note.slug).exclude(section__slug = "miscellaneous").exclude(slug__in = related_section__notes_list__values__slug).order_by("title") if (note.show_related_notes and related_section.show_related_notes) else []
         if len(related_notes) > 6:
             tag.has_more = True
             tag.notes_list = related_notes[:5]
@@ -242,7 +244,7 @@ def note(request, slug = None):
 def section(request, slug):
 
     section = Section.objects.get(slug=slug)
-    notes = Note.objects.filter(section=section, private=False)
+    notes = Note.objects.filter(section=section, private=False).order_by("title")
 
     context = {
         "index": section,
@@ -256,7 +258,7 @@ def section(request, slug):
 def tag(request, slug):
 
     tag = Tag.objects.get(slug=slug)
-    notes = Note.objects.filter(tags = tag, private=False)
+    notes = Note.objects.filter(tags = tag, private=False).order_by("title")
 
     context = {
         "index": tag,

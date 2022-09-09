@@ -40,7 +40,7 @@
     </p>
     <p>
       {% for section in sections %}
-        {% if not section.is_note %}  
+        {% if not section.is_note and not section.name == "Miscellaneous" %}  
           <a href="{% url 'section' section.slug %}" class="link-button">{{ section.name }}</a>
         {% endif %}
       {% endfor %}

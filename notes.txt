@@ -1,13 +1,13 @@
 - Todo
 photography
+
+- Bugs
+
+- Local Done
+repitative related lists
 remove misc from home page
 sort everything alphabetically
 reduce margin in menus on mobile
-
-- Bugs
-repitative related lists
-
-- Local Done
 quote margins
 
 - Done

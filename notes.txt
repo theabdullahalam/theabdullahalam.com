@@ -2,6 +2,8 @@
 photography
 
 - Bugs
+redundant notes across multiple tags
+gigantic opengraph thumbnail
 
 - Local Done
 repitative related lists

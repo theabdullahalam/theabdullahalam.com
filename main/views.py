@@ -234,7 +234,7 @@ def note(request, slug = None):
         "connections_has_more": connections_has_more,
         "connections": connections,
         "random_notes": random_notes,
-        "fullimage": get_full_url(note.image.url) if note.image else get_full_url(static("img/favicon.png")),
+        "fullimage": get_full_url(note.image.url) if note.image else "",
         'fullurl': get_full_url(reverse("note", kwargs={"slug": note.slug})),
         **get_universal_context()
     }
@@ -248,7 +248,7 @@ def section(request, slug):
     context = {
         "index": section,
         "notes": notes,
-        "fullimage": get_full_url(static("img/favicon.png")),
+        "fullimage": "",
         'fullurl': get_full_url(reverse("section", kwargs={"slug": section.slug})),
         **get_universal_context()
     }
@@ -262,7 +262,7 @@ def tag(request, slug):
     context = {
         "index": tag,
         "notes": notes,
-        "fullimage": get_full_url(static("img/favicon.png")),
+        "fullimage": "",
         **get_universal_context()
     }
     return render(request, tag.index_template if tag.index_template else 'notelist.html', context=context)

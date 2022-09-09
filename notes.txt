@@ -3,16 +3,16 @@ photography
 
 - Bugs
 redundant notes across multiple tags
-gigantic opengraph thumbnail
 
 - Local Done
+
+- Done
+gigantic opengraph thumbnail
 repitative related lists
 remove misc from home page
 sort everything alphabetically
 reduce margin in menus on mobile
 quote margins
-
-- Done
 .Home page note shows up in random notes on home page
 .Too much bottom margin under h2 tags
 .inline code blocks covering other text

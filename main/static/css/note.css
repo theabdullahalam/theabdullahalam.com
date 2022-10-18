@@ -1,21 +1,24 @@
 body.dark .note-list .note {
-  outline: 1px solid rgba(255, 255, 255, 0.148);
-  background: rgb(30, 30, 30);
-  box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgb(255, 255, 255);
 }
 body.dark .note-list .note:hover {
-  outline: 1px solid rgba(255, 255, 255, 0.402);
-  box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
+  border: 1px solid #ee6f74;
+  outline: 1px solid #ee6f74;
+  transition: outline 0s;
+  color: #ee6f74;
+}
+body.dark .note-list .note.image-note:hover {
+  border: 1px solid white;
+  outline: 2px solid white;
+  color: white;
+  transition: outline 0s;
 }
 body .note-list {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
+  margin-top: 3rem;
 }
 @media screen and (max-width: 830px) {
   body .note-list {
@@ -24,14 +27,10 @@ body .note-list {
   }
 }
 body .note-list .note {
-  background: white;
-  box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
   padding: 1rem;
-  border-radius: 0.5rem;
+  border: 1px solid rgb(0, 0, 0);
   flex-basis: 32%;
-  transition: background 0.3s ease, outline 0.3s ease, transform 0.1s ease-out, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease, -moz-box-shadow 0.1s ease;
+  transition: background 0.3s ease, transform 0.1s ease-out, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease, -moz-box-shadow 0.1s ease;
   color: currentColor;
   text-decoration: none;
   box-sizing: border-box;
@@ -51,10 +50,10 @@ body .note-list .note h3 i {
   margin-left: 0.5rem;
 }
 body .note-list .note:hover {
-  transform: scale(1.02);
-  box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+  border: 1px solid #e04f4f;
+  outline: 1px solid #e04f4f;
+  color: #e04f4f;
+  transition: outline 0s;
 }
 body .note-list .note.image-note {
   background-position: center !important;
@@ -62,18 +61,11 @@ body .note-list .note.image-note {
   color: white;
 }
 body .note-list .note.image-note:hover {
-  box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgb(42, 42, 42);
+  outline: 3px solid rgb(42, 42, 42);
+  transition: outline 0s;
 }
 
-body.dark #content {
-  background: rgb(30, 30, 30);
-  box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgb(50, 50, 50);
-}
 body.dark #content blockquote {
   background: rgb(43, 43, 43);
   color: rgba(255, 255, 255, 0.674);
@@ -88,13 +80,6 @@ body.dark #content p .link-button:visited {
   color: #ee6f74;
 }
 body #content {
-  background: white;
-  box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgb(233, 233, 233);
-  padding: 2rem;
-  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -107,19 +92,18 @@ body #content {
   }
 }
 body #content .header-image {
-  max-width: calc(100% + 2rem + 2rem);
+  max-width: 100%;
   max-height: 98vh;
-  align-self: center;
-  margin-left: -2rem;
-  margin-right: -2rem;
-  margin-top: -2rem;
-  border-radius: 0.5rem 0.5rem 0 0;
+  align-self: start;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 @media screen and (max-width: 980px) {
   body #content .header-image {
-    max-width: calc(100% + 1rem + 1rem + 0.2rem);
-    margin-left: -1.1rem;
-    margin-right: -1.1rem;
+    max-width: calc(100% + 1rem + 1rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
   }
 }
 @media screen and (max-width: 400px) {
@@ -153,6 +137,7 @@ body #content blockquote p {
 }
 body #content p {
   max-width: 65%;
+  line-height: 1.7rem;
 }
 @media screen and (max-width: 1200px) {
   body #content p {
@@ -179,6 +164,9 @@ body #content p .link-button {
 }
 body #content p .link-button:visited {
   color: #e04f4f;
+}
+body #content ul li {
+  line-height: 1.8rem;
 }
 body #related {
   grid-area: related;

@@ -23,8 +23,10 @@ body {
   margin: 0;
   padding: 0;
 
-  font-family: 'Crimson Text', serif;
-  font-size: 1.3rem;
+  // font-family: 'Crimson Text', serif;
+  font-family: 'Inconsolata', monospace;
+  // font-family: 'DM Mono', monospace;
+  font-size: 1.2rem;
 
   @media screen and (max-width: 400px) {
     font-size: 1.2rem;
@@ -111,7 +113,7 @@ body {
     #darkmodetoggle {
       color: white;
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 980px) {
         background: rgb(32, 32, 32);
       }
     }
@@ -182,6 +184,7 @@ body {
 
     list-style: none;
     margin-top: $top-margin - 0.3rem;
+    font-size: 1rem;
 
     @keyframes show {
       0% {
@@ -285,7 +288,7 @@ body {
   #content {
     grid-area: content;
     margin-left: $grid-margin;
-    margin-top: $top-margin;
+    // margin-top: $top-margin;
 
     
     @media screen and (max-width: 1250px) {
@@ -301,6 +304,7 @@ body {
       font-family: 'Ubuntu', sans-serif;
       font-size: 4rem;
       margin-top: 1.5rem;
+      margin-bottom: 0;
       
       @media screen and (max-width: 500px){
         font-size: 3rem;
@@ -313,7 +317,7 @@ body {
     }
 
     .details {
-      font-style: italic;
+      // font-style: italic;
       color: rgba(0, 0, 0, 0.5);
       font-size: 1.2rem;
     }

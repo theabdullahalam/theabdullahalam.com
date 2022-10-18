@@ -1,6 +1,22 @@
 @import 'vars';
 
 body {
+
+  &.dark {
+    #content {
+      #photogrid {
+        a {
+          img {
+            &:hover {
+              outline: 3px solid rgb(239, 239, 239);
+              transition: outline 0s;
+            }
+          }
+        }
+      }
+    }  
+  }
+
   #content {
 
     margin-left: 1rem;
@@ -11,6 +27,7 @@ body {
     }
 
     #photogrid {
+      margin-top: 2rem;
       columns: 3;
 
       @media screen and (max-width: 1250px){
@@ -33,14 +50,19 @@ body {
 
         img {
 
-          border: 1px solid rgba(255, 255, 255, 0.287);
+          // border: 1px solid rgba(255, 255, 255, 0.287);
           width: 100%;
 
           @media screen and (max-width: 500px){
             border-left: none;
             border-right: none;
             border-bottom: none;
-            margin-bottom: -0.5rem;
+            // margin-bottom: -0.5rem;
+
+            &:hover {
+              outline: none !important;
+              transition: outline 0s;
+            }
           }
 
           transition: 
@@ -51,12 +73,12 @@ body {
             -moz-box-shadow 0.1s ease;
 
           &:hover {
-            @media screen and (min-width: 500px){
-              transform: scale(1.02);
-                box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-                -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-                -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-            }
+            outline: 3px solid rgb(42, 42, 42);
+            transition: outline 0s;
+            // transform: scale(1.02);
+            //   box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+            //   -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+            //   -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
           }
 
         }

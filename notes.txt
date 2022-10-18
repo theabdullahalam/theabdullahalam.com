@@ -1,5 +1,6 @@
 - Todo
 photography
+pick related notes at random and then sort them alphabetically
 
 - Bugs
 redundant notes across multiple tags

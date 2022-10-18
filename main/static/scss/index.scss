@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import 'base';
 @import 'postcontent';
 
@@ -219,11 +220,10 @@
                         box-shadow $shadowanimation, 
                         -webkit-box-shadow $shadowanimation, 
                         -moz-box-shadow $shadowanimation,
-                        border $shadowanimation/3;
+                        border math.div($shadowanimation, 3);
                 }
     
-                img:hover{
-    
+                img:hover{    
                     -webkit-box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
                     -moz-box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
                     box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.64);
@@ -235,7 +235,7 @@
                         box-shadow $shadowanimation, 
                         -webkit-box-shadow $shadowanimation, 
                         -moz-box-shadow $shadowanimation,
-                        border $shadowanimation/3;
+                        border math.div($shadowanimation, 3);
                 }
             }
     

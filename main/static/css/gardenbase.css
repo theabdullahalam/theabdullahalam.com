@@ -202,6 +202,7 @@ body .side-list li {
 body .side-list li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.3);
+  transition: color none;
 }
 body .side-list li a:hover {
   color: #e04f4f;

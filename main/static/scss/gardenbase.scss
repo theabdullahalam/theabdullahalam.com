@@ -247,7 +247,7 @@ body {
           color: $accent_color_dark;
         }
         
-        // transition: color 0.2s;
+        transition: color none;
 
         @media screen and (max-width: 980px) {
           color: rgba(0, 0, 0, 0.9);

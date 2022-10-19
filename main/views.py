@@ -16,7 +16,7 @@ from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from bs4 import BeautifulSoup
 
-from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff, Tag, Section, Note, Connection
+from .models import Post, PostTopic, Photograph, PhotoCategory, DynamicStuff, Tag, Section, Note, Connection, Quote
 
 
 
@@ -225,6 +225,9 @@ def note(request, slug = None):
     if m_slug == "home-page":
         random_notes = get_random_notes(9, m_slug)
 
+    # quotes
+    quotes = Quote.objects.filter(source = note)
+
     context = {
         "slug": m_slug,
         "note": note,
@@ -236,6 +239,7 @@ def note(request, slug = None):
         "random_notes": random_notes,
         "fullimage": get_full_url(note.image.url) if note.image else "",
         'fullurl': get_full_url(reverse("note", kwargs={"slug": note.slug})),
+        "quotes": quotes,
         **get_universal_context()
     }
     return render(request, note.template, context=context)

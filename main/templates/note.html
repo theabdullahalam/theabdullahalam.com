@@ -27,11 +27,26 @@
     <img src="{{ note.image.url }}" alt="{{ note.title }}" class="header-image" />
   {% endif %}
 
+  <!-- title -->
   <h1>{{ note.title }}</h1>
   <p class="details">
     <a href="{% url 'section' note.section.slug %}">{{ note.section}}</a> - {{ note.comma_tags|safe}}
   </p>
+
+  <!-- content -->
   {{ note.markdown_content | safe_markdown }}
+
+  <!-- quotes -->
+  {% if quotes|length > 0 %}
+    
+    <h2>Quotes</h2>
+    {% for quote in quotes %}
+      <blockquote>
+        {{ quote.markdown_content | safe_markdown }}
+      </blockquote>
+    {% endfor %}
+
+  {% endif %}
 
   <!-- HOME PAGE STUFF -->
   {% if slug == "home-page" %}

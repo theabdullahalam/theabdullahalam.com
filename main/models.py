@@ -76,6 +76,51 @@ class Connection(models.Model):
     def __str__(self):
         return str(self.from_note.title + ' -> ' + self.to_note.title)
 
+class Quote(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
+    markdown_content = MartorField(blank=True)
+    source = models.ForeignKey("Note", on_delete=models.CASCADE, related_name="quotes")
+    source_text = models.CharField(max_length=250, blank=True, null=True, default="")
+
+    def get_html_content(self):
+        return markdown.markdown(self.markdown_content)
+
+    def get_sane_description(self, thestring):
+        return str(strip_tags(thestring)).replace('&#39;', '\'').replace('&rsquo;', '\'').replace('\n', ' ')
+
+    def get_paragraph_preview(self):
+        preview = ''
+
+        try:
+            soup = BeautifulSoup(self.get_html_content(), "html.parser")
+            paras = soup.find_all('p')
+            if len(paras) > 0:
+                first_para = paras[0].string
+                words = first_para.split(' ') if first_para is not None else ''
+                if len(words) > 0:
+                    first_twenty = words[:15]
+                    # remove comma from last
+                    if first_twenty[-1] != '': #if last word is not an empty string,
+                        if first_twenty[-1][-1] == ',': # if last char of last word is a comma,
+                            first_twenty[-1] = first_twenty[-1][:-1] # set the last word to the last word minus the last character (essentially delete last character of last word)
+
+                    # build preview text
+                    preview = ' '.join(first_twenty)
+                    preview = preview.replace('\"', '')
+
+                    # add dot dot dot if clipped
+                    if len(words) > 15:
+                        preview += "..."
+
+        except IndexError as ie:
+            print(self.title + ": " + str(ie))
+            preview = self.get_html_content()
+
+        return self.get_sane_description(preview)
+
+    def __str__(self):
+        return self.get_paragraph_preview()
+
 class Note(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     template = models.CharField(max_length=250, blank=True, null=True, default="note.html")

@@ -80,7 +80,7 @@ class Quote(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
     markdown_content = MartorField(blank=True)
     source = models.ForeignKey("Note", on_delete=models.CASCADE, related_name="quotes")
-    source_text = models.CharField(max_length=250, blank=True, null=True, default="")
+    source_custom_string = models.CharField(max_length=250, blank=True, null=True, default="")
 
     def get_html_content(self):
         return markdown.markdown(self.markdown_content)

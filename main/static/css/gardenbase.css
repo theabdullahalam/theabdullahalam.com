@@ -65,7 +65,7 @@ body.dark #site-title {
 body.dark #sections-list li a,
 body.dark #tags-list li a {
   color: rgba(255, 255, 255, 0.3);
-  transition: color 0.2s;
+  transition: color none;
 }
 @media screen and (max-width: 980px) {
   body.dark #sections-list li a,

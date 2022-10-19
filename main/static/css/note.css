@@ -79,6 +79,10 @@ body.dark #content p .link-button {
 body.dark #content p .link-button:visited {
   color: #ee6f74;
 }
+body.dark #content p .link-button:hover {
+  background: #ee6f74;
+  color: white;
+}
 body #content {
   display: flex;
   flex-direction: column;
@@ -164,6 +168,10 @@ body #content p .link-button {
 }
 body #content p .link-button:visited {
   color: #e04f4f;
+}
+body #content p .link-button:hover {
+  background: #e04f4f;
+  color: white;
 }
 body #content ul li {
   line-height: 1.8rem;

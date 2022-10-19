@@ -34,6 +34,11 @@ body {
           &:visited {
             color: $accent_color;
           }
+
+          &:hover {
+            background: $accent_color;
+            color: white;
+          }
         }
       }
     }
@@ -145,6 +150,11 @@ body {
   
         &:visited {
           color: $accent_color_dark;
+        }
+
+        &:hover {
+          background: $accent_color_dark;
+          color: white;
         }
   
       }

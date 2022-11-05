@@ -1,0 +1,189 @@
+{% extends 'gardenbase.html' %}
+{% load static %}
+{% load martortags %}
+
+{% block title %}{{ note.title }} - {{ note.section.name }} - Abdullah Alam{% endblock %}
+{% block ogtitle %}{{ note.title }} - {{ note.section.name }} - Abdullah Alam{% endblock %}
+{% block tctitle %}{{ note.title }} - {{ note.section.name }} - Abdullah Alam{% endblock %}
+
+{% block metadescription %}{{ note.description | safe }}{% endblock %}
+{% block ogdescription %}{{ note.description | safe }}{% endblock %}
+{% block tcdescription %}{{ note.description | safe }}{% endblock %}
+
+{% block ogimage %}{{ fullimage }}{% endblock %}
+{% block tcimage %}{{ fullimage }}{% endblock %}
+
+{% block ogurl %}{{ fullurl }}{% endblock %}
+{% block ogtype %}blog{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/note.css' %}">
+{% endblock %}
+
+{% block body %}
+
+  <!-- HEADER IMAGE -->
+  {% if note.image %}
+    <img src="{{ note.image.url }}" alt="{{ note.title }}" class="header-image" />
+  {% endif %}
+
+  <!-- title -->
+  <h1>{{ note.title }}</h1>
+  <p class="details">
+    <a href="{% url 'section' note.section.slug %}">{{ note.section}}</a> - {{ note.comma_tags|safe}}
+  </p>
+
+  <!-- content -->
+  {{ note.markdown_content | safe_markdown }}
+
+  <!-- quotes -->
+  {% if quotes|length > 0 %}
+    
+    {% for quote in quotes %}
+      <blockquote>
+        {{ quote.markdown_content | safe_markdown }}
+        <i>- <a href="{% url 'note' quote.source.slug %}">{{ quote.source.title }}</a></i>
+      </blockquote>
+    {% endfor %}
+
+  {% endif %}
+
+  <!-- HOME PAGE STUFF -->
+  {% if slug == "home-page" %}
+    <p>
+      Dive in to any section...
+    </p>
+    <p>
+      {% for section in sections %}
+        {% if not section.is_note and not section.name == "Miscellaneous" %}  
+          <a href="{% url 'section' section.slug %}" class="link-button">{{ section.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </p>
+    <p>
+      Or check out a random note...
+    </p>
+    <div class="note-list">
+
+      {% for note in random_notes %}
+        <a 
+          class="note {% if note.image %} image-note {% endif %}" 
+          href="{% url 'note' note.slug %}"
+          {% if note.image %}
+            style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ note.image.url }})"
+          {% endif %}
+        >
+          <h3>{{ note.title }}</h3>
+          <p>
+            {{ note.description }}
+          </p>
+        </a>
+      {% endfor %}
+      {% if related_section.has_more %}
+        <a class="note" href="#">
+          <h3>More notes in {{section.name}} <i class="fas fa-arrow-right"></i></h3>
+        </a>
+      {% endif %}
+    </div>
+    
+
+  {% endif %}
+
+  <p class="details">
+    Created: {{ note.created_human_readable }}<br />
+    Modified: {{ note.modified_human_readable }}<br />
+  </p>
+</div>
+
+{% if slug != "home-page" %}
+  <div id="related">
+
+    {% if connections|length > 0 %}
+      <div class="section" id="backlinks-section">
+        <h2><i class="fas fa-link"></i> mentioned in</h2>
+        <div class="note-list">
+          
+          {% for connection in connections %}
+            <a 
+              class="note {% if connection.from_note.image %} image-note {% endif %}" 
+              href="{% url 'note' connection.from_note.slug %}"
+              {% if note.image %}
+                style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ connection.from_note.image.url }})"
+              {% endif %}
+            >
+              <h3>{{ connection.from_note.title }}</h3>
+              <p>
+                {{ connection.from_note.get_paragraph_preview }}
+              </p>
+            </a>
+          {% endfor %}
+          {% if connections_has_more %}
+            <!-- <a class="note" href="#">
+              <h3>More notes in mentioning this one <i class="fas fa-arrow-right"></i></h3>
+            </a> -->
+          {% endif %}
+
+        </div>
+      </div>
+    {% endif %}
+
+    {% if related_section.notes_list|length > 0 %}
+      <div class="section" id="section-section">
+        <h2><i class="fas fa-layer-group"></i> {{ related_section.name | lower }}</h2>
+
+        <div class="note-list">
+
+          {% for note in related_section.notes_list %}
+            <a 
+              class="note {% if note.image %} image-note {% endif %}" 
+              href="{% url 'note' note.slug %}"
+              {% if note.image %}
+                style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ note.image.url }})"
+              {% endif %}
+            >
+              <h3>{{ note.title }}</h3>
+              <p>
+                {{ note.description }}
+              </p>
+            </a>
+          {% endfor %}
+          {% if related_section.has_more %}
+            <a class="note" href="{% url 'section' related_section.slug %}">
+              <h3>More notes in "{{related_section.name}}" <i class="fas fa-arrow-right"></i></h3>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% for tag in related_tags %}
+      {% if tag.notes_list|length > 0 %}
+        <div class="section" id="tag-section">
+          <h2><i class="fas fa-tag"></i> {{ tag.name | lower }}</h2>
+          <div class="note-list">
+            {% for note in tag.notes_list %}
+              <a 
+                class="note {% if note.image %} image-note {% endif %}" 
+                href="{% url 'note' note.slug %}"
+                {% if note.image %}
+                  style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url({{ note.image.url }})"
+                {% endif %}
+              >
+                <h3>{{ note.title }}</h3>
+                <p>
+                  {{ note.description }}
+                </p>
+              </a>
+            {% endfor %}
+            {% if tag.has_more %}
+              <a class="note" href="{% url 'tag' tag.slug %}">
+                <h3>More notes in "{{tag.name}}" <i class="fas fa-arrow-right"></i></h3>
+              </a>
+          {% endif %}
+          </div>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
+{% endif %}
+{% endblock %}

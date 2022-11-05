@@ -70,6 +70,13 @@ body.dark #content blockquote {
   background: rgb(43, 43, 43);
   color: rgba(255, 255, 255, 0.674);
 }
+body.dark #content blockquote a {
+  color: #ee6f74;
+  border: 1px solid tomato;
+}
+body.dark #content blockquote a:visited {
+  color: #ee6f74;
+}
 body.dark #content p code {
   background: rgba(255, 255, 255, 0.039);
 }
@@ -133,6 +140,12 @@ body #content blockquote {
 }
 body #content blockquote p {
   max-width: unset;
+}
+body #content blockquote a {
+  color: #e04f4f;
+}
+body #content blockquote a:visited {
+  color: #e04f4f;
 }
 @media screen and (max-width: 1200px) {
   body #content blockquote {

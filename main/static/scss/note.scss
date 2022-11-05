@@ -20,6 +20,16 @@ body {
       blockquote {
         background: rgb(43, 43, 43);
         color: rgba(255, 255, 255, 0.674);
+
+        a {
+
+          color: $accent_color;
+          border: 1px solid tomato;
+
+          &:visited {
+            color: $accent_color;  
+          }
+        }
       }
 
       p {
@@ -111,6 +121,15 @@ body {
 
       p {
         max-width: unset;
+      }
+
+      a {
+
+        color: $accent_color_dark;
+
+        &:visited {
+          color: $accent_color_dark;  
+        }
       }
 
       @media screen and (max-width: 1200px) {

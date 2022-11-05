@@ -226,7 +226,8 @@ def note(request, slug = None):
         random_notes = get_random_notes(9, m_slug)
 
     # quotes
-    quotes = Quote.objects.filter(source = note)
+    print(m_slug)
+    quotes = Quote.objects.filter(source = note) if m_slug != "quotes" else Quote.objects.all()
 
     context = {
         "slug": m_slug,

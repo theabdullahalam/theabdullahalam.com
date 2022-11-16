@@ -1,13 +1,13 @@
 {% extends 'gardenbase.html' %}
 {% load static %}
 
-{% block title %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
-{% block ogtitle %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
-{% block tctitle %}{{ note.title }} - Blog - Abdullah Alam{% endblock %}
+{% block title %}{{ index.name }} - Abdullah Alam{% endblock %}
+{% block ogtitle %}{{ index.name }} - Abdullah Alam{% endblock %}
+{% block tctitle %}{{ index.name }} - Abdullah Alam{% endblock %}
 
-{% block metadescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
-{% block ogdescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
-{% block tcdescription %}{{ note.get_paragraph_preview | safe }}{% endblock %}
+{% block metadescription %}{{ description | safe }}{% endblock %}
+{% block ogdescription %}{{ description | safe }}{% endblock %}
+{% block tcdescription %}{{ description | safe }}{% endblock %}
 
 {% block ogimage %}{{ fullimage }}{% endblock %}
 {% block tcimage %}{{ fullimage }}{% endblock %}

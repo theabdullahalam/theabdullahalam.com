@@ -72,7 +72,6 @@ body.dark #content blockquote {
 }
 body.dark #content blockquote a {
   color: #ee6f74;
-  border: 1px solid tomato;
 }
 body.dark #content blockquote a:visited {
   color: #ee6f74;

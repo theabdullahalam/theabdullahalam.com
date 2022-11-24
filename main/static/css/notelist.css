@@ -49,6 +49,14 @@ body .note-list .note h3 i {
   font-size: 0.7em;
   margin-left: 0.5rem;
 }
+body .note-list .note p {
+  margin-bottom: 0.5rem;
+}
+body .note-list .note .taglist {
+  font-size: 0.8rem;
+  opacity: 0.3;
+  font-style: italic;
+}
 body .note-list .note:hover {
   border: 1px solid #e04f4f;
   outline: 1px solid #e04f4f;

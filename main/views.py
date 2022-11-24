@@ -250,6 +250,8 @@ def section(request, slug):
     section = Section.objects.get(slug=slug)
     notes = Note.objects.filter(section=section, private=False).order_by("title")
 
+    
+
     context = {
         "index": section,
         "notes": notes,

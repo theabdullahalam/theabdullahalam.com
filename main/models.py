@@ -162,6 +162,9 @@ class Note(models.Model):
     def __str__(self):
         return str(self.title)
 
+    def tag_list(self):
+        return list(self.tags.all())
+
     def get_absolute_url(self):
         return reverse('note', args=[str(self.slug)])
 

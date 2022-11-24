@@ -77,6 +77,9 @@
           <p>
             {{ note.description }}
           </p>
+          <span class="taglist">
+            {{ note.tag_list|join:", " }}
+          </span>
         </a>
       {% endfor %}
       {% if related_section.has_more %}
@@ -115,6 +118,9 @@
               <p>
                 {{ connection.from_note.get_paragraph_preview }}
               </p>
+              <span class="taglist">
+                {{ connection.from_note.tag_list|join:", " }}
+              </span>
             </a>
           {% endfor %}
           {% if connections_has_more %}
@@ -145,6 +151,9 @@
               <p>
                 {{ note.description }}
               </p>
+              <span class="taglist">
+                {{ note.tag_list|join:", " }}
+              </span>
             </a>
           {% endfor %}
           {% if related_section.has_more %}
@@ -173,6 +182,9 @@
                 <p>
                   {{ note.description }}
                 </p>
+                <span class="taglist">
+                  {{ note.tag_list|join:", " }}
+                </span>
               </a>
             {% endfor %}
             {% if tag.has_more %}

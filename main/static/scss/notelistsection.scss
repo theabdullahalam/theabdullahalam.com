@@ -75,9 +75,7 @@ body {
 
       @media screen and (max-width: 830px) {
         flex-basis: unset;
-    }
-
-      
+      }      
 
       color: currentColor;
       text-decoration: none;
@@ -88,6 +86,16 @@ body {
           font-size: 0.7em;
           margin-left: 0.5rem;
         }
+      }
+
+      p {
+        margin-bottom: 0.5rem;
+      }
+
+      .taglist {
+        font-size: 0.8rem;
+        opacity: 0.3;
+        font-style: italic;
       }
 
       &:hover {

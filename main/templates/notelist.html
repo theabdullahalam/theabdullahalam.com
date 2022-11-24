@@ -36,6 +36,9 @@
           <p>
             {{ note.description }}
           </p>
+          <span class="taglist">
+            {{ note.tag_list|join:", " }}
+          </span>
         </a>
       {% endfor %}
     </div>    

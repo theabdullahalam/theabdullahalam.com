@@ -212,18 +212,19 @@ class Note(models.Model):
         for link in soup.find_all('a'):
             url = urlparse(link.get("href"))
             path = url.path
-            parts = path.split("/")
-            slug = parts[-1] if parts[-1] != '' else parts[-2]
-            to_note = Note.objects.filter(slug = slug).first()
+            if '/' in path:
+                parts = path.split("/")
+                slug = parts[-1] if parts[-1] != '' else parts[-2]
+                to_note = Note.objects.filter(slug = slug).first()
 
-            if to_note is not None:
-                connection = Connection.objects.filter(from_note=self, to_note=to_note).first()
-                if connection is None:
-                    c = Connection(
-                        from_note=self,
-                        to_note=to_note
-                    )
-                    c.save()
+                if to_note is not None:
+                    connection = Connection.objects.filter(from_note=self, to_note=to_note).first()
+                    if connection is None:
+                        c = Connection(
+                            from_note=self,
+                            to_note=to_note
+                        )
+                        c.save()
 
         
  

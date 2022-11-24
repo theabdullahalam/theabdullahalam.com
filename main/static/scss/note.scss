@@ -24,6 +24,7 @@ body {
         a {
 
           color: $accent_color;
+          text-decoration: none;
 
           &:visited {
             color: $accent_color;  
@@ -125,6 +126,7 @@ body {
       a {
 
         color: $accent_color_dark;
+        text-decoration: none;
 
         &:visited {
           color: $accent_color_dark;  

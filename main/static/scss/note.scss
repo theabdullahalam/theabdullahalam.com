@@ -184,6 +184,15 @@ body {
     ul {
       li {
         line-height: 1.8rem;
+        a {
+
+          color: $accent_color;
+          text-decoration: none;
+
+          &:visited {
+            color: $accent_color;  
+          }
+        }
       }
     }
 

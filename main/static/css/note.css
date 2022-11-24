@@ -190,6 +190,13 @@ body #content p .link-button:hover {
 body #content ul li {
   line-height: 1.8rem;
 }
+body #content ul li a {
+  color: #ee6f74;
+  text-decoration: none;
+}
+body #content ul li a:visited {
+  color: #ee6f74;
+}
 body #related {
   grid-area: related;
   margin-left: 2rem;

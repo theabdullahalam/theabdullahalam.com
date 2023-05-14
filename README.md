@@ -3,7 +3,7 @@
 My corner of the internet :)  
 
 Stuff:
-- Personal Blog
+- Digital Garden
 - Photography Portfolio
 - Link to my socials and other profiles
 - Proof of concept: minimal, responsive functional blog in pure HTML/CSS/JS

@@ -13,3 +13,5 @@ static/**
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+venv
+.env

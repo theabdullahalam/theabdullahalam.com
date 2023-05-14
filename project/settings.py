@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import time
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -23,6 +25,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
 # GET ALL ENVIRONMENT VARIABLES
+load_dotenv()
+
 debug = True
 try:
     debug = os.environ.get('DEBUG').lower() == 'true'
@@ -42,6 +46,9 @@ SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = debug
+
+# Required post django 3.2
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 ALLOWED_HOSTS = [
     'localhost',

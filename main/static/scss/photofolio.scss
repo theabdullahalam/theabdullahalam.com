@@ -1,0 +1,33 @@
+html {
+    margin: 0;
+    padding: 0;
+
+    body {
+
+        margin: 0;
+        padding: 0;
+        background: rgb(10, 10, 10);
+
+        display: grid;
+
+        .photolist{
+
+            place-self: start center;
+            margin-top: 10vh;
+            margin-bottom: 10vh;
+
+            .photograph{
+                max-width: 95vw;
+                max-height: 95vh;
+                border: 2px solid white;
+                // border-radius: 4px;
+                // -webkit-box-shadow: 0px 3px 39px 1px rgba(255, 255, 255, 0.5); 
+                // box-shadow: 0px 3px 39px 1px rgba(255,255,255,0.5);
+            }
+        }
+
+
+
+    }
+
+}

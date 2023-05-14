@@ -38,8 +38,8 @@ urlpatterns = [
     path('blog/<slug:topic>/page/<int:pageno>', views.blog, name='blog'),
     path('blog/<slug:topic>/page/<int:pageno>/', views.blog, name='blog'),
 
-    path('photography', views.photography, name='photography'),
-    path('photography/', views.photography, name='photography'),
+    path('photography', views.photofolio, name='photography'),
+    path('photography/', views.photofolio, name='photography'),
     path('photography/category/<slug:category>', views.photography, name='photography'),
     path('photography/category/<slug:category>/', views.photography, name='photography'),
 

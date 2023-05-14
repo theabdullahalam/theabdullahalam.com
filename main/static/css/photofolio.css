@@ -1,0 +1,22 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+html body {
+  margin: 0;
+  padding: 0;
+  background: rgb(10, 10, 10);
+  display: grid;
+}
+html body .photolist {
+  place-self: start center;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+html body .photolist .photograph {
+  max-width: 95vw;
+  max-height: 95vh;
+  border: 2px solid white;
+}
+
+/*# sourceMappingURL=photofolio.css.map */

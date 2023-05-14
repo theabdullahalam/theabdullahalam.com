@@ -448,6 +448,15 @@ def blog(request, topic='all', pageno=1):
     # RETURN
     return render(request, 'posts.html', context=context)
 
+def photofolio(request, category='all'):
+    photographs = Photograph.objects.all()
+
+    context = {
+        "photographs": photographs
+    }
+
+    return render(request, 'photofolio.html', context=context)
+
 def photography(request, category='all'):
     
     photolist = None
@@ -514,7 +523,7 @@ def photography(request, category='all'):
     }
  
     # RETURN
-    return render(request, 'photography.html', context=context)
+    return render(request, 'photography_old.html', context=context)
 
 def photo(request, slug):
 

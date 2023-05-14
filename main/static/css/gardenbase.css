@@ -69,7 +69,7 @@ body.dark #tags-list li a {
 }
 @media screen and (max-width: 980px) {
   body.dark #sections-list li a,
-body.dark #tags-list li a {
+  body.dark #tags-list li a {
     color: whitesmoke;
   }
 }

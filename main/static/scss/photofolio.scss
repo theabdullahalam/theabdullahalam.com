@@ -1,4 +1,5 @@
 html {
+
     margin: 0;
     padding: 0;
 
@@ -6,20 +7,94 @@ html {
 
         margin: 0;
         padding: 0;
-        background: rgb(10, 10, 10);
+        background: rgb(20, 20, 20);
 
         display: grid;
 
+        font-family: Arial, Helvetica, sans-serif;
+
+        $sidebar-size: 18vw;
+        $vertical-gap: 5vh;
+
+        #sidebar {
+
+            // color: whitesmoke;
+            position: fixed;
+            text-align: end;
+            min-width: $sidebar-size;
+            padding-top: $vertical-gap;
+            padding-right: 2rem;
+            background: rgb(250, 250, 250);
+
+            // display: grid;
+            height: 100vh;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+
+            ul {
+
+                list-style-type: none;
+                padding-left: 0;
+                margin-top: -8px;
+
+                li {
+
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    margin-bottom: 0.5rem;
+                    
+                    a {
+                        color: rgba(0, 0, 0, 0.432);
+                        text-decoration: none;
+
+                        &:hover {
+                            color: rgba(0, 0, 0, 0.829);
+                        }
+                    }
+
+                }
+
+            }
+
+            $title-color: rgba(212, 50, 50, 0.808);
+
+            h1 {
+                font-size: 0.8rem;
+                font-weight: bold;
+                color: $title-color;
+                margin-top: 0;
+                margin-top: auto;
+            }
+
+            h2 {
+                color: $title-color;
+                margin-top: 0;
+                font-size: 2rem;
+            }
+        }
+
         .photolist{
 
+            $vertical-gap: 5vh;
+
             place-self: start center;
-            margin-top: 10vh;
-            margin-bottom: 10vh;
+            margin-top: $vertical-gap;
+            margin-bottom: $vertical-gap;
+            margin-left: $sidebar-size;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
             .photograph{
+                
                 max-width: 95vw;
                 max-height: 95vh;
-                border: 2px solid white;
+                border: 2px solid whitesmoke;
+                margin-bottom: $vertical-gap;
+
+
                 // border-radius: 4px;
                 // -webkit-box-shadow: 0px 3px 39px 1px rgba(255, 255, 255, 0.5); 
                 // box-shadow: 0px 3px 39px 1px rgba(255,255,255,0.5);

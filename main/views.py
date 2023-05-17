@@ -449,12 +449,23 @@ def blog(request, topic='all', pageno=1):
     return render(request, 'posts.html', context=context)
 
 def photofolio(request, category='all'):
-    photographs = Photograph.objects.all()
 
+    # get photographs
+    if category == 'all':
+        photographs = Photograph.objects.all().order_by('-modified', 'title')
+    else:
+        photographs = Photograph.objects.filter(p_category__slug = category).order_by('-modified', 'title')
+
+    # get categories
+    categories = PhotoCategory.objects.all().order_by('categoryname')
+
+    # build context
     context = {
-        "photographs": photographs
+        "photographs": photographs,
+        "categories": categories
     }
 
+    # return context
     return render(request, 'photofolio.html', context=context)
 
 def photography(request, category='all'):

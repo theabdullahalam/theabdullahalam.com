@@ -14,6 +14,19 @@
 </head>
 <body>
 
+    <div id="sidebar">
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <a href="{% url 'photofolio' category.slug %}">{{ category.categoryname.lower }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h1>photography portfolio</h1>
+        <h2>abdullah alam</h2>
+    </div>
+
     <div class="photolist">
         {% for photograph in photographs %}
             <img src="{{ photograph.image.url }}" alt="{{ photograph.title }}" class="photograph">

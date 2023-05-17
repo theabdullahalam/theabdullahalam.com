@@ -5,18 +5,65 @@ html {
 html body {
   margin: 0;
   padding: 0;
-  background: rgb(10, 10, 10);
+  background: rgb(20, 20, 20);
   display: grid;
+  font-family: Arial, Helvetica, sans-serif;
+}
+html body #sidebar {
+  position: fixed;
+  text-align: end;
+  min-width: 18vw;
+  padding-top: 5vh;
+  padding-right: 2rem;
+  background: rgb(250, 250, 250);
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+html body #sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: -8px;
+}
+html body #sidebar ul li {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+html body #sidebar ul li a {
+  color: rgba(0, 0, 0, 0.432);
+  text-decoration: none;
+}
+html body #sidebar ul li a:hover {
+  color: rgba(0, 0, 0, 0.829);
+}
+html body #sidebar h1 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: rgba(212, 50, 50, 0.808);
+  margin-top: 0;
+  margin-top: auto;
+}
+html body #sidebar h2 {
+  color: rgba(212, 50, 50, 0.808);
+  margin-top: 0;
+  font-size: 2rem;
 }
 html body .photolist {
   place-self: start center;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 18vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 html body .photolist .photograph {
   max-width: 95vw;
   max-height: 95vh;
-  border: 2px solid white;
+  border: 2px solid whitesmoke;
+  margin-bottom: 5vh;
 }
 
 /*# sourceMappingURL=photofolio.css.map */

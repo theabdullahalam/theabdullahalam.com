@@ -245,6 +245,26 @@ def note(request, slug = None):
     }
     return render(request, note.template, context=context)
 
+
+def gardenhome(request):
+    notes = Note.objects.filter(private=False).order_by("created").reverse()[:20]
+
+    # notelist.html refers to {{ index.name }} for it's metadata
+    # this dict gives it a value so it load the metadata correctly
+    index = {
+        "name": "Home"
+    }
+
+    context = {
+        "index": index,
+        "notes": notes,
+        "fullimage": "",
+        'fullurl': get_full_url(reverse("gardenhome")),
+        **get_universal_context()
+    }
+
+    return render(request, 'notelist.html', context=context)
+
 def section(request, slug):
 
     section = Section.objects.get(slug=slug)

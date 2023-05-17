@@ -129,12 +129,12 @@ body {
   // end dark mode
 
   #site-logo {
-    height: 5rem;
+    height: 2rem;
     grid-area: logo;
 
     place-self: center end;
 
-    margin-right: $grid-margin - 1rem;
+    margin-right: $grid-margin - 0.5rem;
     
     @media screen and (max-width: 980px) {
       margin-right: 0;
@@ -284,6 +284,10 @@ body {
 
     text-align: right;
 
+    .section-tag-gap {
+      height: 0.2rem;
+    }
+
     li {
       a {
         i {
@@ -310,7 +314,7 @@ body {
 
     h1 {
       font-family: 'Ubuntu', sans-serif;
-      font-size: 4rem;
+      font-size: 2rem;
       margin-top: 1.5rem;
       margin-bottom: 0;
       

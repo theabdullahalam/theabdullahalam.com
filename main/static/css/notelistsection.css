@@ -1,3 +1,6 @@
+body.dark .notelist-ul a {
+  color: #ee6f74;
+}
 body.dark .note-list .note {
   border: 1px solid rgb(255, 255, 255);
 }
@@ -12,6 +15,14 @@ body.dark .note-list .note.image-note:hover {
   outline: 2px solid white;
   color: white;
   transition: outline 0s;
+}
+body .notelist-ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+body .notelist-ul a {
+  text-decoration: none;
+  color: #e04f4f;
 }
 body .note-list {
   display: flex;

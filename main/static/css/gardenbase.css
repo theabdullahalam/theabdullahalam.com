@@ -97,10 +97,10 @@ body.dark #darkmodetoggle {
   }
 }
 body #site-logo {
-  height: 5rem;
+  height: 2rem;
   grid-area: logo;
   place-self: center end;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 @media screen and (max-width: 980px) {
   body #site-logo {
@@ -114,7 +114,7 @@ body #site-title {
   font-family: "Maka";
   font-weight: bold;
   font-size: 2.5rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
   place-self: center start;
   color: rgb(13, 13, 13);
   text-decoration: none;
@@ -221,7 +221,7 @@ body .side-list li a i {
 body #sections-list {
   grid-area: sections;
   place-self: start end;
-  margin-right: 2rem;
+  margin-right: 1rem;
   padding-left: 0;
   text-align: right;
 }
@@ -230,12 +230,15 @@ body #sections-list {
     margin-right: 1rem;
   }
 }
+body #sections-list .section-tag-gap {
+  height: 0.2rem;
+}
 body #sections-list li a i {
   margin-left: 0.5rem;
 }
 body #content {
   grid-area: content;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 @media screen and (max-width: 1250px) {
   body #content {
@@ -250,7 +253,7 @@ body #content {
 }
 body #content h1 {
   font-family: "Ubuntu", sans-serif;
-  font-size: 4rem;
+  font-size: 2rem;
   margin-top: 1.5rem;
   margin-bottom: 0;
 }
@@ -281,7 +284,7 @@ body #content p a:visited {
 }
 body #tags-list {
   grid-area: tags;
-  margin-left: 0rem;
+  margin-left: -1rem;
 }
 @media screen and (max-width: 1250px) {
   body #tags-list {

@@ -2,6 +2,13 @@
 
 body {
   &.dark {
+
+    .notelist-ul {
+      a {
+        color: $accent_color;
+      }
+    }
+
     .note-list {
       .note {
         border: 1px solid rgb(255, 255, 255);
@@ -34,6 +41,17 @@ body {
           // -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
         }
       }
+    }
+  }
+
+  .notelist-ul {
+
+    list-style-type: none;
+    padding-left: 0;
+    
+    a {
+      text-decoration: none;
+      color: $accent_color_dark;
     }
   }
 

@@ -1,13 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap");
 html {
   margin: 0;
   padding: 0;
 }
 html body {
+  font-family: "Titillium Web", sans-serif;
   margin: 0;
   padding: 0;
-  background: rgb(20, 20, 20);
+  background: rgb(241, 241, 241);
   display: grid;
-  font-family: Arial, Helvetica, sans-serif;
 }
 html body #sidebar {
   position: fixed;
@@ -20,16 +21,17 @@ html body #sidebar {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.1);
 }
 html body #sidebar ul {
   list-style-type: none;
   padding-left: 0;
-  margin-top: -8px;
 }
 html body #sidebar ul li {
   font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: -0.3rem;
 }
 html body #sidebar ul li a {
   color: rgba(0, 0, 0, 0.432);
@@ -38,22 +40,25 @@ html body #sidebar ul li a {
 html body #sidebar ul li a:hover {
   color: rgba(0, 0, 0, 0.829);
 }
+html body #sidebar ul li .current {
+  color: rgba(0, 0, 0, 0.829);
+  font-weight: bold;
+}
 html body #sidebar h1 {
   font-size: 0.8rem;
   font-weight: bold;
-  color: rgba(212, 50, 50, 0.808);
-  margin-top: 0;
+  color: rgba(212, 41, 41, 0.897);
   margin-top: auto;
+  margin-bottom: -24px;
 }
 html body #sidebar h2 {
-  color: rgba(212, 50, 50, 0.808);
-  margin-top: 0;
+  color: rgba(212, 41, 41, 0.897);
   font-size: 2rem;
 }
 html body .photolist {
   place-self: start center;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
   margin-left: 18vw;
   display: flex;
   flex-direction: column;
@@ -62,8 +67,10 @@ html body .photolist {
 html body .photolist .photograph {
   max-width: 95vw;
   max-height: 95vh;
-  border: 2px solid whitesmoke;
   margin-bottom: 5vh;
+  box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
 }
 
 /*# sourceMappingURL=photofolio.css.map */

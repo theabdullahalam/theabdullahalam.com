@@ -15,10 +15,14 @@
 <body>
 
     <div id="sidebar">
+        
         <ul>
+            <li>
+                <a href="{% url 'photofolio' %}" class="{% if curr_category == 'all' %}current{% endif %}">all</a>
+            </li>
             {% for category in categories %}
                 <li>
-                    <a href="{% url 'photofolio' category.slug %}">{{ category.categoryname.lower }}</a>
+                    <a href="{% url 'photofolio' category.slug %}" class="{% if curr_category == category.slug %}current{% endif %}">{{ category.categoryname.lower }}</a>
                 </li>
             {% endfor %}
         </ul>

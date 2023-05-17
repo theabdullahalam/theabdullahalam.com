@@ -462,8 +462,11 @@ def photofolio(request, category='all'):
     # build context
     context = {
         "photographs": photographs,
-        "categories": categories
+        "categories": categories,
+        "curr_category": category
     }
+
+    print(context)
 
     # return context
     return render(request, 'photofolio.html', context=context)

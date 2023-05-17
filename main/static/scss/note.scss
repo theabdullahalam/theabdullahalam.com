@@ -68,6 +68,7 @@ body {
     // border-radius: $content_border_radius;
     display: flex;
     flex-direction: column;
+    margin-top: 0.1rem;
 
 
     @media screen and (max-width: 980px) {
@@ -200,8 +201,8 @@ body {
 
   #related {
     grid-area: related;
-    margin-left: $grid-margin;
-    margin-top: $top-margin;
+    // margin-left: $grid-margin;
+    margin-top: 2rem;
 
     @media screen and (max-width: 980px) {
       margin-left: 1rem;
@@ -213,10 +214,17 @@ body {
 
       h2 {
         font-family: 'Ubuntu', sans-serif;
+        margin-bottom: 0rem;
+        margin-top: 0;
+
         i {
           font-size: 1.2rem;
           margin-right: 0.8rem;
         }
+      }
+
+      ul {
+        margin-top: 0.5rem;
       }
     }
   }

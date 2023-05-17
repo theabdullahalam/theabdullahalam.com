@@ -112,6 +112,7 @@ body.dark #content p .link-button:hover {
 body #content {
   display: flex;
   flex-direction: column;
+  margin-top: 0.1rem;
 }
 @media screen and (max-width: 980px) {
   body #content {
@@ -218,8 +219,7 @@ body #content ul li a:visited {
 }
 body #related {
   grid-area: related;
-  margin-left: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 @media screen and (max-width: 980px) {
   body #related {
@@ -232,10 +232,15 @@ body #related .section {
 }
 body #related .section h2 {
   font-family: "Ubuntu", sans-serif;
+  margin-bottom: 0rem;
+  margin-top: 0;
 }
 body #related .section h2 i {
   font-size: 1.2rem;
   margin-right: 0.8rem;
+}
+body #related .section ul {
+  margin-top: 0.5rem;
 }
 
 /*# sourceMappingURL=note.css.map */

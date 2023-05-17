@@ -85,6 +85,9 @@ body .note-list .note.image-note:hover {
   transition: outline 0s;
 }
 
+body #content {
+  margin-top: 0.1rem;
+}
 @media screen and (max-width: 980px) {
   body #content {
     margin-left: 1rem;

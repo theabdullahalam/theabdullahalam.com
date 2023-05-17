@@ -247,7 +247,7 @@ def note(request, slug = None):
 
 
 def gardenhome(request):
-    notes = Note.objects.filter(private=False).order_by("created").reverse()[:20]
+    notes = Note.objects.filter(private=False).order_by("created").reverse()
 
     # notelist.html refers to {{ index.name }} for it's metadata
     # this dict gives it a value so it load the metadata correctly

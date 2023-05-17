@@ -151,6 +151,11 @@
               <a href="{% url 'note' note.slug %}">• {{ note.title }}</a>
             </li>
           {% endfor %}
+          {% if related_section.has_more %}
+            <li>
+              <a href="{% url 'section' related_section.slug %}">{{related_section.name}} <i class="fas fa-arrow-right"></i></a>
+            </li>
+          {% endif %}
         </ul>
 
         <!-- <div class="note-list">
@@ -192,6 +197,11 @@
                 <a href="{% url 'note' note.slug %}">• {{ note.title }}</a>
               </li>
             {% endfor %}
+            {% if related_section.has_more %}
+              <li>
+                <a href="{% url 'section' tag.slug %}">{{tag.name}} <i class="fas fa-arrow-right"></i></a>
+              </li>
+            {% endif %}
           </ul>
 
           <!-- <div class="note-list">

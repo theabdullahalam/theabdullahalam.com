@@ -55,6 +55,48 @@ html body #sidebar h2 {
   color: rgba(212, 41, 41, 0.897);
   font-size: 2rem;
 }
+@media screen and (max-width: 1390px) {
+  html body #sidebar {
+    height: 4rem;
+    width: 100%;
+    flex-direction: row;
+    padding-top: 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  html body #sidebar ul {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 75%;
+    align-self: center;
+  }
+  html body #sidebar ul li {
+    margin-right: 8px;
+    align-self: center;
+    margin-bottom: 4px;
+  }
+  html body #sidebar ul::-webkit-scrollbar {
+    display: none;
+  }
+  html body #sidebar h1 {
+    margin-top: 0;
+    font-size: 0.5rem;
+    display: none;
+  }
+  html body #sidebar h2 {
+    margin-top: 0;
+    font-size: 1rem;
+    margin-left: auto;
+    align-self: center;
+    margin-bottom: 0;
+    line-height: 1rem;
+    max-width: 5rem;
+  }
+}
 html body .photolist {
   place-self: start center;
   margin-top: 2.5vh;
@@ -65,12 +107,18 @@ html body .photolist {
   align-items: center;
 }
 html body .photolist .photograph {
-  max-width: 95vw;
+  max-width: 95%;
   max-height: 95vh;
   margin-bottom: 5vh;
   box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
+}
+@media screen and (max-width: 1390px) {
+  html body .photolist {
+    margin-top: 4rem;
+    margin-left: 0rem;
+  }
 }
 
 /*# sourceMappingURL=photofolio.css.map */

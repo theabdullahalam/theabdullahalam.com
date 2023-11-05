@@ -4,6 +4,9 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
+
+    z-index: 1;
 
     .category-item {
 
@@ -13,6 +16,13 @@
         margin-bottom: 4rem;
         position: relative;
         cursor: pointer;
+        z-index: 1;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+            height: 30rem;
+            margin-right: 0;
+        }
 
         .image-grid {
 
@@ -22,12 +32,18 @@
             position: absolute;
             top: 0;
             left: 0;
+            z-index: 1;
 
             
             img {
-                width: 10rem;
+                width: 50%;
                 height: 10rem;
                 object-fit: cover;
+                z-index: 1;
+
+                @media screen and (max-width: 600px) {
+                    height: 15rem;
+                }
             }
 
         }
@@ -41,6 +57,7 @@
             width: 100%;
             height: 100%;
             display: grid;
+            z-index: 1;
 
             transition: background 0.2s;
 

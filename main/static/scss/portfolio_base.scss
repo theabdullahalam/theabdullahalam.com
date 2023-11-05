@@ -48,6 +48,8 @@ html {
                     align-items: flex-end;
                     border-radius: 1rem;
 
+                    z-index: 10;
+
                     span {
                         display: block;
                     }
@@ -78,6 +80,7 @@ html {
             display: grid;
             border-radius: 1rem;
             cursor: pointer;
+            z-index: 12;
 
             box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
             -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);

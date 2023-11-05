@@ -481,7 +481,6 @@ def photofolio(request, category='all'):
 
     for c in categories:
         c.four_photographs = Photograph.objects.filter(p_category = c)[:4]
-        print(c.four_photographs)
 
     # build context
     context = {

@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/d8749e6d0b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/portfolio_base.css' %}">
+
+    {% block head %}{% endblock %}
+
+    <title>Photography Portfolio</title>
+</head>
+<body>
+
+    <div class="header">
+        <h1>abdullah alam</h1>
+        <h2>{{ subtitle }}</h2>
+
+        <div class="menu hidden">
+            <span><a href="#">blog</a></span>
+            <span><a href="#">contact</a></span>
+        </div>
+    </div>
+
+    <div class="content">
+        {% block body %}{% endblock %}
+    </div>
+
+    <div class="fab">
+        <i class="fas fa-bars fab-icon"></i>
+        <i class="fas fa-times hidden fab-icon"></i>
+    </div>
+
+
+    <script>
+        const fab = document.querySelector(".fab")
+        fab.addEventListener('click', function(){
+            document.querySelector(".menu").classList.toggle("hidden");
+            document.querySelectorAll('.fab-icon').forEach(icon => {
+                icon.classList.toggle("hidden")
+            })
+        })
+    </script>
+    
+
+</body>
+</html>

@@ -470,26 +470,26 @@ def blog(request, topic='all', pageno=1):
 
 def photofolio(request, category='all'):
 
-    # get photographs
-    if category == 'all':
-        photographs = Photograph.objects.all().order_by('-modified', 'title')
-    else:
-        photographs = Photograph.objects.filter(p_category__slug = category).order_by('-modified', 'title')
+    # # get photographs
+    # if category == 'all':
+    #     photographs = Photograph.objects.all().order_by('-modified', 'title')
+    # else:
+    #     photographs = Photograph.objects.filter(p_category__slug = category).order_by('-modified', 'title')
 
     # get categories
     categories = PhotoCategory.objects.all().order_by('categoryname')
 
+    for c in categories:
+        c.four_photographs = Photograph.objects.filter(p_category = c)[:4]
+        print(c.four_photographs)
+
     # build context
     context = {
-        "photographs": photographs,
         "categories": categories,
-        "curr_category": category
     }
 
-    print(context)
-
     # return context
-    return render(request, 'photofolio.html', context=context)
+    return render(request, 'portfolio_home.html', context=context)
 
 def photography(request, category='all'):
     

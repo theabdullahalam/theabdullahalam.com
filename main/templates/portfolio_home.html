@@ -1,0 +1,28 @@
+{% extends 'portfolio_base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/portfolio_home.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="categories">
+
+
+        {% for category in categories %}
+            <div class="category-item">
+                <div class="image-grid">
+                    {% for photo in category.four_photographs %}
+                        <img src="{{ photo.image.url }}" />
+                    {% endfor %}
+                </div>
+                <div class="category-name-overlay">
+                    <span class="category-name">{{ category.categoryname.upper }}</span>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

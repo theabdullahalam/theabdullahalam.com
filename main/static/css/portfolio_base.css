@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap");
+html {
+  margin: 0;
+  padding: 0;
+}
+html a {
+  text-decoration: none;
+  color: rgba(212, 41, 41, 0.897);
+}
+html body {
+  font-family: "Titillium Web", sans-serif;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+html body .header {
+  display: flex;
+  align-items: center;
+}
+html body .header .menu {
+  margin-left: auto;
+}
+html body .header .menu span {
+  font-weight: bold;
+}
+@media screen and (max-width: 600px) {
+  html body .header .menu {
+    margin-left: initial;
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    background: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.26);
+  }
+  html body .header .menu span {
+    display: block;
+  }
+}
+@media screen and (max-width: 600px) {
+  html body .header .menu.hidden {
+    display: none;
+  }
+}
+html body .fab {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: white;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.26);
+  transition: box-shadow 0.1s, -webkit-box-shadow 0.1s, -moz-box-shadow 0.1s;
+}
+html body .fab:hover {
+  box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.26);
+}
+html body .fab i {
+  place-self: center center;
+}
+@media screen and (min-width: 600px) {
+  html body .fab {
+    display: none;
+  }
+}
+html body .fab-icon.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=portfolio_base.css.map */

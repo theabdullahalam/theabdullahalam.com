@@ -1,0 +1,51 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.categories .category-item {
+  width: 20rem;
+  height: 20rem;
+  margin-right: 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  cursor: pointer;
+}
+.categories .category-item .image-grid {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.categories .category-item .image-grid img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+.categories .category-item .category-name-overlay {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.801);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  transition: background 0.2s;
+}
+.categories .category-item .category-name-overlay:hover {
+  background: rgba(255, 255, 255, 0.945);
+}
+.categories .category-item .category-name-overlay:hover .category-name {
+  transform: scale(1.1);
+}
+.categories .category-item .category-name-overlay .category-name {
+  place-self: center center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+}
+
+/*# sourceMappingURL=portfolio_home.css.map */

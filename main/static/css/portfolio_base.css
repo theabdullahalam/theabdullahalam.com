@@ -13,6 +13,7 @@ html body {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  padding-bottom: 6rem;
 }
 html body .header {
   display: flex;

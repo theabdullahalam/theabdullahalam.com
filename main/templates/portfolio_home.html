@@ -11,7 +11,7 @@
 
 
         {% for category in categories %}
-            <div class="category-item">
+            <a class="category-item" href="{% url 'photofolio_category' category=category.slug %}">
                 <div class="image-grid">
                     {% for photo in category.four_photographs %}
                         <img src="{{ photo.image.url }}" />
@@ -20,7 +20,7 @@
                 <div class="category-name-overlay">
                     <span class="category-name">{{ category.categoryname.upper }}</span>
                 </div>
-            </div>
+            </a>
         {% endfor %}
 
     </div>

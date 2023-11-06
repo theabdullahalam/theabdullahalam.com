@@ -1,0 +1,18 @@
+{% extends 'portfolio_base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/portfolio_category.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="photographs">
+
+        {% for photograph in photographs %}
+            <img src="{{ photograph.image.url }}" alt="{{ photograph.title }}">
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

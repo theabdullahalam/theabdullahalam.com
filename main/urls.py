@@ -40,8 +40,9 @@ urlpatterns = [
 
     path('photography', views.photofolio, name='photofolio'),
     path('photography/', views.photofolio, name='photofolio'),
-    path('photography/<slug:category>', views.photofolio, name='photofolio'),
-    path('photography/<slug:category>/', views.photofolio, name='photofolio'),
+
+    path('photography/<slug:category>', views.photofolio_category, name='photofolio_category'),
+    path('photography/<slug:category>/', views.photofolio_category, name='photofolio_category'),
     
     path('photography/category/<slug:category>', views.photography, name='photography'),
     path('photography/category/<slug:category>/', views.photography, name='photography'),

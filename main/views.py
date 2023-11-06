@@ -468,13 +468,7 @@ def blog(request, topic='all', pageno=1):
     # RETURN
     return render(request, 'posts.html', context=context)
 
-def photofolio(request, category='all'):
-
-    # # get photographs
-    # if category == 'all':
-    #     photographs = Photograph.objects.all().order_by('-modified', 'title')
-    # else:
-    #     photographs = Photograph.objects.filter(p_category__slug = category).order_by('-modified', 'title')
+def photofolio(request):
 
     # get categories
     categories = PhotoCategory.objects.all().order_by('categoryname')
@@ -489,6 +483,19 @@ def photofolio(request, category='all'):
 
     # return context
     return render(request, 'portfolio_home.html', context=context)
+
+
+def photofolio_category(request, category):
+
+    # get photographs
+    photographs = Photograph.objects.filter(p_category__slug = category)
+
+    context = {
+        "photographs": photographs
+    }
+
+    return render(request, 'portfolio_category.html', context=context)
+
 
 def photography(request, category='all'):
     

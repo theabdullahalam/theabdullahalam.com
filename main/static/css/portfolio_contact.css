@@ -1,0 +1,37 @@
+.contact {
+  display: flex;
+}
+@media screen and (max-width: 700px) {
+  .contact {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.contact img {
+  max-width: 50%;
+  max-height: 90vh;
+  box-shadow: 5px 4px 11px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 5px 4px 11px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 5px 4px 11px 0px rgba(0, 0, 0, 0.25);
+}
+@media screen and (max-width: 700px) {
+  .contact img {
+    max-width: 100%;
+  }
+}
+.contact .text-content {
+  margin-left: 2rem;
+}
+@media screen and (max-width: 700px) {
+  .contact .text-content {
+    margin-left: 0;
+  }
+}
+.contact .text-content h1 {
+  font-size: 3rem;
+}
+.contact .text-content p {
+  font-size: 1.1rem;
+}
+
+/*# sourceMappingURL=portfolio_contact.css.map */

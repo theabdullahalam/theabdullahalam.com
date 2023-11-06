@@ -17,12 +17,15 @@
 <body>
 
     <div class="header">
-        <h1>abdullah alam</h1>
-        <h2>{{ subtitle }}</h2>
+
+        <div class="headings">
+            <h1><a href="{% url 'photofolio' %}">abdullah alam</a></h1>
+            <h2>{{ subtitle }}</h2>
+        </div>
 
         <div class="menu hidden">
-            <span><a href="#">blog</a></span>
-            <span><a href="#">contact</a></span>
+            <span><a href="{% url 'gardenhome' %}">blog</a></span>
+            <span><a href="{% url 'photofolio_contact' %}">contact</a></span>
         </div>
     </div>
 

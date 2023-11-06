@@ -491,10 +491,14 @@ def photofolio_category(request, category):
     photographs = Photograph.objects.filter(p_category__slug = category)
 
     context = {
-        "photographs": photographs
+        "photographs": photographs,
+        "subtitle": PhotoCategory.objects.get(slug = category).categoryname.lower()
     }
 
     return render(request, 'portfolio_category.html', context=context)
+
+def photofolio_contact(request):
+    return render(request, 'portfolio_contact.html')
 
 
 def photography(request, category='all'):

@@ -1,13 +1,17 @@
 - Todo
-photography
-pick related notes at random and then sort them alphabetically
+    update photography model to allow hosting the pictures somewhere else 
+    sort pictures at random in photography portfolio
+    consider dark mode for portfolio
+    pick related notes at random and then sort them alphabetically
+
 
 - Bugs
-redundant notes across multiple tags
+    redundant notes across multiple tags
 
 - Local Done
 
 - Done
+photography
 gigantic opengraph thumbnail
 repitative related lists
 remove misc from home page

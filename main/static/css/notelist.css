@@ -105,5 +105,20 @@ body #content {
 body #content h1 i {
   font-size: 0.6em;
 }
+body #content .note {
+  margin-bottom: 2rem;
+}
+body #content .note h2 {
+  margin-bottom: 0.5rem;
+}
+body #content .note p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+body #content .note .created-date {
+  color: rgba(0, 0, 0, 0.199);
+  font-size: 1rem;
+  font-style: italic;
+}
 
 /*# sourceMappingURL=notelist.css.map */

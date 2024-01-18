@@ -77,6 +77,9 @@ body.dark #sections-list li a:hover,
 body.dark #tags-list li a:hover {
   color: #ee6f74;
 }
+body.dark #content .note .created-date {
+  color: rgba(255, 255, 255, 0.199);
+}
 body.dark #content .details {
   color: rgba(255, 255, 255, 0.5);
 }

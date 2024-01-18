@@ -284,7 +284,8 @@ class PhotoCategory(models.Model):
 
 class Photograph(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1, editable=False)
-    image = models.ImageField(upload_to='photography')
+    image = models.ImageField(upload_to='photography', null=True, blank=True)
+    external_url = models.CharField(max_length=500, blank=True, null=True, default=None)
     title = models.CharField(max_length=250)
     p_category=models.ForeignKey(PhotoCategory, on_delete=models.CASCADE)
     content = RichTextUploadingField()

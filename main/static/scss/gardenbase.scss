@@ -102,6 +102,11 @@ body {
     }
 
     #content {
+      .note {
+        .created-date {
+          color: rgba(255, 255, 255, 0.199);
+        }
+      }
       .details {
         color: rgba(255, 255, 255, 0.5);
       }

@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Calistoga&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Permanent+Marker&family=Rakkas&display=swap");
 @font-face {
   font-family: "Bilma";
   font-style: normal;
@@ -24,9 +22,11 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto Slab", serif;
-  font-size: 1.2rem;
-  background: rgba(218, 204, 176, 0.452);
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1rem;
+  background: rgba(218, 204, 176, 0.247);
   margin-top: 2.5rem;
   margin-bottom: 7.5rem;
   display: grid;
@@ -51,7 +51,6 @@ body #site-logo {
   grid-area: logo;
   place-self: center end;
   margin-right: 0.5rem;
-  filter: invert(1) grayscale(1) brightness(0);
 }
 @media screen and (max-width: 980px) {
   body #site-logo {
@@ -62,12 +61,12 @@ body #site-logo {
 }
 body #site-title {
   grid-area: title;
-  font-family: "Maka";
-  font-weight: bold;
+  font-family: "Permanent Marker", cursive;
+  font-style: normal;
   font-size: 2.5rem;
+  color: #533725;
   margin-left: 1rem;
   place-self: center start;
-  color: rgb(13, 13, 13);
   text-decoration: none;
 }
 @media screen and (max-width: 980px) {
@@ -142,7 +141,7 @@ body .side-list {
   }
 }
 body .side-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 @media screen and (max-width: 980px) {
   body .side-list li {
@@ -156,14 +155,14 @@ body .side-list li a {
   transition: color none;
 }
 body .side-list li a:hover {
-  color: #52744d;
+  color: #6B895C;
 }
 @media screen and (max-width: 980px) {
   body .side-list li a {
     color: rgba(0, 0, 0, 0.9);
   }
   body .side-list li a:hover {
-    color: #52744d;
+    color: #533725;
   }
 }
 body .side-list li a i {
@@ -182,7 +181,7 @@ body #sections-list {
   }
 }
 body #sections-list .section-tag-gap {
-  height: 0.2rem;
+  height: 2rem;
 }
 body #sections-list li a i {
   margin-left: 0.5rem;
@@ -203,10 +202,13 @@ body #content {
   }
 }
 body #content h1 {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 2rem;
-  margin-top: 1.5rem;
+  font-family: "Calistoga", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+  margin-top: 0rem;
   margin-bottom: 0;
+  color: #533725;
 }
 @media screen and (max-width: 500px) {
   body #content h1 {
@@ -227,11 +229,11 @@ body #content code {
 }
 body #content p a {
   text-decoration: none;
-  color: #52744d;
+  color: #533725;
 }
 body #content p a:visited {
   text-decoration: none;
-  color: #52744d;
+  color: #533725;
 }
 body #tags-list {
   grid-area: tags;

@@ -52,6 +52,15 @@ body {
     a {
       text-decoration: none;
       color: $accent_color_dark;
+
+      font-family: "Calistoga", serif;
+      font-weight: 400;
+      font-style: normal;
+
+      &:hover {
+        color: $accent_color;
+      }
+      
     }
   }
 

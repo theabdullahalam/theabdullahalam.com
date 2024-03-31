@@ -25,15 +25,18 @@ body {
 
   // font-family: 'Crimson Text', serif;
   // font-family: 'Inconsolata', monospace;
-  font-family: 'Roboto Slab', serif;
+  // font-family: 'Roboto Slab', serif;
   // font-family: 'DM Mono', monospace;
-  font-size: 1.2rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1rem;
 
   @media screen and (max-width: 400px) {
     font-size: 1.2rem;
   }
 
-  background: rgba(218, 204, 176, 0.452);
+  background: rgba(218, 204, 176, 0.247);
 
   margin-top: $top-margin;
   margin-bottom: $top-margin * 3;
@@ -142,7 +145,7 @@ body {
     margin-right: $grid-margin - 0.5rem;
     
     // filter: saturate(1.5) sepia(90%) hue-rotate(70deg) brightness(0.9);
-    filter: invert(1) grayscale(1) brightness(0);
+    // filter: invert(1) grayscale(1) brightness(0);
 
     @media screen and (max-width: 980px) {
       margin-right: 0;
@@ -154,9 +157,14 @@ body {
   #site-title {
     grid-area: title;
 
-    font-family: 'Maka';
-    font-weight: bold;
+    // font-family: 'Bilma';
+    font-family: "Permanent Marker", cursive;
+    // font-weight: 400;
+    font-style: normal;
+
+    // font-weight: bold;
     font-size: 2.5rem;
+    color: $accent_color_dark;
 
     margin-left: $grid-margin;
 
@@ -171,7 +179,7 @@ body {
     }
 
     place-self: center start;
-    color: rgb(13, 13, 13);
+    // color: rgb(13, 13, 13);
     text-decoration: none;
   }
 
@@ -249,7 +257,7 @@ body {
 
     li {
 
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       @media screen and (max-width: 980px) {
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -259,7 +267,7 @@ body {
         text-decoration: none;
         color: rgba(0, 0, 0, 0.3);
         &:hover {
-          color: $accent_color_dark;
+          color: $accent_color;
         }
         
         transition: color none;
@@ -293,7 +301,7 @@ body {
     text-align: right;
 
     .section-tag-gap {
-      height: 0.2rem;
+      height: 2rem;
     }
 
     li {
@@ -321,10 +329,18 @@ body {
     }
 
     h1 {
-      font-family: 'Ubuntu', sans-serif;
-      font-size: 2rem;
-      margin-top: 1.5rem;
+      // font-family: 'Ubuntu', sans-serif;
+      // font-weight: 400;
+
+      font-family: "Calistoga", serif;
+      font-weight: 400;
+      font-style: normal;
+
+      font-size: 4rem;
+      margin-top: 0rem;
       margin-bottom: 0;
+      // color: rgb(138, 84, 35);
+      color: $accent_color_dark;
       
       @media screen and (max-width: 500px){
         font-size: 3rem;

@@ -143,7 +143,7 @@ body {
     
     p {
       max-width: $desktop_max_width;
-      line-height: 1.7rem;
+      line-height: 1.6rem;
       
       @media screen and (max-width: 1200px) {
         max-width: unset;
@@ -184,15 +184,25 @@ body {
 
     ul {
       li {
+        
         line-height: 1.8rem;
+
         a {
 
-          color: $accent_color_dark;
+          font-family: "Lato", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          // color: $accent_color_dark;
           text-decoration: none;
 
           &:visited {
             color: $accent_color_dark;  
           }
+
+          &:hover {
+            color: $accent_color;
+          }
+
         }
       }
     }
@@ -213,7 +223,8 @@ body {
       margin-bottom: $top-margin * 2;
 
       h2 {
-        font-family: 'Ubuntu', sans-serif;
+        font-family: "Calistoga", serif;
+        color: $accent_color_dark;
         margin-bottom: 0rem;
         margin-top: 0;
 

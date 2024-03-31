@@ -4,7 +4,13 @@ body .notelist-ul {
 }
 body .notelist-ul a {
   text-decoration: none;
-  color: #52744d;
+  color: #533725;
+  font-family: "Calistoga", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body .notelist-ul a:hover {
+  color: #6B895C;
 }
 body .note-list {
   display: flex;
@@ -51,9 +57,9 @@ body .note-list .note .taglist {
   font-style: italic;
 }
 body .note-list .note:hover {
-  border: 1px solid #52744d;
-  outline: 1px solid #52744d;
-  color: #52744d;
+  border: 1px solid #533725;
+  outline: 1px solid #533725;
+  color: #533725;
   transition: outline 0s;
 }
 body .note-list .note.image-note {
@@ -120,11 +126,11 @@ body #content blockquote p {
   max-width: unset;
 }
 body #content blockquote a {
-  color: #52744d;
+  color: #533725;
   text-decoration: none;
 }
 body #content blockquote a:visited {
-  color: #52744d;
+  color: #533725;
 }
 @media screen and (max-width: 1200px) {
   body #content blockquote {
@@ -133,7 +139,7 @@ body #content blockquote a:visited {
 }
 body #content p {
   max-width: 65%;
-  line-height: 1.7rem;
+  line-height: 1.6rem;
 }
 @media screen and (max-width: 1200px) {
   body #content p {
@@ -150,8 +156,8 @@ body #content p img {
   width: 100%;
 }
 body #content p .link-button {
-  border: 1px solid #52744d;
-  color: #52744d;
+  border: 1px solid #533725;
+  color: #533725;
   text-decoration: none;
   padding: 0.5rem;
   margin-right: 0.5rem;
@@ -159,21 +165,26 @@ body #content p .link-button {
   display: inline-block;
 }
 body #content p .link-button:visited {
-  color: #52744d;
+  color: #533725;
 }
 body #content p .link-button:hover {
-  background: #52744d;
+  background: #533725;
   color: white;
 }
 body #content ul li {
   line-height: 1.8rem;
 }
 body #content ul li a {
-  color: #52744d;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   text-decoration: none;
 }
 body #content ul li a:visited {
-  color: #52744d;
+  color: #533725;
+}
+body #content ul li a:hover {
+  color: #6B895C;
 }
 body #related {
   grid-area: related;
@@ -189,7 +200,8 @@ body #related .section {
   margin-bottom: 5rem;
 }
 body #related .section h2 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Calistoga", serif;
+  color: #533725;
   margin-bottom: 0rem;
   margin-top: 0;
 }

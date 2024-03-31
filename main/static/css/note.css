@@ -107,8 +107,10 @@ body #content .header-image {
   }
 }
 body #content h2 {
+  font-family: "Calistoga", serif;
   margin-bottom: 0;
   margin-top: 3rem;
+  color: #533725;
 }
 body #content h6 {
   margin: 0;
@@ -118,8 +120,9 @@ body #content blockquote {
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 2rem;
-  background: rgb(241, 241, 241);
-  color: rgba(0, 0, 0, 0.674);
+  background: rgba(107, 137, 92, 0.137254902);
+  color: rgba(0, 0, 0, 0.575);
+  font-weight: bold;
   max-width: calc(65% - 4rem);
 }
 body #content blockquote p {

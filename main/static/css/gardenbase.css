@@ -26,13 +26,13 @@ body {
   padding: 0;
   font-family: "Roboto Slab", serif;
   font-size: 1.2rem;
+  background: rgba(218, 204, 176, 0.452);
   margin-top: 2.5rem;
   margin-bottom: 7.5rem;
   display: grid;
   grid-template-columns: 5fr 64vw 6fr;
   grid-template-rows: 1fr auto auto;
   grid-template-areas: "logo title ." "sections content tags" ". related .";
-  background: white;
 }
 @media screen and (max-width: 400px) {
   body {
@@ -46,64 +46,12 @@ body {
     grid-template-areas: "logo title buttons" "content content content" "related related related";
   }
 }
-body.dark {
-  background: rgb(25, 25, 25);
-  color: whitesmoke;
-}
-body.dark #site-title {
-  color: whitesmoke;
-}
-@media screen and (max-width: 980px) {
-  body.dark .side-list {
-    box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
-    -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
-    -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.8);
-    background: rgb(30, 30, 30);
-    border: 1px solid rgb(81, 81, 81);
-  }
-}
-body.dark #sections-list li a,
-body.dark #tags-list li a {
-  color: rgba(255, 255, 255, 0.3);
-  transition: color none;
-}
-@media screen and (max-width: 980px) {
-  body.dark #sections-list li a,
-  body.dark #tags-list li a {
-    color: whitesmoke;
-  }
-}
-body.dark #sections-list li a:hover,
-body.dark #tags-list li a:hover {
-  color: #ee6f74;
-}
-body.dark #content .note .created-date {
-  color: rgba(255, 255, 255, 0.199);
-}
-body.dark #content .details {
-  color: rgba(255, 255, 255, 0.5);
-}
-body.dark #content p a {
-  text-decoration: none;
-  color: #ee6f74;
-}
-body.dark #content p a:visited {
-  text-decoration: none;
-  color: #ee6f74;
-}
-body.dark #darkmodetoggle {
-  color: white;
-}
-@media screen and (max-width: 980px) {
-  body.dark #darkmodetoggle {
-    background: rgb(32, 32, 32);
-  }
-}
 body #site-logo {
   height: 2rem;
   grid-area: logo;
   place-self: center end;
   margin-right: 0.5rem;
+  filter: invert(1) grayscale(1) brightness(0);
 }
 @media screen and (max-width: 980px) {
   body #site-logo {
@@ -208,14 +156,14 @@ body .side-list li a {
   transition: color none;
 }
 body .side-list li a:hover {
-  color: #e04f4f;
+  color: #52744d;
 }
 @media screen and (max-width: 980px) {
   body .side-list li a {
     color: rgba(0, 0, 0, 0.9);
   }
   body .side-list li a:hover {
-    color: #e04f4f;
+    color: #52744d;
   }
 }
 body .side-list li a i {
@@ -279,11 +227,11 @@ body #content code {
 }
 body #content p a {
   text-decoration: none;
-  color: #e04f4f;
+  color: #52744d;
 }
 body #content p a:visited {
   text-decoration: none;
-  color: #e04f4f;
+  color: #52744d;
 }
 body #tags-list {
   grid-area: tags;

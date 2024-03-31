@@ -1,19 +1,20 @@
 function loadDarkMode(){
-    let darkmode = getCookieVal('darkmode');
+    setDarkMode(false);
+    // let darkmode = getCookieVal('darkmode');
     
-    if (darkmode === null){
-        document.cookie = 'darkmode=false; path=/; SameSite=Lax';
-        darkmode = getCookieVal('darkmode');
-    }
+    // if (darkmode === null){
+    //     document.cookie = 'darkmode=false; path=/; SameSite=Lax';
+    //     darkmode = getCookieVal('darkmode');
+    // }
 
 
-    if (darkmode === 'false'){
-        setDarkMode(false)
-    }
+    // if (darkmode === 'false'){
+    //     setDarkMode(false)
+    // }
 
-    if (darkmode === 'true'){
-        setDarkMode(true)
-    }
+    // if (darkmode === 'true'){
+    //     setDarkMode(true)
+    // }
     
 }
 

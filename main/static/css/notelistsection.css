@@ -1,28 +1,10 @@
-body.dark .notelist-ul a {
-  color: #ee6f74;
-}
-body.dark .note-list .note {
-  border: 1px solid rgb(255, 255, 255);
-}
-body.dark .note-list .note:hover {
-  border: 1px solid #ee6f74;
-  outline: 1px solid #ee6f74;
-  transition: outline 0s;
-  color: #ee6f74;
-}
-body.dark .note-list .note.image-note:hover {
-  border: 1px solid white;
-  outline: 2px solid white;
-  color: white;
-  transition: outline 0s;
-}
 body .notelist-ul {
   list-style-type: none;
   padding-left: 0;
 }
 body .notelist-ul a {
   text-decoration: none;
-  color: #e04f4f;
+  color: #52744d;
 }
 body .note-list {
   display: flex;
@@ -69,9 +51,9 @@ body .note-list .note .taglist {
   font-style: italic;
 }
 body .note-list .note:hover {
-  border: 1px solid #e04f4f;
-  outline: 1px solid #e04f4f;
-  color: #e04f4f;
+  border: 1px solid #52744d;
+  outline: 1px solid #52744d;
+  color: #52744d;
   transition: outline 0s;
 }
 body .note-list .note.image-note {

@@ -8,51 +8,51 @@ $content_border_radius: 0.5rem;
 
 body {
 
-  &.dark {
-    #content {
-      // background: rgb(30, 30, 30);
-      // box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-      // -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
-      // -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+  // &.dark {
+  //   #content {
+  //     // background: rgb(30, 30, 30);
+  //     // box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+  //     // -webkit-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
+  //     // -moz-box-shadow: 1px 0px 22px -2px rgba(0, 0, 0, 0.4);
 
-      // border: 1px solid rgb(50, 50, 50);
+  //     // border: 1px solid rgb(50, 50, 50);
 
-      blockquote {
-        background: rgb(43, 43, 43);
-        color: rgba(255, 255, 255, 0.674);
+  //     blockquote {
+  //       background: rgb(43, 43, 43);
+  //       color: rgba(255, 255, 255, 0.674);
 
-        a {
+  //       a {
 
-          color: $accent_color;
-          text-decoration: none;
+  //         color: $accent_color;
+  //         text-decoration: none;
 
-          &:visited {
-            color: $accent_color;  
-          }
-        }
-      }
+  //         &:visited {
+  //           color: $accent_color;  
+  //         }
+  //       }
+  //     }
 
-      p {
+  //     p {
 
-        code {
-          background: rgba(255, 255, 255, 0.039);
-        }
+  //       code {
+  //         background: rgba(255, 255, 255, 0.039);
+  //       }
 
-        .link-button {
-          color: $accent_color;
+  //       .link-button {
+  //         color: $accent_color;
 
-          &:visited {
-            color: $accent_color;
-          }
+  //         &:visited {
+  //           color: $accent_color;
+  //         }
 
-          &:hover {
-            background: $accent_color;
-            color: white;
-          }
-        }
-      }
-    }
-  }
+  //         &:hover {
+  //           background: $accent_color;
+  //           color: white;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   #content {
     // background: white;
@@ -161,7 +161,7 @@ body {
       }
       
       .link-button {
-        border: 1px solid $accent_color;
+        border: 1px solid $accent_color_dark;
         color: $accent_color_dark;
         text-decoration: none;
         padding: 0.5rem;
@@ -187,11 +187,11 @@ body {
         line-height: 1.8rem;
         a {
 
-          color: $accent_color;
+          color: $accent_color_dark;
           text-decoration: none;
 
           &:visited {
-            color: $accent_color;  
+            color: $accent_color_dark;  
           }
         }
       }

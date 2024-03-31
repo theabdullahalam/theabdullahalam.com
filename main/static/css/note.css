@@ -1,28 +1,10 @@
-body.dark .notelist-ul a {
-  color: #ee6f74;
-}
-body.dark .note-list .note {
-  border: 1px solid rgb(255, 255, 255);
-}
-body.dark .note-list .note:hover {
-  border: 1px solid #ee6f74;
-  outline: 1px solid #ee6f74;
-  transition: outline 0s;
-  color: #ee6f74;
-}
-body.dark .note-list .note.image-note:hover {
-  border: 1px solid white;
-  outline: 2px solid white;
-  color: white;
-  transition: outline 0s;
-}
 body .notelist-ul {
   list-style-type: none;
   padding-left: 0;
 }
 body .notelist-ul a {
   text-decoration: none;
-  color: #e04f4f;
+  color: #52744d;
 }
 body .note-list {
   display: flex;
@@ -69,9 +51,9 @@ body .note-list .note .taglist {
   font-style: italic;
 }
 body .note-list .note:hover {
-  border: 1px solid #e04f4f;
-  outline: 1px solid #e04f4f;
-  color: #e04f4f;
+  border: 1px solid #52744d;
+  outline: 1px solid #52744d;
+  color: #52744d;
   transition: outline 0s;
 }
 body .note-list .note.image-note {
@@ -85,30 +67,6 @@ body .note-list .note.image-note:hover {
   transition: outline 0s;
 }
 
-body.dark #content blockquote {
-  background: rgb(43, 43, 43);
-  color: rgba(255, 255, 255, 0.674);
-}
-body.dark #content blockquote a {
-  color: #ee6f74;
-  text-decoration: none;
-}
-body.dark #content blockquote a:visited {
-  color: #ee6f74;
-}
-body.dark #content p code {
-  background: rgba(255, 255, 255, 0.039);
-}
-body.dark #content p .link-button {
-  color: #ee6f74;
-}
-body.dark #content p .link-button:visited {
-  color: #ee6f74;
-}
-body.dark #content p .link-button:hover {
-  background: #ee6f74;
-  color: white;
-}
 body #content {
   display: flex;
   flex-direction: column;
@@ -162,11 +120,11 @@ body #content blockquote p {
   max-width: unset;
 }
 body #content blockquote a {
-  color: #e04f4f;
+  color: #52744d;
   text-decoration: none;
 }
 body #content blockquote a:visited {
-  color: #e04f4f;
+  color: #52744d;
 }
 @media screen and (max-width: 1200px) {
   body #content blockquote {
@@ -192,8 +150,8 @@ body #content p img {
   width: 100%;
 }
 body #content p .link-button {
-  border: 1px solid #ee6f74;
-  color: #e04f4f;
+  border: 1px solid #52744d;
+  color: #52744d;
   text-decoration: none;
   padding: 0.5rem;
   margin-right: 0.5rem;
@@ -201,21 +159,21 @@ body #content p .link-button {
   display: inline-block;
 }
 body #content p .link-button:visited {
-  color: #e04f4f;
+  color: #52744d;
 }
 body #content p .link-button:hover {
-  background: #e04f4f;
+  background: #52744d;
   color: white;
 }
 body #content ul li {
   line-height: 1.8rem;
 }
 body #content ul li a {
-  color: #ee6f74;
+  color: #52744d;
   text-decoration: none;
 }
 body #content ul li a:visited {
-  color: #ee6f74;
+  color: #52744d;
 }
 body #related {
   grid-area: related;

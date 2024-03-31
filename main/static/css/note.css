@@ -130,6 +130,7 @@ body #content blockquote p {
 }
 body #content blockquote a {
   color: #533725;
+  opacity: 0.4;
   text-decoration: none;
 }
 body #content blockquote a:visited {
